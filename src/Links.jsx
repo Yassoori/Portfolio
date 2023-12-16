@@ -1,6 +1,6 @@
 import {Routes, Route} from 'react-router-dom'
 // Import Pages
-// import Home from './pages/Home'
+import Home from './pages/Home'
 // import About from './pages/About'
 // import Contact from './pages/Contact'
 // import UX from './pages/UX'
@@ -13,13 +13,13 @@ import {Routes, Route} from 'react-router-dom'
 const Links = () => {
   return (
     <Routes>
-        {/* <Route exact path='/' element={<Home/>}/>
-        <Route path='/about' element={<About/>}/>
-        <Route path='/contact' element={<Contact/>}/>
-        <Route path='/ux' element={<UX/>}/>
-        <Route path='/art' element={<Art/>}/>
-        <Route path='/photography' element={<Photography/>}/>
-        <Route path="/product/:id" element={<Product/>}/> */}
+        <Route exact path='/' element={<Home/>}/>
+        {/* <Route path='/about' element={<About/>}/> */}
+        {/* <Route path='/contact' element={<Contact/>}/> */}
+        {/* <Route path='/ux' element={<UX/>}/> */}
+        {/* <Route path='/art' element={<Art/>}/> */}
+        {/* <Route path='/photography' element={<Photography/>}/> */}
+        {/* <Route path="/product/:id" element={<Product/>}/> */}
     </Routes>
   )
 }
