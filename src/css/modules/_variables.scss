@@ -1,0 +1,45 @@
+// Reset
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+  }
+  
+  body {
+    width: 100%;
+    min-height: 99.4vh;
+    box-sizing: border-box;
+  
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+  
+  // Type Sizes
+  
+  $head-size: 36px;
+  $sub-size: 24px;
+  $body-size: 20px;  
+  $mob-head-size: 24px;
+  $mob-sub-size: 16px;
+  $mob-body-size: 12px;
+  
+  // Margins
+
+  $very-big-margin: 48px;
+  $big-margin: 24px;
+  $med-margin: 12px;
+  $small-margin: 6px;
+  
+  // $very-big-margin: 4em;
+  // $big-margin: 2em;
+  // $med-margin: 1em;
+  // $small-margin: 0.5em;
