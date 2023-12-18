@@ -19,19 +19,17 @@ function App() {
     const applyStyles = async () => {
 
       const styles = document.getElementById("dynamicStyles");
-      styles.innerHTML = `
-      h3, p, li, a, input, textarea { font-family: ${bodyFont}, sans-serif; } 
+      styles.innerHTML = `h3, p, li, a, input, textarea { font-family: ${bodyFont}, sans-serif; } 
       h2, button { font-family: ${headingFont}, serif; }
       body { background: #${bgColor}; color: ${fontColor}}
-      a, button, .inquire { color: ${fontColor}}
-      `
+      a, button, .inquire { color: ${fontColor}}`
     };
 
     applyStyles();
 
   }, [bgColor, headingFont, bodyFont, fontColor]);
 
-  console.log(headingFont, bodyFont);
+  console.log(bgColor, headingFont, bodyFont, fontColor);
   return (
     <>
       <HashRouter>
