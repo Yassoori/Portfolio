@@ -48,6 +48,7 @@ const Product = () => {
           {/* {product.prices.currency_code} */}
         </h2>
         <div dangerouslySetInnerHTML={{ __html: product.description }} />
+        <button>Add to Cart</button>
       </div>
     </div>
   );
