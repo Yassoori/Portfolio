@@ -8,7 +8,7 @@ import Art from './pages/Art'
 // import Photography from './pages/Photography'
 
 // import Components
-// import Product from './components/Product'
+import Product from './components/Product'
 
 const Links = () => {
   return (
@@ -19,7 +19,7 @@ const Links = () => {
         {/* <Route path='/ux' element={<UX/>}/> */}
         <Route path='/art' element={<Art/>}/>
         {/* <Route path='/photography' element={<Photography/>}/> */}
-        {/* <Route path="/product/:id" element={<Product/>}/> */}
+        <Route path="/product/:id" element={<Product/>}/>
     </Routes>
   )
 }
