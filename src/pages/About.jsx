@@ -6,51 +6,57 @@ import Loading from "../components/Loading";
 const aboutUrl = import.meta.env.VITE_WP_ABOUT_URL;
 
 const About = () => {
-  const [aboutPage, setAboutPage] = useState(null);
+  const [aboutPost, setAboutPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
       .get(`${aboutUrl}`)
       .then((res) => {
-        setAboutPage(res.data);
+        setAboutPost(res.data);
         setLoading(false);
-        console.log(res.data)
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [aboutUrl]);
 
-  const AboutPage = ({ abouts }) => {
-    if (!abouts || !abouts.map) {
+  const AboutPost = ({ aboutPosts }) => {
+    if (!aboutPosts) {
       return null; 
     }
 
-    const mappedAboutPages = abouts.map((about, index) => (
+    const mappedAboutPosts = aboutPosts.map((about, index) => (
       <div
-        className="about-container double-container"
+        className="about-section"
         key={index}
         dangerouslySetInnerHTML={{ __html: about.content.rendered }}
       />
     ));
 
-    return <>{mappedAboutPages}</>;
+    return <>{mappedAboutPosts}</>;
   };
+
+  console.log(aboutPost)
 
   return (
     <>
       <Helmet>
         <title>About</title>
-        <meta name="description" content="This is the about page" />
+        <meta name="description" content="This is the about post" />
         <meta name="keywords" content="about, artist biography, exhibitions" />
-        {/* Additional meta tags, e.g., social media share tags for Twitter, etc. */}
+        Additional meta tags, e.g., social media share tags for Twitter, etc.
         <meta
-          property="og:title"
-          content="Facebook Open Graph Meta Tag example"
-        />
+            property="og:title"
+            content="Facebook Open Graph Meta Tag example"
+        /> 
       </Helmet>
-      <div className="container">
-      {/* <AboutPage abouts={aboutPage} /> */}
-        {loading ? <Loading /> : <AboutPage abouts={aboutPage} />}
+      <div className="container about-page double-container">
+        <h2>About</h2>
+        {loading ? <Loading /> : <AboutPost aboutPosts={aboutPost} />}
+        {/* <div
+          className="about-container double-container"
+          key={index}
+          dangerouslySetInnerHTML={{ __html: aboutPosts.content.rendered }}
+       /> */}
       </div>
     </>
   );
