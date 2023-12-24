@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 // import Contact from './pages/Contact'
 // import UX from './pages/UX'
-// import Art from './pages/Art'
+import Art from './pages/Art'
 // import Photography from './pages/Photography'
 
 // import Components
@@ -17,7 +17,7 @@ const Links = () => {
         <Route path='/about' element={<About/>}/>
         {/* <Route path='/contact' element={<Contact/>}/> */}
         {/* <Route path='/ux' element={<UX/>}/> */}
-        {/* <Route path='/art' element={<Art/>}/> */}
+        <Route path='/art' element={<Art/>}/>
         {/* <Route path='/photography' element={<Photography/>}/> */}
         {/* <Route path="/product/:id" element={<Product/>}/> */}
     </Routes>

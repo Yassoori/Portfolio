@@ -54,7 +54,7 @@ const Home = () => {
             <div className="home-photography-section">
             <Link to="/photography">
                 <h3>Photography Gallery</h3>
-                <p>You mother will thank me</p>
+                <p>smile!</p>
                 <img src="" alt="" />
             </Link>
             </div>
