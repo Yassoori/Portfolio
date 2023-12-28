@@ -22,7 +22,7 @@ const Art = () => {
         console.log(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [productsUrl]);
 
   useEffect(() => {
     if (!filter) {
@@ -120,8 +120,8 @@ const Art = () => {
         {loading ? (
           <Loading />
         ) : (
-          //   <Products products={filteredProducts || products}  />
-          filter && <Products products={filteredProducts} />
+            <Products products={filteredProducts || products}  />
+          // filter && <Products products={filteredProducts} />
         )}
       </div>
     </div>
