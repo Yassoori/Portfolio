@@ -19,7 +19,7 @@ const UX = () => {
         console.log(res.data);
       })
       .catch((err) => console.log(err));
-  }, [uxUrl]);
+  }, []);
 
   if (loading) {
     return (
@@ -31,25 +31,24 @@ const UX = () => {
 
   const Projects = ({ projects }) => {
     const mappedProjects = projects.map((project, index) => {
-        if (!project) {
-            return (
-              <div className="no-projects">
-                <h2>
-                  Oops, something went wrong. I can't find the projects at the moment.
-                </h2>
-                <img src="no-projects-image.png" alt="" />
-              </div>
-            );
-          }
+    //   function getFeaturedImage(project, index) {
+    //     if (
+    //       project &&
+    //       project._embedded &&
+    //       project._embedded["wp:featuredmedia"] &&
+    //       project._embedded["wp:featuredmedia"][0].source_url
+    //     ) {
+    //       return project._embedded["wp:featuredmedia"][0].source_url;
+    //     } else {
+    //       return "https://placehold.co/600x400";
+    //     }
+    //   }
       return (
         <div key={project.slug + "_" + index} className="project-card">
-          <Link className="project-link" to={`/project/${project.id}`}>
+          <Link className="project-link" to={`/ux-projects/${project.id}`}>
+            {/* <img src={getFeaturedImage(project)} alt={project.title.rendered} /> */}
+            {/* <img src={project._embedded["wp:featuredmedia"][0].source_url} alt={project.title.rendered} /> */}
             <h2 className="title">{project.title.rendered}</h2>
-            {/* <div
-              className="short-description"
-              dangerouslySetInnerHTML={{ __html: project.content.rendered }}
-            /> */}
-            {/* <img src={project.images[0].src} alt={project.name} /> */}
           </Link>
         </div>
       );
@@ -57,14 +56,17 @@ const UX = () => {
     return <>{mappedProjects}</>;
   };
 
-//   console.log(projects);
+  //   console.log(projects);
 
   return (
     <>
       <Helmet>
         <title>About</title>
         <meta name="description" content="This is the UX page" />
-        <meta name="keywords" content="UX, Web Development, UX design, Web design, Portfolio" />
+        <meta
+          name="keywords"
+          content="UX, Web Development, UX design, Web design, Portfolio"
+        />
         Additional meta tags, e.g., social media share tags for Twitter, etc.
         <meta
           property="og:title"

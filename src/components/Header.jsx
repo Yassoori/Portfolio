@@ -52,7 +52,7 @@ useEffect(() => {
         <div className="left-nav">
           <div id="desktop-nav-menu">
             <button className="nav-button ux-nav-button">
-              <Link to="/ux">UX</Link>
+              <Link to="/ux-projects">UX</Link>
             </button>
             <button className="nav-button art-nav-button">
               <Link to="/art">Art</Link>

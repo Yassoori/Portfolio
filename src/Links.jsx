@@ -17,11 +17,11 @@ const Links = () => {
         <Route exact path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
         {/* <Route path='/contact' element={<Contact/>}/> */}
-        <Route path='/ux' element={<UX/>}/>
+        <Route path='/ux-projects' element={<UX/>}/>
         <Route path='/art' element={<Art/>}/>
         {/* <Route path='/photography' element={<Photography/>}/> */}
         <Route path="/product/:id" element={<Product/>}/>
-        <Route path="/project/:id" element={<Project/>}/>
+        <Route path="/ux-projects/:id" element={<Project/>}/>
     </Routes>
   )
 }

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
 
-const uxUrl = import.meta.env.VITE_WC_UX_URL;
+const uxUrl = import.meta.env.VITE_WP_UX_URL;
 
 const project = () => {
   const { id } = useParams();
@@ -12,7 +12,7 @@ const project = () => {
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const endpoint = `${uxUrl}/${id}`;
+  const endpoint = `${uxUrl}/${id}?_embed`;
 
   useEffect(() => {
     axios
@@ -26,7 +26,7 @@ const project = () => {
         console.log(err);
         setLoading(false);
       });
-  }, [endpoint]);
+  }, [id]);
 
   if (loading) {
     return (
@@ -37,15 +37,17 @@ const project = () => {
   }
 
   return (
-    <div id="project-page" className="container double-container">
-      <div className="left-container">
-        <img src={project.featuredmedia} alt={project.title} />
-      </div>
-      <div className="right-container">
-        <h2 className="title">{project.title}</h2>
-        <div dangerouslySetInnerHTML={{ __html: project.content.rendered }} />
-        {/* <button>Back</button> */}
-      </div>
+    <div
+      key={project.slug}
+      id="project-page"
+      className="container full-container"
+    >
+      <img src={project._embedded["wp:featuredmedia"][0].source_url} alt={project.title.rendered} />
+      <div
+        dangerouslySetInnerHTML={{ __html: project.content.rendered }}
+        className="project-container"
+      />
+      <button>Back</button>
     </div>
   );
 };
