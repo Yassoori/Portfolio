@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
 
@@ -42,12 +43,15 @@ const project = () => {
       id="project-page"
       className="container full-container"
     >
-      <img src={project._embedded["wp:featuredmedia"][0].source_url} alt={project.title.rendered} />
+      {/* <img
+        src={project._embedded["wp:featuredmedia"][0].source_url}
+        alt={project.title.rendered}
+      /> */}
       <div
         dangerouslySetInnerHTML={{ __html: project.content.rendered }}
         className="project-container"
       />
-      <button>Back</button>
+      <Link to={"/ux-projects/"}><button>Back to UX Projects</button></Link>
     </div>
   );
 };
