@@ -11,6 +11,12 @@ import Art from './pages/Art'
 import Product from './components/Product'
 import Project from './components/Project'
 
+// import UXProducts
+// import RealBurger from './UXProjects/RealBurger'
+import Aurea from './UXProjects/Aurea'
+// import ReganHillMale from './UXProjects/ReganHillMale'
+// import Pokedex from './UXProjects/Pokedex'
+
 const Links = () => {
   return (
     <Routes>
@@ -22,6 +28,10 @@ const Links = () => {
         {/* <Route path='/photography' element={<Photography/>}/> */}
         <Route path="/product/:id" element={<Product/>}/>
         <Route path="/ux-projects/:id" element={<Project/>}/>
+        {/* <Route path="/ux-projects/RealBurger" element={<RealBurger/>}/> */}
+        <Route path="/ux-projects/Aurea" element={<Aurea/>}/>
+        {/* <Route path="/ux-projects/ReganHillMale" element={<ReganHillMale/>}/> */}
+        {/* <Route path="/ux-projects/Pokedex" element={<Pokedex/>}/> */}
     </Routes>
   )
 }

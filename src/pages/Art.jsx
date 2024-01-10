@@ -48,16 +48,16 @@ const Art = () => {
       // Set description text based on the selected filter
       switch (selectedFilter) {
         case "Text Experiments":
-          setDescriptionText("Text Experiments description goes here");
+          setDescriptionText("Digital artworks which explore the related geometries of character forms in different writing scripts that share historical links to ancient Phoenician, then layers, rearranges, subtracts and outlines them beyond legibility.");
           break;
         case "In Ruins":
-          setDescriptionText("In Ruins description goes here");
+          setDescriptionText("An ongoing series of drawings, paintings and mixed media work, loosely related through inspirations from the histories of the greater Middle East. Some of the work reconstructs myths and mythologised histories by surrealising and dislocating spaces and structures lifted from ancient ruins. Others add to the new myths being built around the social and political movements of today, for example of the ongoing Sudanese Revolution.");
           break;
         case "Structure Alone":
-          setDescriptionText("Structure Alone description goes here");
+          setDescriptionText("A photography series exploring modernist architecture looking through its layers of glass, and closely to its steel structures, losing sense of the buildings as a whole, but finding the compositions within the reflections and geometries. Shot from 2018 to 2021 in Auckland, Berlin, Barcelona, Madrid, and London.");
           break;
         case "Other":
-          setDescriptionText("Other description goes here");
+          setDescriptionText("Work created either not in series, or prior to 2018.");
           break;
         default:
           setDescriptionText(null);
