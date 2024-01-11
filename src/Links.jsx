@@ -3,7 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 // Import Pages
 import Home from './pages/Home'
 import About from './pages/About'
-// import Contact from './pages/Contact'
+import Contact from './pages/Contact'
 import UX from './pages/UX'
 import Art from './pages/Art'
 import Photography from './pages/Photography'
@@ -11,7 +11,7 @@ import Photography from './pages/Photography'
 // import Components
 import Product from './components/Product'
 import Project from './components/Project'
-import PhotoTypes from './components/PhotoTypes'
+// import PhotoTypes from './components/PhotoTypes'
 
 // import UXProjects
 import RealBurger from './UXProjects/RealBurger'
@@ -30,7 +30,7 @@ const Links = () => {
     <Routes>
         <Route exact path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
-        {/* <Route path='/contact' element={<Contact/>}/> */}
+        <Route path='/contact' element={<Contact/>}/>
         <Route path='/ux-projects' element={<UX/>}/>
         <Route path='/photography' element={<Photography/>}/>
         <Route path='/art' element={<Art/>}/>
@@ -42,7 +42,7 @@ const Links = () => {
         <Route path="/ux-projects/regan-hill-male" element={<ReganHillMale/>}/>
         <Route path="/ux-projects/pokedex" element={<Pokedex/>}/>
         {/* PhotoTypes */}
-        <Route path="/photography/:id" element={<PhotoTypes/>}/>
+        {/* <Route path="/photography/:id" element={<PhotoTypes/>}/> */}
         <Route path='/photography/weddings' element={<Weddings/>}/>
         <Route path='/photography/graduations' element={<Graduations/>}/>
         <Route path='/photography/events' element={<Events/>}/>
