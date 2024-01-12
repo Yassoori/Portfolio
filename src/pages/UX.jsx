@@ -78,7 +78,7 @@ const UX = () => {
       </Helmet>
       <div className="container full-container">
         <div className="project-card-container">
-          {/* {loading ? <Loading /> : <Projects projects={projects} />} */}
+          {loading ? <Loading /> : <Projects projects={projects} />}
           <Link to="/ux-projects/273" className="project-card project-link">
             <img src="realburger-feature.png" alt="Real Burger" className="card-image"/>
             <h2 className="card-heading">Real Burger</h2>
