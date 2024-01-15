@@ -100,7 +100,7 @@ const UX = () => {
           <Link to="/ux-projects/regan-hill-male" className="project-card project-link">
             <img src="regan-hill-male-feature.png" alt="Regan Hill-Male" className="card-image"/>
             <h2 className="card-heading">Regan Hill-Male</h2>
-            <p className="card-subheading">Wordpress / React JS</p>
+            <p className="card-subheading">Wordpress / React JS / Node JS</p>
             <p className="card-body">Redesign for a local restaurants ordering app.</p>
           </Link>
         </div>
