@@ -30,6 +30,7 @@ function App() {
   }, [bgColor, headingFont, bodyFont, fontColor]);
 
   console.log(bgColor, headingFont, bodyFont, fontColor);
+
   return (
     <>
       <HashRouter>

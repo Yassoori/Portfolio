@@ -1,0 +1,39 @@
+@media screen and (min-width: 660px) {
+  // ----- All Tablet -----
+
+  // -------- Home --------
+
+  .home-container {
+    display: grid;
+    grid-template-areas:
+      "about ux"
+      "art photo"
+      "blog contact";
+  }
+
+  // -------- Nav --------
+
+  #desktop-nav-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    button {
+      margin-left: $small-margin;
+      margin-right: $small-margin;
+      a {
+        color: $text-dark;
+      }
+    }
+  }
+
+  #hamburger-container {
+    display: none;
+    button {
+      display: none;
+    }
+  }
+
+  #mobile-menu-container {
+    display: none;
+  }
+}

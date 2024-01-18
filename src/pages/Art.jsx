@@ -20,7 +20,6 @@ const Art = () => {
       .then((res) => {
         setProducts(res.data);
         setLoading(false);
-        console.log(res.data);
       })
       .catch((err) => console.log(err));
   }, [productsUrl]);
@@ -40,7 +39,6 @@ const Art = () => {
     setFilter((prevFilter) =>
       prevFilter === selectedFilter ? null : selectedFilter
     );
-    // console.log(`clicked ${selectedFilter}`);
 
     // If the same filter is clicked again, clear the description
     if (filter === selectedFilter) {
@@ -110,7 +108,10 @@ const Art = () => {
     <>
       <Helmet>
         <title>Art</title>
-        <meta name="description" content="This is the Art portfolio and shop page" />
+        <meta
+          name="description"
+          content="This is the Art portfolio and shop page"
+        />
         <meta
           name="keywords"
           content="UX, Web Development, UX design, Web design, Portfolio"
@@ -122,16 +123,20 @@ const Art = () => {
         />
       </Helmet>
       <div className="container full-container">
-        <ul className="filter">
-          <li onClick={() => handleFilterClick("Text Experiments")}>
+        <div className="filter">
+          <a onClick={() => handleFilterClick("Text Experiments")}>
             Text Experiments
-          </li>
-          <li onClick={() => handleFilterClick("In Ruins")}>In Ruins</li>
-          <li onClick={() => handleFilterClick("Structure Alone")}>
+          </a>
+          <a onClick={() => handleFilterClick("In Ruins")}>
+            In Ruins
+          </a>
+          <a onClick={() => handleFilterClick("Structure Alone")}>
             Structure Alone
-          </li>
-          <li onClick={() => handleFilterClick("Other")}>Other</li>
-        </ul>
+          </a>
+          <a onClick={() => handleFilterClick("Other")}>
+            Other
+          </a>
+        </div>
         {/* <div className="feature">
         <div className="text-experiments-feature"></div>
         <div className="in-ruins-feature"></div>

@@ -3,14 +3,16 @@ import MobileMenu from "./MobileMenu";
 import { Link } from "react-router-dom";
 import { List } from "react-bootstrap-icons";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 
 const baseUrl = import.meta.env.VITE_WP_BASEURL;
 
 const Header = () => {
-    const [menuIsOpen, openMenu] = useState(false);
-    const [logoUrl, setLogoUrl] = useState("");
-  
-useEffect(() => {
+  const [menuIsOpen, openMenu] = useState(false);
+  const [logoUrl, setLogoUrl] = useState("");
+
+  useEffect(() => {
     const fetchNavLogo = async () => {
       try {
         const response = await axios.get(
@@ -33,16 +35,16 @@ useEffect(() => {
   const toggleMobileMenu = () => {
     openMenu(!menuIsOpen);
     document.body.classList.toggle("no-scroll");
-
     // $(document).ready(function () {
     //   $("#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4").click(function () {
     //     $(this).toggleClass("open");
     //   });
     // });
   };
+
   return (
     <>
-      <div id="topnav">
+      <nav>
         <div id="logo">
           <Link to="/">
             <img src={logoUrl} alt="Yasser Saeed" />
@@ -67,10 +69,8 @@ useEffect(() => {
               <Link to="/contact">Contact</Link>
             </button>
           </div>
-          <img src="/iconbag.png" alt="Cart" />
-
           {/* Hamburger on Mobile */}
-          <div id="menu-container">
+          <div id="hamburger-container">
             {/* <div id="nav-icon3 menu-button"
               className="show-mobile-menu-button"
               onClick={toggleMobileMenu}>
@@ -87,8 +87,15 @@ useEffect(() => {
               <List id="hamburger-icon" />
             </button>
           </div>
+          {/* <img src="/iconbag.png" alt="Cart" id="cart"/> */}
+          <FontAwesomeIcon
+            icon={faBagShopping}
+            size="lg"
+            style={{ color: "#000000" }}
+            id="cart"
+          />
         </div>
-      </div>
+      </nav>
       {menuIsOpen && <MobileMenu closeMethod={toggleMobileMenu} />}
     </>
   );

@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css?family=Trykker|Montserrat|Fira+sans+Condensed|Dosis");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+body {
+  width: 100%;
+  min-height: 99.4vh;
+  box-sizing: border-box;
+  height: 100vh;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+body ::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background: #e3e3e3;
+  color: #303030;
+  padding: 6px;
+}
+
+a {
+  text-decoration: none;
+  color: #e3e3e3;
+}
+
+img {
+  color: #303030;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+nav {
+  margin: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+nav #logo a {
+  display: flex;
+  align-items: center;
+}
+nav #logo img {
+  align-items: center;
+  max-width: 40vw;
+}
+nav .left-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+nav .left-nav #cart {
+  width: 30px;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+nav .left-nav #hamburger-container {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+#desktop-nav-menu {
+  display: none;
+}
+
+#mobile-menu-container {
+  display: flex;
+}
+#mobile-menu-container button {
+  margin: 6px;
+}
+#mobile-menu-container button a {
+  color: #303030;
+}
+
+#footer {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+#footer #social-media-icons,
+#footer p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+#footer #social-media-icons a,
+#footer p a {
+  width: 30px;
+  margin: 6px;
+}
+
+.home-container {
+  display: grid;
+  grid-template-areas: "about" "ux" "art" "photo" "blog" "contact";
+  color: #e3e3e3;
+  text-decoration: none;
+}
+.home-container .home-section {
+  margin: 12px;
+  border-radius: 8px;
+  padding: 6px;
+  background-color: #303030;
+}
+.home-container .home-section img {
+  width: 100%;
+  height: 200px;
+}
+.home-container .home-about-section {
+  background-color: #f8f8f8;
+  grid-area: about;
+}
+.home-container .home-about-section a {
+  color: #303030;
+}
+.home-container .home-ux-section {
+  background-color: #4e4c54;
+  grid-area: ux;
+}
+.home-container .home-art-section {
+  background-color: #472635;
+  grid-area: art;
+}
+.home-container .home-photography-section {
+  background-color: #2f3e50;
+  grid-area: photo;
+}
+.home-container .home-blog-section {
+  background-color: #2a4939;
+  grid-area: blog;
+}
+.home-container .home-contact-section {
+  background-color: #2f2f2f;
+  grid-area: contact;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+.card-container .product-card {
+  max-width: 360px;
+  min-width: 20%;
+  margin: 20px;
+}
+.card-container .product-card a {
+  color: #303030;
+}
+.card-container img {
+  width: 100%;
+}
+
+@media screen and (min-width: 660px) {
+  .home-container {
+    display: grid;
+    grid-template-areas: "about ux" "art photo" "blog contact";
+  }
+  #desktop-nav-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  #desktop-nav-menu button {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+  #desktop-nav-menu button a {
+    color: #303030;
+  }
+  #hamburger-container {
+    display: none;
+  }
+  #hamburger-container button {
+    display: none;
+  }
+  #mobile-menu-container {
+    display: none;
+  }
+}
+@media screen and (min-width: 992px) {
+  .home-container {
+    display: grid;
+    grid-template-areas: "about ux art" "photo blog contact";
+  }
+}/*# sourceMappingURL=App.css.map */

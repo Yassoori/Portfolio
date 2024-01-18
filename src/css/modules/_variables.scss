@@ -1,45 +1,60 @@
 // Reset
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style-type: none;
-  }
-  
-  body {
-    width: 100%;
-    min-height: 99.4vh;
-    box-sizing: border-box;
-  
-    ::-webkit-scrollbar {
-      display: none;
-    }
-  
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
-  }
-  
-  // Type Sizes
-  
-  $head-size: 36px;
-  $sub-size: 24px;
-  $body-size: 20px;  
-  $mob-head-size: 24px;
-  $mob-sub-size: 16px;
-  $mob-body-size: 12px;
-  
-  // Margins
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+}
 
-  $very-big-margin: 48px;
-  $big-margin: 24px;
-  $med-margin: 12px;
-  $small-margin: 6px;
-  
-  // $very-big-margin: 4em;
-  // $big-margin: 2em;
-  // $med-margin: 1em;
-  // $small-margin: 0.5em;
+body {
+  width: 100%;
+  min-height: 99.4vh;
+  box-sizing: border-box;
+  height: 100vh;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+// Colours
+
+$text-light: #e3e3e3;
+$text-dark: #303030;
+$bg-light: #e3e3e3;
+$card-dark: #303030;
+
+$card-about: #f8f8f8;
+$card-ux: #4e4c54;
+$card-art: #472635;
+$card-photo: #2f3e50; 
+$card-blog: #2a4939;
+$card-contact: #2f2f2f; 
+
+// Type Sizes
+
+$head-size: 36px;
+$sub-size: 24px;
+$body-size: 20px;
+$mob-head-size: 24px;
+$mob-sub-size: 16px;
+$mob-body-size: 12px;
+
+// Margins
+
+$very-big-margin: 48px;
+$big-margin: 24px;
+$med-margin: 12px;
+$small-margin: 6px;
+
+// $very-big-margin: 4em;
+// $big-margin: 2em;
+// $med-margin: 1em;
+// $small-margin: 0.5em;
