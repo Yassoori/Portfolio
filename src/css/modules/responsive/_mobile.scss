@@ -3,12 +3,17 @@
 body {
   background: $bg-light;
   color: $text-dark;
-  padding: $small-margin;
 }
 
-a {
+a,
+p {
   text-decoration: none;
-  color: $text-light;
+  font-size: $body-size;
+  color: $text-dark;
+}
+
+h2 {
+  font-size: $sub-size;
 }
 
 img {
@@ -20,10 +25,14 @@ button {
   border: none;
 }
 
-// .container {
-//   height: 100%;
-//   // background: $bg-light;
-// }
+.container {
+  padding: $small-margin;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: column;
+}
 
 // -------- Nav --------
 
@@ -32,7 +41,9 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: $big-margin;
+  margin-bottom: $med-margin;
+  padding: 0 $small-margin;
+
   #logo {
     a {
       display: flex;
@@ -41,21 +52,19 @@ nav {
     img {
       align-items: center;
       max-width: 40vw;
+      max-height: 40px;
     }
   }
 
   .left-nav {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
 
-    #cart {
+    #cart,
+    #hamburger-container button {
       width: 30px;
-      margin-left: $small-margin;
-      margin-right: $small-margin;
-    }
-
-    #hamburger-container {
+      padding: $small-margin;
       margin-left: $small-margin;
       margin-right: $small-margin;
     }
@@ -66,14 +75,68 @@ nav {
   display: none;
 }
 
+#desktop-nav-menu .nav-button,
+.filter a {
+  font-size: $body-size;
+  padding-bottom: $small-margin;
+  margin: auto;
+  margin-bottom: $small-margin + 4px;
+}
+
+#desktop-nav-menu .nav-button:hover,
+.filter a:hover {
+  border-bottom: 4px solid $text-dark;
+  transition: 0.2s ease;
+  margin-bottom: $small-margin;
+}
+
+#desktop-nav-menu .nav-button.active,
+.filter a.selected {
+  border-bottom: 4px solid $text-dark;
+  margin-bottom: $small-margin;
+}
+
 #mobile-menu-container {
   display: flex;
-  button {
-    margin: $small-margin;
-    a {
-      color: $text-dark;
-    }
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  background: $bg-light;
+
+  #mobile-nav-menu {
+    position: absolute;
+    top: 20%;
+    right: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+
+  button {
+    margin: $med-margin;
+    width: fit-content;
+  }
+
+  #close-nav-menu {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: $big-margin;
+    height: $big-margin;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
 // ----- Footer -----
@@ -81,27 +144,27 @@ nav {
 #footer {
   display: flex;
   flex-direction: column;
-  margin: auto;
   margin-top: $big-margin;
   margin-bottom: $big-margin;
   align-items: center;
 
-  #social-media-icons,
   p {
     display: flex;
     align-items: center;
-    margin-bottom: $small-margin;
+    margin-bottom: $med-margin;
+  }
 
+  #social-media-icons {
+    margin: $med-margin;
     a {
-      width: 30px;
-      margin: $small-margin;
+      margin: 0 $big-margin;
     }
   }
 }
 
 // -------- Home --------
 
-.home-container {
+#home-container {
   display: grid;
   grid-template-areas:
     "about"
@@ -110,20 +173,34 @@ nav {
     "photo"
     "blog"
     "contact";
+  justify-content: normal;
+  align-items: stretch;
+  max-width: 100%;
+  height: 80vh;
+
   .home-section {
     margin: $med-margin;
-    border-radius: 8px;
+    border-radius: $small-margin;
     padding: $small-margin;
     background-color: $card-dark;
+    position: relative;
+    min-height: 80px;
+    a,
+    p {
+      color: $text-light;
+    }
     img {
-      width: 100%;
-      height: 200px;
+      position: absolute;
+      top: $small-margin;
+      // width: 100%;
+      // height: 60px;
     }
   }
   .home-about-section {
     background-color: $card-about;
     grid-area: about;
-    a {
+    a,
+    p {
       color: $text-dark;
     }
   }
@@ -153,6 +230,48 @@ nav {
 
 // -------- Art --------
 
+.filter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  a {
+    text-align: left;
+    width: 35%;
+    //   padding-bottom: $small-margin;
+    //   margin: auto;
+    //   margin-bottom: $small-margin + 4px;
+    // }
+
+    // a:hover {
+    //   border-bottom: 4px solid $text-dark;
+    //   transition: 0.2s ease;
+    //   margin-bottom: $small-margin;
+    // }
+
+    // a.selected {
+    //   border-bottom: 4px solid $text-dark;
+    //   margin-bottom: $small-margin;
+  }
+}
+
+.series-description {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 1000px;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: $med-margin;
+  max-width: 90%;
+  min-width: 40%;
+
+  h2 {
+    text-align: left;
+    margin-bottom: $med-margin;
+  }
+}
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -160,16 +279,43 @@ nav {
   align-items: flex-start;
 
   .product-card {
-    max-width: 360px;
-    min-width: 20%;
-    margin: 20px;
+    width: 100%;
+    margin: $med-margin;
+    position: relative;
+
+    .product-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      height: 100%;
+      width: 100%;
+      padding: $med-margin;
+      opacity: 0;
+      transition: 0.5s ease;
+      background-color: #ddddddb0;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+
+      h2,
+      div {
+        text-align: center;
+      }
+    }
 
     a {
       color: $text-dark;
     }
+    img {
+      width: 100%;
+    }
   }
 
-  img {
-    width: 100%;
+  .product-card:hover .product-overlay {
+    opacity: 1;
   }
 }

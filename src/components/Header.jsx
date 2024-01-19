@@ -11,6 +11,7 @@ const baseUrl = import.meta.env.VITE_WP_BASEURL;
 const Header = () => {
   const [menuIsOpen, openMenu] = useState(false);
   const [logoUrl, setLogoUrl] = useState("");
+  const [activeNavItem, setActiveNavItem] = useState(""); // Add this line
 
   useEffect(() => {
     const fetchNavLogo = async () => {
@@ -35,11 +36,17 @@ const Header = () => {
   const toggleMobileMenu = () => {
     openMenu(!menuIsOpen);
     document.body.classList.toggle("no-scroll");
-    // $(document).ready(function () {
-    //   $("#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4").click(function () {
-    //     $(this).toggleClass("open");
-    //   });
-    // });
+  };
+
+  useEffect(() => {  
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, []);
+
+  const handleNavClick = (navItem) => {
+    setActiveNavItem(navItem);
+    toggleMobileMenu(); // Close the mobile menu after clicking on a navigation item
   };
 
   return (
@@ -53,22 +60,63 @@ const Header = () => {
         {/* Desktop Menu */}
         <div className="left-nav">
           <div id="desktop-nav-menu">
-            <button className="nav-button ux-nav-button">
-              <Link to="/ux-projects">UX</Link>
-            </button>
-            <button className="nav-button art-nav-button">
-              <Link to="/art">Art</Link>
-            </button>
-            <button className="nav-button photo-nav-button">
-              <Link to="/photography">Photography</Link>
-            </button>
-            <button className="nav-button about-nav-button">
-              <Link to="/about">About</Link>
-            </button>
-            <button className="nav-button contact-nav-button">
-              <Link to="/contact">Contact</Link>
-            </button>
+            <Link
+              to="/ux-projects"
+              className={`nav-button ux-nav-button ${
+                activeNavItem === "ux" ? "active" : ""
+              }`}
+              onClick={() => handleNavClick("ux")}
+            >
+              UX
+            </Link>
+
+            <Link
+              to="/art"
+              className={`nav-button art-nav-button ${
+                activeNavItem === "art" ? "active" : ""
+              }`}
+              onClick={() => handleNavClick("art")}
+            >
+              Art
+            </Link>
+
+            <Link
+              to="/photography"
+              className={`nav-button photo-nav-button ${
+                activeNavItem === "photography" ? "active" : ""
+              }`}
+              onClick={() => handleNavClick("photography")}
+            >
+              Photography
+            </Link>
+
+            <Link
+              to="/about"
+              className={`nav-button about-nav-button ${
+                activeNavItem === "about" ? "active" : ""
+              }`}
+              onClick={() => handleNavClick("about")}
+            >
+              About
+            </Link>
+
+            <Link
+              to="/contact"
+              className={`nav-button contact-nav-button ${
+                activeNavItem === "contact" ? "active" : ""
+              }`}
+              onClick={() => handleNavClick("contact")}
+            >
+              Contact
+            </Link>
           </div>
+          {/* <img src="/iconbag.png" alt="Cart" id="cart"/> */}
+          <FontAwesomeIcon
+            icon={faBagShopping}
+            size="lg"
+            style={{ color: "#000000" }}
+            id="cart"
+          />
           {/* Hamburger on Mobile */}
           <div id="hamburger-container">
             {/* <div id="nav-icon3 menu-button"
@@ -87,13 +135,6 @@ const Header = () => {
               <List id="hamburger-icon" />
             </button>
           </div>
-          {/* <img src="/iconbag.png" alt="Cart" id="cart"/> */}
-          <FontAwesomeIcon
-            icon={faBagShopping}
-            size="lg"
-            style={{ color: "#000000" }}
-            id="cart"
-          />
         </div>
       </nav>
       {menuIsOpen && <MobileMenu closeMethod={toggleMobileMenu} />}

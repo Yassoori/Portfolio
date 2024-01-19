@@ -18,7 +18,7 @@ const Home = () => {
           content="Facebook Open Graph Meta Tag example"
         />
       </Helmet>
-      <div className="home-container container">
+      <div className="container" id="home-container">
         {/* <h1>Yasser Saeed</h1> */}
         <div className="home-section home-about-section">
           <Link to="/about">

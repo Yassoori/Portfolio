@@ -1,12 +1,32 @@
 @media screen and (min-width: 992px) {
   // ----- All Desktop -----
 
+  // -------- Nav --------
+
+  nav {
+    padding: 0 $very-big-margin;
+  }
+
   // -------- Home --------
 
-  .home-container {
-    display: grid;
+  #home-container {
     grid-template-areas:
       "about ux art"
       "photo blog contact";
+  }
+
+  // -------- Art --------
+
+  .series-description {
+    max-width: 65%;
+    // height: 8.5em;
+  }
+
+  .card-container {
+    .product-card {
+      max-width: 30%;
+      min-width: 20%;
+      margin: $med-margin;
+    }
   }
 }

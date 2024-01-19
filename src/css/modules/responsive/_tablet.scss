@@ -1,39 +1,79 @@
 @media screen and (min-width: 660px) {
   // ----- All Tablet -----
 
-  // -------- Home --------
-
-  .home-container {
-    display: grid;
-    grid-template-areas:
-      "about ux"
-      "art photo"
-      "blog contact";
+  .container {
+    max-width: 80%;
+    margin: auto;
   }
 
   // -------- Nav --------
 
-  #desktop-nav-menu {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    button {
-      margin-left: $small-margin;
-      margin-right: $small-margin;
-      a {
-        color: $text-dark;
+  nav {
+    padding: 0 $very-big-margin;
+
+    #desktop-nav-menu {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .nav-button {
+        padding: $small-margin;
+        margin-left: $small-margin;
+        margin-right: $small-margin;
       }
     }
-  }
-
-  #hamburger-container {
-    display: none;
-    button {
+    #hamburger-container {
       display: none;
+      button {
+        display: none;
+      }
     }
   }
 
   #mobile-menu-container {
     display: none;
+  }
+
+  // -------- Home --------
+
+  #home-container {
+    grid-template-areas:
+      "about ux"
+      "art photo"
+      "blog contact";
+    height: 80vh;
+
+    .home-section {
+        height: 25%;
+      img {
+        width: 100%;
+        height: 240px;
+      }
+    }
+  }
+
+  // -------- Art --------
+
+  .filter {
+    margin: $med-margin;
+    // display: block;
+    justify-content: flex-end;
+
+    a {
+      margin: 0 $med-margin;
+      width: fit-content;
+    }
+  }
+
+  .series-description {
+    max-width: 70%;
+  }
+
+  .card-container {
+    .product-card {
+      max-width: 45%;
+      min-width: 20%;
+      margin: $med-margin;
+    }
   }
 }
