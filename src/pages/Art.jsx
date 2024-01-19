@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Loading from "../components/Loading";
 import { Helmet } from "react-helmet";
@@ -13,12 +13,11 @@ const Art = () => {
   const [products, setProducts] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [filter, setFilter] = useState(null);
-
   const [series, setSeries] = useState(null);
   const [description, setDescription] = useState(null);
+  
 
   useEffect(() => {
-    AOS.init();
     axios
       .get(`${productsUrl}?per_page=60`)
       .then((res) => {
@@ -38,6 +37,12 @@ const Art = () => {
       setFilteredProducts(filtered);
     }
   }, [filter, products]);
+
+  // useEffect(() => {
+  //   AOS.init({
+  //     duration: 1000,
+  //   });
+  // }, []);  
 
   const handleFilterClick = (selectedFilter) => {
     // // ---- This version resets on reclick
@@ -132,8 +137,9 @@ const Art = () => {
         <div 
         key={product.slug + "_" + index} 
         className={productCardClasses} 
-        data-aos="zoom-in-down"
-        data-aos-offset="100"
+        // data-aos="zoom-in-down"
+        // data-aos-offset="100"
+        // ref={aosContainerRef}
         >
           <Link className="product-link" to={`/product/${product.id}`}>
             <img src={product.images[0].src} alt={product.name} />

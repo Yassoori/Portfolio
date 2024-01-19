@@ -79,7 +79,7 @@ nav {
 #desktop-nav-menu .nav-button,
 .filter a {
   font-size: $body-size;
-  padding-bottom: $small-margin;
+  padding: $small-margin;
   margin: auto;
   margin-bottom: $small-margin + 4px;
 }
@@ -168,11 +168,11 @@ nav {
 #home-container {
   display: grid;
   grid-template-areas:
-    "about"
+    // "about"
     "ux"
     "art"
     "photo"
-    "blog"
+    // "blog"
     "contact";
   justify-content: normal;
   align-items: stretch;
@@ -182,22 +182,66 @@ nav {
 
   .home-section {
     margin: $med-margin;
-    border-radius: $small-margin;
-    padding: $small-margin;
-    background-color: $card-dark;
+    border-radius: $med-margin;
+    border: none;
+    // padding: $small-margin;
+    // background-color: $card-dark;
     position: relative;
     min-height: 80px;
     a,
     p {
       color: $text-light;
     }
-    img {
+
+    .home-section-text {
+      background-color: $text-dark+b0;
       position: absolute;
-      top: $small-margin;
+      // bottom: $med-margin;
+      // left: $med-margin;
+      border-radius: $med-margin;
+      bottom: 0;
+      padding: $big-margin $med-margin;
+      width: 100%;
+
+      p, h2 {
+        // display: none;
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        transition: height 0.4s, opacity 0.4s linear;
+      }
+      // p:hover {
+      //   display: block;
+      // }
+    }
+
+    img {
+      // display: none;
+      position: absolute;
+      overflow: hidden;
+      object-fit: cover;
+      object-position: 0% 15%;
+      width: 100%;
+      height: 100%;
+      border-radius: $med-margin;
+
+      // top: $small-margin;
       // width: 100%;
       // height: 60px;
     }
   }
+
+  .home-section:hover {
+    p, h2 {
+      // display: block;
+      visibility: visible;
+      opacity: 1;
+      // height: fit-content;
+      height: $very-big-margin;
+    }
+  }
+
+
   .home-about-section {
     background-color: $card-about;
     grid-area: about;
@@ -209,6 +253,10 @@ nav {
   .home-ux-section {
     background-color: $card-ux;
     grid-area: ux;
+    img {
+      object-position: 50% 0%;
+
+    }
   }
   .home-art-section {
     background-color: $card-art;
@@ -261,12 +309,12 @@ nav {
 .series-description {
   display: flex;
   justify-content: flex-start;
-  max-width: 1000px;
   flex-direction: column;
   align-items: flex-start;
   margin: $med-margin;
   max-width: 90%;
   min-width: 40%;
+  // transition: 0.2s ease;
 
   h2 {
     text-align: left;
@@ -280,6 +328,9 @@ nav {
   justify-content: center;
   align-items: flex-start;
 
+  // background-color: #dbdbdb;
+  // border-radius: $med-margin;
+
   .product-card {
     width: 100%;
     margin: $med-margin;
@@ -287,17 +338,20 @@ nav {
 
     .product-overlay {
       position: absolute;
-      top: 0;
+      // top: 0;
       bottom: 0;
       left: 0;
       right: 0;
-      height: 80px;
-      height: 100%;
+      // height: 100%;
+      height: 0;
       width: 100%;
       padding: $med-margin;
+      visibility: hidden;
       opacity: 0;
-      transition: 0.5s ease;
+      // transition: 0.5s ease;
+      transition: height 0.4s, opacity 0.4s linear;
       background-color: $bg-light+b0;
+      // background-color: $text-dark+b0;
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -318,6 +372,7 @@ nav {
 
     a {
       color: $text-dark;
+      // color: $text-light;
     }
     img {
       width: 100%;
@@ -325,9 +380,11 @@ nav {
   }
 
   .product-card:hover .product-overlay {
+    // height: fit-content;
+    height: 100%;
+    visibility: visible;
     opacity: 1;
-    transition: 0.4s ease;
-  }
+    transition: height 0.4s, opacity 0.4s linear;  }
 }
 
 // -------- UX --------

@@ -20,48 +20,63 @@ const Home = () => {
       </Helmet>
       <div className="container" id="home-container">
         {/* <h1>Yasser Saeed</h1> */}
-        <div className="home-section home-about-section">
+        {/* <div className="home-section home-about-section">
           <Link to="/about">
             <img src="" alt="" />
+            <div className="home-section-text">
             <h2>I'm Yasser Saeed</h2>
             <p>I make things</p>
+            </div>
           </Link>
-        </div>
+        </div> */}
         <div className="home-section home-ux-section">
           <Link to="/ux-projects">
-            <img src="" alt="" />
+            <img src="/public/home-ux3.png" alt="" />
+            <div className="home-section-text">
+            <h2>Hire Me!!! I need job</h2>
             <h3>UX and Web Projects</h3>
             <p>01011100001011</p>
+            </div>
           </Link>
         </div>
         <div className="home-section home-art-section">
           <Link to="/art">
-            <img src="" alt="" />
+            <img src="/public/home-art.jpeg" alt="" />
+            <div className="home-section-text">
+            <h2></h2>
             <h3>Art</h3>
             <p>I've won awards for this</p>
+            </div>
           </Link>
         </div>
         <div className="home-section home-photography-section">
           <Link to="/photography">
-            <img src="" alt="" />
+            <img src="/public/home-photo.jpg" alt="" />
+            <div className="home-section-text">
+            <h2></h2>
             <h3>Photography</h3>
             <p>smile!</p>
+            </div>
           </Link>
         </div>
-        <div className="home-section home-blog-section">
+        {/* <div className="home-section home-blog-section">
           <Link to="/blog">
             <img src="" alt="" />
+            <div className="home-section-text">
             <h3>Blog</h3>
             <p>My thoughts and rants</p>
           </Link>
-        </div>
+        </div> */}
         <div className="home-section home-contact-section">
           <Link to="/contact">
             <img src="" alt="" />
+            <div className="home-section-text">
+            <h2></h2>
             <h3>Contact me</h3>
             <p>
               Lets grab a coffee
             </p>
+            </div>
           </Link>
         </div>
       </div>

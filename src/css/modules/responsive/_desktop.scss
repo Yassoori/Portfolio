@@ -11,8 +11,13 @@
 
   #home-container {
     grid-template-areas:
-      "about ux art"
-      "photo blog contact";
+      // "about ux art"
+      // "photo blog contact"
+      "ux art photo"
+      "ux art photo"
+      "contact contact contact"
+      // "about about contact"
+      ;
   }
 
   // -------- Art --------

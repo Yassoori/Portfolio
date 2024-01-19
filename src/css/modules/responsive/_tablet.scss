@@ -49,18 +49,26 @@
 
   #home-container {
     grid-template-areas:
-      "about ux"
+    //   "about ux"
+    //   "art photo"
+    //   "blog contact"
+
+    //   "ux ux" 
+    //   "art photo" 
+    //   "about contact"
+
+      "ux ux"
       "art photo"
-      "blog contact";
+      "contact contact";
     // height: 80vh;
 
-    .home-section {
-      //   height: 25%;
-      img {
-        width: 100%;
-        height: 240px;
-      }
-    }
+    // .home-section {
+    //   //   height: 25%;
+    //   img {
+
+    //     // height: 240px;
+    //   }
+    // }
   }
 
   // -------- Art --------

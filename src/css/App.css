@@ -99,7 +99,7 @@ nav .left-nav #hamburger-container button {
 #desktop-nav-menu .nav-button,
 .filter a {
   font-size: 16px;
-  padding-bottom: 6px;
+  padding: 6px;
   margin: auto;
   margin-bottom: 10px;
 }
@@ -176,7 +176,7 @@ nav .left-nav #hamburger-container button {
 
 #home-container {
   display: grid;
-  grid-template-areas: "about" "ux" "art" "photo" "blog" "contact";
+  grid-template-areas: "ux" "art" "photo" "contact";
   justify-content: normal;
   align-items: stretch;
   max-width: 100%;
@@ -186,9 +186,8 @@ nav .left-nav #hamburger-container button {
 }
 #home-container .home-section {
   margin: 12px;
-  border-radius: 6px;
-  padding: 6px;
-  background-color: #303030;
+  border-radius: 12px;
+  border: none;
   position: relative;
   min-height: 80px;
 }
@@ -196,9 +195,35 @@ nav .left-nav #hamburger-container button {
 #home-container .home-section p {
   color: #e3e3e3;
 }
+#home-container .home-section .home-section-text {
+  background-color: #303030b0;
+  position: absolute;
+  border-radius: 12px;
+  bottom: 0;
+  padding: 24px 12px;
+  width: 100%;
+}
+#home-container .home-section .home-section-text p, #home-container .home-section .home-section-text h2 {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  transition: height 0.4s, opacity 0.4s linear;
+}
 #home-container .home-section img {
   position: absolute;
-  top: 6px;
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 0% 15%;
+     object-position: 0% 15%;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+#home-container .home-section:hover p, #home-container .home-section:hover h2 {
+  visibility: visible;
+  opacity: 1;
+  height: 48px;
 }
 #home-container .home-about-section {
   background-color: #f8f8f8;
@@ -211,6 +236,10 @@ nav .left-nav #hamburger-container button {
 #home-container .home-ux-section {
   background-color: #4e4c54;
   grid-area: ux;
+}
+#home-container .home-ux-section img {
+  -o-object-position: 50% 0%;
+     object-position: 50% 0%;
 }
 #home-container .home-art-section {
   background-color: #472635;
@@ -243,7 +272,6 @@ nav .left-nav #hamburger-container button {
 .series-description {
   display: flex;
   justify-content: flex-start;
-  max-width: 1000px;
   flex-direction: column;
   align-items: flex-start;
   margin: 12px;
@@ -268,16 +296,15 @@ nav .left-nav #hamburger-container button {
 }
 .card-container .product-card .product-overlay {
   position: absolute;
-  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 80px;
-  height: 100%;
+  height: 0;
   width: 100%;
   padding: 12px;
+  visibility: hidden;
   opacity: 0;
-  transition: 0.5s ease;
+  transition: height 0.4s, opacity 0.4s linear;
   background-color: #e6e9ebb0;
   display: flex;
   align-items: center;
@@ -300,8 +327,10 @@ nav .left-nav #hamburger-container button {
   width: 100%;
 }
 .card-container .product-card:hover .product-overlay {
+  height: 100%;
+  visibility: visible;
   opacity: 1;
-  transition: 0.4s ease;
+  transition: height 0.4s, opacity 0.4s linear;
 }
 
 .project-card-container {
@@ -366,11 +395,7 @@ nav .left-nav #hamburger-container button {
     margin: 0 24px;
   }
   #home-container {
-    grid-template-areas: "about ux" "art photo" "blog contact";
-  }
-  #home-container .home-section img {
-    width: 100%;
-    height: 240px;
+    grid-template-areas: "ux ux" "art photo" "contact contact";
   }
   #art-container {
     width: 80%;
@@ -410,7 +435,7 @@ nav .left-nav #hamburger-container button {
     padding: 0 48px;
   }
   #home-container {
-    grid-template-areas: "about ux art" "photo blog contact";
+    grid-template-areas: "ux art photo" "ux art photo" "contact contact contact";
   }
   .series-description {
     max-width: 65%;
