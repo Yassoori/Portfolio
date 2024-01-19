@@ -120,21 +120,30 @@ const Art = () => {
 
   const Products = ({ products }) => {
     const mappedProducts = products.map((product, index) => {
+      const isFiltered =
+        filter &&
+        product.categories.some((category) => category.name === filter);
+      const productCardClasses = `product-card${isFiltered ? " filtered" : ""}`;
+
       return (
-        <div key={product.slug + "_" + index} className="product-card">
+        <div key={product.slug + "_" + index} className={productCardClasses}>
           <Link className="product-link" to={`/product/${product.id}`}>
             <img src={product.images[0].src} alt={product.name} />
             <div className="product-overlay">
-              <h2 className="title">{product.name}</h2>
-              <h2 className="price">
-                ${(parseFloat(product.prices.price) / 100).toFixed(2)}
-                {/* {" "}
+              <div className="text-overlay">
+                <h2 className="title">{product.name}</h2>
+                <h2 className="price">
+                  ${(parseFloat(product.prices.price) / 100).toFixed(2)}
+                  {/* {" "}
                     {product.prices.currency_code} */}
-              </h2>
-              <div
-                className="short-description"
-                dangerouslySetInnerHTML={{ __html: product.short_description }}
-              />
+                </h2>
+                <div
+                  className="short-description"
+                  dangerouslySetInnerHTML={{
+                    __html: product.short_description,
+                  }}
+                />
+              </div>
             </div>
           </Link>
         </div>

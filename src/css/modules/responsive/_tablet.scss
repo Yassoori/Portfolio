@@ -55,7 +55,7 @@
     // height: 80vh;
 
     .home-section {
-    //   height: 25%;
+      //   height: 25%;
       img {
         width: 100%;
         height: 240px;
@@ -85,10 +85,20 @@
   }
 
   .card-container {
+    align-items: center;
     .product-card {
+      max-width: 15%;
+      min-width: 5%;
+      margin: $med-margin;
+    }
+    .filtered {
       max-width: 45%;
       min-width: 20%;
-      margin: $med-margin;
+    }
+    .product-overlay {
+      h2 {
+        font-size: $sub-size;
+      }
     }
   }
 }

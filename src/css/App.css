@@ -278,15 +278,20 @@ nav .left-nav #hamburger-container button {
   padding: 12px;
   opacity: 0;
   transition: 0.5s ease;
-  background-color: rgba(221, 221, 221, 0.6901960784);
+  background-color: #e6e9ebb0;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
+.card-container .product-card .product-overlay .text-overlay {
+  padding: 6px;
+  border-radius: 6px;
+}
 .card-container .product-card .product-overlay h2,
 .card-container .product-card .product-overlay div {
   text-align: center;
+  font-size: 16px;
 }
 .card-container .product-card a {
   color: #303030;
@@ -381,10 +386,20 @@ nav .left-nav #hamburger-container button {
   .series-description {
     max-width: 70%;
   }
+  .card-container {
+    align-items: center;
+  }
   .card-container .product-card {
+    max-width: 15%;
+    min-width: 5%;
+    margin: 12px;
+  }
+  .card-container .filtered {
     max-width: 45%;
     min-width: 20%;
-    margin: 12px;
+  }
+  .card-container .product-overlay h2 {
+    font-size: 24px;
   }
 }
 @media screen and (min-width: 992px) {
@@ -397,9 +412,8 @@ nav .left-nav #hamburger-container button {
   .series-description {
     max-width: 65%;
   }
-  .card-container .product-card {
+  .card-container .filtered {
     max-width: 30%;
     min-width: 20%;
-    margin: 12px;
   }
 }/*# sourceMappingURL=App.css.map */

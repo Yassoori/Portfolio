@@ -23,10 +23,14 @@
   }
 
   .card-container {
-    .product-card {
+    // .product-card {
+    //   max-width: 15%;
+    //   min-width: 5%;
+    //   margin: $med-margin;
+    // }
+    .filtered {
       max-width: 30%;
       min-width: 20%;
-      margin: $med-margin;
     }
   }
 }

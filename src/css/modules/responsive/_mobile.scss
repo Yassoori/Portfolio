@@ -297,15 +297,22 @@ nav {
       padding: $med-margin;
       opacity: 0;
       transition: 0.5s ease;
-      background-color: #ddddddb0;
+      background-color: $bg-light+b0;
       display: flex;
       align-items: center;
       flex-direction: column;
       justify-content: center;
 
+      .text-overlay {
+        // background-color: $bg-light+c0;
+        padding: $small-margin;
+        border-radius: $small-margin;
+      }
+
       h2,
       div {
         text-align: center;
+        font-size: $mob-sub-size;
       }
     }
 
