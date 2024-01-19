@@ -43,10 +43,10 @@ const project = () => {
       id="project-page"
       className="container full-container"
     >
-      <img
+      {/* <img
         src={project._embedded["wp:featuredmedia"][0].source_url}
         alt={project.title.rendered}
-      />
+      /> */}
       <div
         dangerouslySetInnerHTML={{ __html: project.content.rendered }}
         className="project-container"

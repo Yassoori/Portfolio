@@ -2,8 +2,14 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram, faFacebook, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const location = useLocation();
+  
+if (location.pathname === "/") {
+  return null;
+} else {
   return (
     <div id="footer">
       <div id="social-media-icons">
@@ -33,7 +39,7 @@ const Footer = () => {
       {/* <p className="contact-info">© 2024</p> */}
     </div>      
 
-  );
+  )};
 };
 
 export default Footer;

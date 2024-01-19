@@ -21,6 +21,12 @@ body ::-webkit-scrollbar {
   display: none;
 }
 
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   background: #e6e9eb;
   color: #303030;
@@ -53,6 +59,7 @@ button {
   flex-wrap: wrap;
   justify-content: flex-start;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 nav {
@@ -157,14 +164,14 @@ nav .left-nav #hamburger-container button {
 }
 #footer p {
   display: flex;
-  align-items: center;
+  text-align: center;
   margin-bottom: 12px;
 }
 #footer #social-media-icons {
   margin: 12px;
 }
 #footer #social-media-icons a {
-  margin: 0 24px;
+  margin: 0 12px;
 }
 
 #home-container {
@@ -173,7 +180,7 @@ nav .left-nav #hamburger-container button {
   justify-content: normal;
   align-items: stretch;
   max-width: 100%;
-  height: 80vh;
+  margin: 0;
   color: #e3e3e3;
   text-decoration: none;
 }
@@ -291,9 +298,37 @@ nav .left-nav #hamburger-container button {
   opacity: 1;
 }
 
+.project-card-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas: "burger aurea" "pokedex regan";
+  justify-content: normal;
+  align-items: stretch;
+  max-width: 100%;
+}
+.project-card-container .project-card {
+  margin: 12px;
+  border-radius: 6px;
+  padding: 6px;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+  min-height: 80px;
+}
+.project-card-container #burger-card {
+  grid-area: burger;
+}
+.project-card-container #aurea-card {
+  grid-area: aurea;
+}
+.project-card-container #pokedex-card {
+  grid-area: pokedex;
+}
+.project-card-container #regan-card {
+  grid-area: regan;
+}
+
 @media screen and (min-width: 660px) {
   .container {
-    max-width: 80%;
     margin: auto;
   }
   nav {
@@ -318,16 +353,21 @@ nav .left-nav #hamburger-container button {
   #mobile-menu-container {
     display: none;
   }
+  #footer #social-media-icons {
+    margin: 12px;
+  }
+  #footer #social-media-icons a {
+    margin: 0 24px;
+  }
   #home-container {
     grid-template-areas: "about ux" "art photo" "blog contact";
-    height: 80vh;
-  }
-  #home-container .home-section {
-    height: 25%;
   }
   #home-container .home-section img {
     width: 100%;
     height: 240px;
+  }
+  #art-container {
+    width: 80%;
   }
   .filter {
     margin: 12px;

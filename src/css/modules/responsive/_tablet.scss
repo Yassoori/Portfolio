@@ -2,7 +2,7 @@
   // ----- All Tablet -----
 
   .container {
-    max-width: 80%;
+    // max-width: 80%;
     margin: auto;
   }
 
@@ -34,6 +34,17 @@
     display: none;
   }
 
+  // ----- Footer -----
+
+  #footer {
+    #social-media-icons {
+      margin: $med-margin;
+      a {
+        margin: 0 $big-margin;
+      }
+    }
+  }
+
   // -------- Home --------
 
   #home-container {
@@ -41,10 +52,10 @@
       "about ux"
       "art photo"
       "blog contact";
-    height: 80vh;
+    // height: 80vh;
 
     .home-section {
-        height: 25%;
+    //   height: 25%;
       img {
         width: 100%;
         height: 240px;
@@ -53,6 +64,10 @@
   }
 
   // -------- Art --------
+
+  #art-container {
+    width: 80%;
+  }
 
   .filter {
     margin: $med-margin;

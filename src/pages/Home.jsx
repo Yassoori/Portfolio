@@ -28,7 +28,7 @@ const Home = () => {
           </Link>
         </div>
         <div className="home-section home-ux-section">
-          <Link to="/ux">
+          <Link to="/ux-projects">
             <img src="" alt="" />
             <h3>UX and Web Projects</h3>
             <p>01011100001011</p>

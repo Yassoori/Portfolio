@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import MobileMenu from "./MobileMenu";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { List } from "react-bootstrap-icons";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,6 +12,7 @@ const Header = () => {
   const [menuIsOpen, openMenu] = useState(false);
   const [logoUrl, setLogoUrl] = useState("");
   const [activeNavItem, setActiveNavItem] = useState(""); // Add this line
+  const location = useLocation();
 
   useEffect(() => {
     const fetchNavLogo = async () => {
@@ -38,22 +39,36 @@ const Header = () => {
     document.body.classList.toggle("no-scroll");
   };
 
-  useEffect(() => {  
+  useEffect(() => {
     return () => {
       document.body.classList.remove("no-scroll");
     };
   }, []);
 
+  useEffect(() => {
+    const pathParts = location.pathname.split("/").filter(Boolean);
+    const baseRoute = pathParts[0] === "product" ? "art" : pathParts[0] || "home";
+    setActiveNavItem(baseRoute);
+  }, [location.pathname]);
+  
+
   const handleNavClick = (navItem) => {
     setActiveNavItem(navItem);
-    toggleMobileMenu(); // Close the mobile menu after clicking on a navigation item
+    toggleMobileMenu();
   };
 
   return (
     <>
+    {activeNavItem !== "home" && (
       <nav>
         <div id="logo">
-          <Link to="/">
+          <Link
+            to="/"
+            className={`nav-button photo-nav-button ${
+              activeNavItem === "home" ? "active" : ""
+            }`}
+            // onClick={() => handleNavClick("home")}
+          >
             <img src={logoUrl} alt="Yasser Saeed" />
           </Link>
         </div>
@@ -63,9 +78,9 @@ const Header = () => {
             <Link
               to="/ux-projects"
               className={`nav-button ux-nav-button ${
-                activeNavItem === "ux" ? "active" : ""
+                activeNavItem === "ux-projects" ? "active" : ""
               }`}
-              onClick={() => handleNavClick("ux")}
+              onClick={() => handleNavClick("ux-projects")}
             >
               UX
             </Link>
@@ -137,6 +152,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
+      )}
       {menuIsOpen && <MobileMenu closeMethod={toggleMobileMenu} />}
     </>
   );
