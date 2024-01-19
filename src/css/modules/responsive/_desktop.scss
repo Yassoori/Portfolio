@@ -27,10 +27,12 @@
     //   max-width: 15%;
     //   min-width: 5%;
     //   margin: $med-margin;
+    //   transition: 0.2s ease;
     // }
     .filtered {
       max-width: 30%;
       min-width: 20%;
+      transition: 0.2s ease;
     }
   }
 }

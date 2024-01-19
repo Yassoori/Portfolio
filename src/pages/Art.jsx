@@ -3,6 +3,8 @@ import axios from "axios";
 import Loading from "../components/Loading";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const productsUrl = import.meta.env.VITE_WC_PRODUCTS_URL;
 
@@ -16,6 +18,7 @@ const Art = () => {
   const [description, setDescription] = useState(null);
 
   useEffect(() => {
+    AOS.init();
     axios
       .get(`${productsUrl}?per_page=60`)
       .then((res) => {
@@ -126,7 +129,12 @@ const Art = () => {
       const productCardClasses = `product-card${isFiltered ? " filtered" : ""}`;
 
       return (
-        <div key={product.slug + "_" + index} className={productCardClasses}>
+        <div 
+        key={product.slug + "_" + index} 
+        className={productCardClasses} 
+        data-aos="zoom-in-down"
+        data-aos-offset="100"
+        >
           <Link className="product-link" to={`/product/${product.id}`}>
             <img src={product.images[0].src} alt={product.name} />
             <div className="product-overlay">
@@ -220,7 +228,7 @@ const Art = () => {
             <Loading />
           ) : (
             <Products products={filteredProducts || products} />
-            // filter && <Products products={filteredProducts} />
+            // {/* filter && <Products products={filteredProducts} /> */}
           )}
         </div>
       </div>
