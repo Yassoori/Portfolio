@@ -75,7 +75,6 @@ textarea {
 
 .regular-button {
   text-align: center;
-  margin-bottom: 48px;
 }
 
 .regular-button:hover {
@@ -438,6 +437,8 @@ nav .left-nav #hamburger-container button {
 .right-container #add-to-cart {
   color: #e3e3e3;
   background-color: #303030;
+  margin-top: 48px;
+  margin-bottom: 48px;
 }
 .right-container .short-description {
   margin-top: 24px;

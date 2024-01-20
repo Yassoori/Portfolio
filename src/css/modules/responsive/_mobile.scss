@@ -51,7 +51,6 @@ textarea {
 .regular-button {
   // padding: $small-margin;
   text-align: center;
-  margin-bottom: $very-big-margin;
 }
 .regular-button:hover {
   opacity: 0.8;
@@ -77,6 +76,8 @@ button {
   flex-grow: 1;
   margin: auto;
   // min-height: calc(100vh - 115px);
+  // opacity: 0;
+  // transition: 0.4s;
 }
 
 .full-container {
@@ -90,7 +91,19 @@ button {
   margin: 0;
 }
 
-// ------------------------ Nav ------------------------
+// #home-page,
+// #about-page,
+// #contact-page,
+// #ux-page,
+// #photo-page,
+// #art-page,
+// #product-page,
+// #project-page {
+//   opacity: 1;
+//   transition: 1s;
+// }
+
+// ------------------------ Header ------------------------
 
 nav {
   margin: $small-margin;
@@ -471,7 +484,6 @@ nav {
   }
 }
 
-
 // ------------------------ Product ------------------------
 
 .left-container {
@@ -501,7 +513,10 @@ nav {
   #add-to-cart {
     color: $text-light;
     background-color: $card-dark;
+    margin-top: $very-big-margin;
+    margin-bottom: $very-big-margin;
   }
+  
   .short-description {
     margin-top: $big-margin;
   }
@@ -549,10 +564,6 @@ nav {
 
 // ------------------------ About ------------------------
 
-// #about-page {
-
-// }
-
 #about-photo {
   max-width: 70%;
 }
@@ -578,8 +589,7 @@ nav {
   }
 }
 
-  
-// ----- Contact -----
+// ------------------------ Contact ------------------------
 
 #contact-page {
   display: flex;

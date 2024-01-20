@@ -56,7 +56,10 @@ const Product = () => {
             {/* {product.prices.currency_code} */}
           </h2>
         </div>
-        <button id="add-to-cart" className="regular-button">Add to Cart</button>        
+        <button id="add-to-cart" className="regular-button">
+          {/* Add to Cart */}
+          Shop is out of order, sorry!
+          </button>        
         <div
           className="short-description"
           dangerouslySetInnerHTML={{

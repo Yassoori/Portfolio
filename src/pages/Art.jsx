@@ -178,7 +178,7 @@ const Art = () => {
           content="Facebook Open Graph Meta Tag example"
         />
       </Helmet>
-      <div className="container full-container" id="art-container">
+      <div className="container full-container" id="art-page">
         <div className="filter">
           <a
             onClick={() => handleFilterClick("All")}

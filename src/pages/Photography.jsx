@@ -77,27 +77,27 @@ const UX = () => {
         />
       </Helmet>
       <div id="photo-page" className="container full-container">
-        <div className="photo-types-card-container">
+        <div className="photo-card-container">
           {/* {loading ? <Loading /> : <PhotoTypes photoTypes={photoTypes} />} */}
-          <Link to="/photography/weddings" className="photo-type-card photo-type-link">
+          <Link to="/photography/weddings" className="photo-card">
             <img src="weddings-feature.png" alt="Weddings" className="card-image"/>
             <h2 className="card-heading">Weddings</h2>
             <p className="card-subheading"></p>
             <p className="card-body"></p>
           </Link>
-          <Link to="/photography/graduations" className="photo-type-card photo-type-link">
+          <Link to="/photography/graduations" className="photo-card">
             <img src="graduations-feature.png" alt="Graduations" className="card-image"/>
             <h2 className="card-heading">Graduations</h2>
             <p className="card-subheading"></p>
             <p className="card-body"></p>
           </Link>
-          <Link to="/photography/events" className="photo-type-card photo-type-link">
+          <Link to="/photography/events" className="photo-card">
             <img src="events-feature.png" alt="Events" className="card-image"/>
             <h2 className="card-heading">Events</h2>
             <p className="card-subheading"></p>
             <p className="card-body"></p>
           </Link>
-          <Link to="/photography/portraits" className="photo-type-card photo-type-link">
+          <Link to="/photography/portraits" className="photo-card">
             <img src="portraits-feature.png" alt="Portraits" className="card-image"/>
             <h2 className="card-heading">Portraits</h2>
             <p className="card-subheading"></p>
