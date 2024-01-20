@@ -79,25 +79,37 @@ const UX = () => {
       <div className="container full-container" id="ux-container">
         <div className="project-card-container">
           {/* {loading ? <Loading /> : <Projects projects={projects} />} */}
-          <Link to="/ux-projects/273" className="project-card project-link" id="burger-card">
+          <Link to="/ux-projects/273" className="project-card project-link" id="burger-card"
+                    data-aos="zoom-in"
+                    data-aos-offset="100"
+                    data-set-delay="1000">
             <img src="realburger-feature.png" alt="Real Burger" className="card-image"/>
             <h2 className="card-heading">Real Burger</h2>
             <p className="card-body">Redesign for a local restaurants ordering app.</p>
             <p className="card-subheading">CSS / SASS / Figma</p>
           </Link>
-          <Link to="/ux-projects/aurea" className="project-card project-link" id="aurea-card">
+          <Link to="/ux-projects/aurea" className="project-card project-link" id="aurea-card"
+                    data-aos="zoom-in"
+                    data-aos-offset="100"
+                    data-set-delay="1000">
             <img src="aurea-feature.png" alt="Aurea" className="card-image"/>
             <h2 className="card-heading">Aurea</h2>
             <p className="card-body">Jewellery E-Commerce site</p>
             <p className="card-subheading">Full Stack / React JS / Agile development</p>
           </Link>
-          <Link to="/ux-projects/pokedex" className="project-card project-link" id="pokedex-card">
+          <Link to="/ux-projects/pokedex" className="project-card project-link" id="pokedex-card"
+                    data-aos="zoom-in"
+                    data-aos-offset="100"
+                    data-set-delay="1000">
             <img src="pokedex-feature.png" alt="Pokédex" className="card-image"/>
             <h2 className="card-heading">Pokédex</h2>
             <p className="card-body">A simple App using the free PokéAPI and Javascript.</p>
             <p className="card-subheading">API / React JS / Node JS</p>
           </Link>
-          <Link to="/ux-projects/regan-hill-male" className="project-card project-link" id="regan-card">
+          <Link to="/ux-projects/regan-hill-male" className="project-card project-link" id="regan-card"
+                    data-aos="zoom-in"
+                    data-aos-offset="100"
+                    data-set-delay="1000">
             <img src="regan-hill-male-feature.png" alt="Regan Hill-Male" className="card-image"/>
             <h2 className="card-heading">Regan Hill-Male</h2>
             <p className="card-body">Artist shop and portfolio</p>

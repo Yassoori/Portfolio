@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { HashRouter } from "react-router-dom";
 import "./css/App.css";
 import useCustomizer from "./hooks/useCustomizer.jsx";
@@ -7,7 +7,11 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Links from "./Links";
 
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+
 function App() {
+
   const {
     bgColor,
     headingFont,
@@ -30,6 +34,13 @@ function App() {
   }, [bgColor, headingFont, bodyFont, fontColor]);
 
   // console.log(bgColor, headingFont, bodyFont, fontColor);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+    });
+    console.log("AOS initialized");
+  }, []);
 
   return (
     <>

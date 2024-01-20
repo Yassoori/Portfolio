@@ -32,15 +32,23 @@ body {
   color: #303030;
 }
 
+h2,
+h3 {
+  font-size: 22px;
+}
+
+a,
+p,
+div,
+button,
+input {
+  font-size: 16px;
+}
+
 a,
 p {
   text-decoration: none;
-  font-size: 16px;
   color: #303030;
-}
-
-h2 {
-  font-size: 24px;
 }
 
 img {
@@ -60,6 +68,11 @@ button {
   justify-content: flex-start;
   flex-direction: column;
   flex-grow: 1;
+  margin: auto;
+}
+
+.full-container {
+  max-width: 100%;
 }
 
 nav {
@@ -86,6 +99,7 @@ nav .left-nav {
 }
 nav .left-nav #cart,
 nav .left-nav #hamburger-container button {
+  transition: 0.4s;
   width: 30px;
   padding: 6px;
   margin-left: 6px;
@@ -98,7 +112,7 @@ nav .left-nav #hamburger-container button {
 
 #desktop-nav-menu .nav-button,
 .filter a {
-  font-size: 16px;
+  font-size: 18px;
   padding: 6px;
   margin: auto;
   margin-bottom: 10px;
@@ -117,16 +131,18 @@ nav .left-nav #hamburger-container button {
   margin-bottom: 6px;
 }
 
-#mobile-menu-container {
+.mobile-menu-container {
   display: flex;
   position: fixed;
   z-index: 1;
   overflow: hidden;
-  height: 100vh;
+  height: 0;
   width: 100%;
   background: #e6e9eb;
+  opacity: 0;
+  transition: 0.4s ease;
 }
-#mobile-menu-container #mobile-nav-menu {
+.mobile-menu-container #mobile-nav-menu {
   position: absolute;
   top: 20%;
   right: 50%;
@@ -135,17 +151,23 @@ nav .left-nav #hamburger-container button {
   flex-direction: column;
   align-items: center;
 }
-#mobile-menu-container button {
+.mobile-menu-container button {
   margin: 12px;
   width: -moz-fit-content;
   width: fit-content;
 }
-#mobile-menu-container #close-nav-menu {
+.mobile-menu-container #close-nav-menu {
   position: absolute;
   top: 5%;
   right: 5%;
   width: 24px;
   height: 24px;
+}
+
+.menu-open {
+  opacity: 1;
+  transition: 0.4s ease;
+  height: 100vh;
 }
 
 .no-scroll {
@@ -161,6 +183,7 @@ nav .left-nav #hamburger-container button {
   margin-top: 24px;
   margin-bottom: 24px;
   align-items: center;
+  width: 100%;
 }
 #footer p {
   display: flex;
@@ -179,7 +202,6 @@ nav .left-nav #hamburger-container button {
   grid-template-areas: "ux" "art" "photo" "contact";
   justify-content: normal;
   align-items: stretch;
-  max-width: 100%;
   margin: 0;
   color: #e3e3e3;
   text-decoration: none;
@@ -203,7 +225,8 @@ nav .left-nav #hamburger-container button {
   padding: 24px 12px;
   width: 100%;
 }
-#home-container .home-section .home-section-text p, #home-container .home-section .home-section-text h2 {
+#home-container .home-section .home-section-text p,
+#home-container .home-section .home-section-text h2 {
   visibility: hidden;
   opacity: 0;
   height: 0;
@@ -220,7 +243,8 @@ nav .left-nav #hamburger-container button {
   height: 100%;
   border-radius: 12px;
 }
-#home-container .home-section:hover p, #home-container .home-section:hover h2 {
+#home-container .home-section:hover p,
+#home-container .home-section:hover h2 {
   visibility: visible;
   opacity: 1;
   height: 48px;
@@ -277,10 +301,20 @@ nav .left-nav #hamburger-container button {
   margin: 12px;
   max-width: 90%;
   min-width: 40%;
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
 .series-description h2 {
   text-align: left;
   margin-bottom: 12px;
+}
+
+.expanded {
+  height: 200px;
+  opacity: 1;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
 
 .card-container {
@@ -318,7 +352,6 @@ nav .left-nav #hamburger-container button {
 .card-container .product-card .product-overlay h2,
 .card-container .product-card .product-overlay div {
   text-align: center;
-  font-size: 16px;
 }
 .card-container .product-card a {
   color: #303030;
@@ -362,9 +395,77 @@ nav .left-nav #hamburger-container button {
   grid-area: regan;
 }
 
-@media screen and (min-width: 660px) {
-  .container {
-    margin: auto;
+.left-container {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+}
+.left-container .product-image {
+  max-height: 80vh;
+  max-width: 100%;
+  margin-bottom: 12px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.right-container {
+  padding: 12px;
+}
+.right-container .product-heading {
+  display: flex;
+  justify-content: space-between;
+}
+.right-container .title,
+.right-container .price {
+  margin-bottom: 12px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.right-container .add-to-cart {
+  width: 100%;
+  text-align: center;
+  padding: 6px;
+  color: #e3e3e3;
+  margin: 12px;
+  margin-bottom: 48px;
+  background-color: #303030;
+}
+.right-container .add-to-cart:hover {
+  opacity: 0.8;
+  transition: 0.4s;
+}
+.right-container .add-to-cart:active {
+  opacity: 0.6;
+  transition: 0.2s;
+}
+.right-container .short-description {
+  margin-top: 24px;
+}
+
+.lower-container {
+  padding: 12px;
+}
+
+@media screen and (min-width: 812px) {
+  h2, h3 {
+    font-size: 24px;
+  }
+  a, p, div, button, input {
+    font-size: 18px;
+  }
+  .single-container {
+    max-width: 80%;
+  }
+  .double-container {
+    max-width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 24px;
+  }
+  .full-container {
+    max-width: 100%;
+    margin: 0;
   }
   nav {
     padding: 0 48px;
@@ -397,9 +498,6 @@ nav .left-nav #hamburger-container button {
   #home-container {
     grid-template-areas: "ux ux" "art photo" "contact contact";
   }
-  #art-container {
-    width: 80%;
-  }
   .filter {
     margin: 12px;
     justify-content: flex-end;
@@ -422,15 +520,38 @@ nav .left-nav #hamburger-container button {
     transition: 0.2s ease;
   }
   .card-container .filtered {
-    max-width: 45%;
+    max-width: 30%;
     min-width: 20%;
     transition: 0.2s ease;
   }
   .card-container .product-overlay h2 {
-    font-size: 24px;
+    font-size: 18px;
+  }
+  .left-container,
+  figure {
+    width: 64%;
+    justify-content: end;
+  }
+  .right-container,
+  .about-bio {
+    width: 34%;
+    display: flex;
+    flex-direction: column;
+  }
+  .right-container .product-heading,
+  .about-bio .product-heading {
+    display: inline;
+  }
+  .right-container .title, .right-container .price,
+  .about-bio .title,
+  .about-bio .price {
+    margin-bottom: 24px;
   }
 }
 @media screen and (min-width: 992px) {
+  .single-container {
+    max-width: 40%;
+  }
   nav {
     padding: 0 48px;
   }
@@ -440,9 +561,29 @@ nav .left-nav #hamburger-container button {
   .series-description {
     max-width: 65%;
   }
-  .card-container .filtered {
-    max-width: 30%;
-    min-width: 20%;
-    transition: 0.2s ease;
+  .left-container,
+  figure {
+    width: 54%;
+    display: flex;
+    justify-content: end;
+  }
+  .right-container,
+  .about-bio {
+    width: 44%;
+    display: flex;
+    flex-direction: column;
+  }
+  .right-container .product-heading,
+  .about-bio .product-heading {
+    display: flex;
+    justify-content: space-between;
+  }
+  .right-container .title, .right-container .price,
+  .about-bio .title,
+  .about-bio .price {
+    margin-bottom: 24px;
+  }
+  .lower-container {
+    padding: 0 48px;
   }
 }/*# sourceMappingURL=App.css.map */

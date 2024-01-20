@@ -1,9 +1,29 @@
-@media screen and (min-width: 660px) {
+@media screen and (min-width: 812px) {
   // ----- All Tablet -----
 
-  .container {
-    // max-width: 80%;
-    margin: auto;
+  h2, h3 {
+    font-size: $sub-size;
+  }
+  
+  a, p, div, button, input {
+    font-size: $body-size;
+  }
+
+  .single-container {
+    max-width: 80%;
+  }
+
+  .double-container {
+    max-width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: $big-margin;
+  }
+
+  .full-container {
+    max-width: 100%;
+    margin: 0;
   }
 
   // -------- Nav --------
@@ -73,10 +93,6 @@
 
   // -------- Art --------
 
-  #art-container {
-    width: 80%;
-  }
-
   .filter {
     margin: $med-margin;
     // display: block;
@@ -101,14 +117,36 @@
       transition: 0.2s ease;
     }
     .filtered {
-      max-width: 45%;
+      max-width: 30%;
       min-width: 20%;
       transition: 0.2s ease;
     }
     .product-overlay {
       h2 {
-        font-size: $sub-size;
+        font-size: $mob-sub-size;
       }
     }
   }
+
+    // -------- Product --------
+
+    .left-container,
+    figure {
+        width: 64%;
+        justify-content: end;
+    }
+    .right-container,
+    .about-bio {
+      width: 34%;
+      display: flex;
+      flex-direction: column;
+
+      .product-heading {
+        display: inline;
+      }
+    
+      .title, .price {
+        margin-bottom: $big-margin;
+      }
+    }
 }

@@ -3,8 +3,8 @@ import axios from "axios";
 import Loading from "../components/Loading";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 
 const productsUrl = import.meta.env.VITE_WC_PRODUCTS_URL;
 
@@ -15,7 +15,6 @@ const Art = () => {
   const [filter, setFilter] = useState(null);
   const [series, setSeries] = useState(null);
   const [description, setDescription] = useState(null);
-  
 
   useEffect(() => {
     axios
@@ -37,12 +36,6 @@ const Art = () => {
       setFilteredProducts(filtered);
     }
   }, [filter, products]);
-
-  // useEffect(() => {
-  //   AOS.init({
-  //     duration: 1000,
-  //   });
-  // }, []);  
 
   const handleFilterClick = (selectedFilter) => {
     // // ---- This version resets on reclick
@@ -134,12 +127,12 @@ const Art = () => {
       const productCardClasses = `product-card${isFiltered ? " filtered" : ""}`;
 
       return (
-        <div 
-        key={product.slug + "_" + index} 
-        className={productCardClasses} 
-        // data-aos="zoom-in-down"
-        // data-aos-offset="100"
-        // ref={aosContainerRef}
+        <div
+          key={product.slug + "_" + index}
+          className={productCardClasses}
+          data-aos="zoom-in"
+          data-aos-offset="100"
+          data-set-delay="1000"
         >
           <Link className="product-link" to={`/product/${product.id}`}>
             <img src={product.images[0].src} alt={product.name} />
@@ -151,12 +144,12 @@ const Art = () => {
                   {/* {" "}
                     {product.prices.currency_code} */}
                 </h2>
-                <div
+                {/* <div
                   className="short-description"
                   dangerouslySetInnerHTML={{
                     __html: product.short_description,
                   }}
-                />
+                /> */}
               </div>
             </div>
           </Link>
@@ -225,7 +218,7 @@ const Art = () => {
         <div className="structure-alone-feature"></div>
         <div className="other-feature"></div>
         </div> */}
-        <div className="series-description">
+        <div className={`series-description ${description ? "expanded" : ""}`}>
           <h2>{series}</h2>
           <p>{description}</p>
         </div>

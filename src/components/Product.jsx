@@ -18,7 +18,7 @@ const Product = () => {
     axios
       .get(`${endpoint}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setProduct(res.data);
         const loader = setTimeout(() => setLoading(false), 1000);
       })
@@ -39,16 +39,31 @@ const Product = () => {
   return (
     <div id="shop-page" className="container double-container">
       <div className="left-container">
-        <img src={product.images[0].src} alt={product.name} />
+        <img
+          src={product.images[0].src}
+          alt={product.name}
+          className="product-image"
+        />
       </div>
       <div className="right-container">
-        <h2 className="title">{product.name}</h2>
-        <h2 className="price">
-          ${(parseFloat(product.prices.price) / 100).toFixed(2)}{/*{" "}*/}
-          {/* {product.prices.currency_code} */}
-        </h2>
+        <div className="product-heading">
+          <h2 className="title">{product.name}</h2>
+          <h2 className="price">
+            ${(parseFloat(product.prices.price) / 100).toFixed(2)}
+            {/*{" "}*/}
+            {/* {product.prices.currency_code} */}
+          </h2>
+        </div>
+        <button className="add-to-cart">Add to Cart</button>        
+        <div
+          className="short-description"
+          dangerouslySetInnerHTML={{
+            __html: product.short_description,
+          }}
+        />
+      </div>
+      <div className="lower-container">
         <div dangerouslySetInnerHTML={{ __html: product.description }} />
-        <button>Add to Cart</button>
       </div>
     </div>
   );

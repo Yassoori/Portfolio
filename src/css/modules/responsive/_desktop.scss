@@ -1,6 +1,10 @@
 @media screen and (min-width: 992px) {
   // ----- All Desktop -----
 
+  .single-container {
+    max-width: 40%;
+  }
+
   // -------- Nav --------
 
   nav {
@@ -13,11 +17,12 @@
     grid-template-areas:
       // "about ux art"
       // "photo blog contact"
+
       "ux art photo"
       "ux art photo"
       "contact contact contact"
       // "about about contact"
-      ;
+;
   }
 
   // -------- Art --------
@@ -27,17 +32,30 @@
     // height: 8.5em;
   }
 
-  .card-container {
-    // .product-card {
-    //   max-width: 15%;
-    //   min-width: 5%;
-    //   margin: $med-margin;
-    //   transition: 0.2s ease;
-    // }
-    .filtered {
-      max-width: 30%;
-      min-width: 20%;
-      transition: 0.2s ease;
+  // -------- Product --------
+
+  .left-container,
+  figure {
+      width: 54%;
+      display: flex;
+      justify-content: end;
+  }
+  .right-container,
+  .about-bio {
+    width: 44%;
+    display: flex;
+    flex-direction: column;
+
+    .product-heading {
+      display: flex;
+      justify-content: space-between;
     }
+  
+    .title, .price {
+      margin-bottom: $big-margin;
+    }
+  }
+  .lower-container {
+    padding: 0 $very-big-margin;
   }
 }

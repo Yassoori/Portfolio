@@ -34,6 +34,24 @@ const Header = () => {
     fetchNavLogo();
   }, []);
 
+  const closeMobileMenu = () => {
+    openMenu(false);
+    document.body.classList.remove("no-scroll");
+  };
+
+  const handleWindowResize = () => {
+    if (window.innerWidth > 660) {
+      closeMobileMenu();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowResize);
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
   const toggleMobileMenu = () => {
     openMenu(!menuIsOpen);
     document.body.classList.toggle("no-scroll");
@@ -54,7 +72,7 @@ const Header = () => {
 
   const handleNavClick = (navItem) => {
     setActiveNavItem(navItem);
-    toggleMobileMenu();
+    // toggleMobileMenu();
   };
 
   return (
@@ -153,7 +171,7 @@ const Header = () => {
         </div>
       </nav>
       )}
-      {menuIsOpen && <MobileMenu closeMethod={toggleMobileMenu} />}
+      <MobileMenu closeMethod={toggleMobileMenu} isOpen={menuIsOpen}/>
     </>
   );
 };

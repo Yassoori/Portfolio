@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const baseUrl = import.meta.env.VITE_WP_BASEURL;
 
 const Home = () => {
+  
   return (
     <>
       <Helmet>
@@ -18,7 +19,7 @@ const Home = () => {
           content="Facebook Open Graph Meta Tag example"
         />
       </Helmet>
-      <div className="container" id="home-container">
+      <div className="container full-container" id="home-container">
         {/* <h1>Yasser Saeed</h1> */}
         {/* <div className="home-section home-about-section">
           <Link to="/about">
@@ -29,33 +30,48 @@ const Home = () => {
             </div>
           </Link>
         </div> */}
-        <div className="home-section home-ux-section">
+        <div
+          className="home-section home-ux-section"
+          data-aos="zoom-in"
+          data-aos-offset="100"
+          data-set-delay="1000"
+        >
           <Link to="/ux-projects">
-            <img src="/public/home-ux3.png" alt="" />
+            <img src="/home-ux3.png" alt="" />
             <div className="home-section-text">
-            <h2>Hire Me!!! I need job</h2>
-            <h3>UX and Web Projects</h3>
-            <p>01011100001011</p>
+              <h2>Hire Me!!! I need job</h2>
+              <h3>UX and Web Projects</h3>
+              <p>01011100001011</p>
             </div>
           </Link>
         </div>
-        <div className="home-section home-art-section">
+        <div
+          className="home-section home-art-section"
+          data-aos="zoom-in"
+          data-aos-offset="100"
+          data-set-delay="1000"
+        >
           <Link to="/art">
-            <img src="/public/home-art.jpeg" alt="" />
+            <img src="/home-art.jpeg" alt="" />
             <div className="home-section-text">
-            <h2></h2>
-            <h3>Art</h3>
-            <p>I've won awards for this</p>
+              <h2></h2>
+              <h3>Art</h3>
+              <p>I've won awards for this</p>
             </div>
           </Link>
         </div>
-        <div className="home-section home-photography-section">
+        <div
+          className="home-section home-photography-section"
+          data-aos="zoom-in"
+          data-aos-offset="100"
+          data-set-delay="1000"
+        >
           <Link to="/photography">
-            <img src="/public/home-photo.jpg" alt="" />
+            <img src="/home-photo2.jpg" alt="" />
             <div className="home-section-text">
-            <h2></h2>
-            <h3>Photography</h3>
-            <p>smile!</p>
+              <h2></h2>
+              <h3>Photography</h3>
+              <p>smile!</p>
             </div>
           </Link>
         </div>
@@ -67,15 +83,18 @@ const Home = () => {
             <p>My thoughts and rants</p>
           </Link>
         </div> */}
-        <div className="home-section home-contact-section">
+        <div
+          className="home-section home-contact-section"
+          data-aos="zoom-in"
+          data-aos-offset="100"
+          data-set-delay="1000"
+        >
           <Link to="/contact">
             <img src="" alt="" />
             <div className="home-section-text">
-            <h2></h2>
-            <h3>Contact me</h3>
-            <p>
-              Lets grab a coffee
-            </p>
+              <h2></h2>
+              <h3>Contact me</h3>
+              <p>Lets grab a coffee</p>
             </div>
           </Link>
         </div>

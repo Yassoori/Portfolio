@@ -5,15 +5,23 @@ body {
   color: $text-dark;
 }
 
+h2,
+h3 {
+  font-size: $mob-head-size;
+}
+
+a,
+p,
+div,
+button,
+input {
+  font-size: $mob-body-size;
+}
+
 a,
 p {
   text-decoration: none;
-  font-size: $body-size;
   color: $text-dark;
-}
-
-h2 {
-  font-size: $sub-size;
 }
 
 img {
@@ -33,6 +41,12 @@ button {
   justify-content: flex-start;
   flex-direction: column;
   flex-grow: 1;
+  margin: auto;
+  // min-height: calc(100vh - 115px);
+}
+
+.full-container {
+  max-width: 100%;
 }
 
 // -------- Nav --------
@@ -64,6 +78,7 @@ nav {
 
     #cart,
     #hamburger-container button {
+      transition: 0.4s;
       width: 30px;
       padding: $small-margin;
       margin-left: $small-margin;
@@ -97,7 +112,7 @@ nav {
   margin-bottom: $small-margin;
 }
 
-#mobile-menu-container {
+.mobile-menu-container {
   display: flex;
   // flex-direction: column;
   // justify-content: center;
@@ -105,9 +120,13 @@ nav {
   position: fixed;
   z-index: 1;
   overflow: hidden;
-  height: 100vh;
+  // height: 100vh;
+  height: 0;
   width: 100%;
   background: $bg-light;
+
+  opacity: 0;
+  transition: 0.4s ease;
 
   #mobile-nav-menu {
     position: absolute;
@@ -133,6 +152,12 @@ nav {
   }
 }
 
+.menu-open {
+  opacity: 1;
+  transition: 0.4s ease;
+  height: 100vh;
+}
+
 .no-scroll {
   overflow: hidden;
   position: fixed;
@@ -148,6 +173,11 @@ nav {
   margin-top: $big-margin;
   margin-bottom: $big-margin;
   align-items: center;
+  // position: absolute;
+  // bottom: 0;
+  width: 100%;
+  // left: 50%;
+  // transform: translate(-50%, 0%);
 
   p {
     display: flex;
@@ -169,6 +199,7 @@ nav {
   display: grid;
   grid-template-areas:
     // "about"
+
     "ux"
     "art"
     "photo"
@@ -176,7 +207,6 @@ nav {
     "contact";
   justify-content: normal;
   align-items: stretch;
-  max-width: 100%;
   // height: 80vh;
   margin: 0;
 
@@ -194,7 +224,7 @@ nav {
     }
 
     .home-section-text {
-      background-color: $text-dark+b0;
+      background-color: $text-dark + b0;
       position: absolute;
       // bottom: $med-margin;
       // left: $med-margin;
@@ -203,7 +233,8 @@ nav {
       padding: $big-margin $med-margin;
       width: 100%;
 
-      p, h2 {
+      p,
+      h2 {
         // display: none;
         visibility: hidden;
         opacity: 0;
@@ -232,7 +263,8 @@ nav {
   }
 
   .home-section:hover {
-    p, h2 {
+    p,
+    h2 {
       // display: block;
       visibility: visible;
       opacity: 1;
@@ -240,7 +272,6 @@ nav {
       height: $very-big-margin;
     }
   }
-
 
   .home-about-section {
     background-color: $card-about;
@@ -255,7 +286,6 @@ nav {
     grid-area: ux;
     img {
       object-position: 50% 0%;
-
     }
   }
   .home-art-section {
@@ -314,12 +344,22 @@ nav {
   margin: $med-margin;
   max-width: 90%;
   min-width: 40%;
-  // transition: 0.2s ease;
+
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
 
   h2 {
     text-align: left;
     margin-bottom: $med-margin;
   }
+}
+
+.expanded {
+  height: 200px;
+  opacity: 1;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
 
 .card-container {
@@ -350,7 +390,7 @@ nav {
       opacity: 0;
       // transition: 0.5s ease;
       transition: height 0.4s, opacity 0.4s linear;
-      background-color: $bg-light+b0;
+      background-color: $bg-light + b0;
       // background-color: $text-dark+b0;
       display: flex;
       align-items: center;
@@ -366,7 +406,6 @@ nav {
       h2,
       div {
         text-align: center;
-        font-size: $mob-sub-size;
       }
     }
 
@@ -384,7 +423,8 @@ nav {
     height: 100%;
     visibility: visible;
     opacity: 1;
-    transition: height 0.4s, opacity 0.4s linear;  }
+    transition: height 0.4s, opacity 0.4s linear;
+  }
 }
 
 // -------- UX --------
@@ -392,10 +432,9 @@ nav {
 .project-card-container {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-areas: 
+  grid-template-areas:
     "burger aurea"
-    "pokedex regan"
-  ;
+    "pokedex regan";
   justify-content: normal;
   align-items: stretch;
   max-width: 100%;
@@ -422,4 +461,55 @@ nav {
   #regan-card {
     grid-area: regan;
   }
+}
+
+// ----- Product -----
+
+.left-container {
+  padding: $med-margin;
+  display: flex;
+  justify-content: center;
+  .product-image {
+    max-height: 80vh;
+    max-width: 100%;
+    margin-bottom: $med-margin;
+    object-fit: cover;
+  }
+}
+
+.right-container {
+  padding: $med-margin;
+  .product-heading {
+    display: flex;
+    justify-content: space-between;
+  }
+  .title,
+  .price {
+    margin-bottom: $med-margin;
+    width: fit-content;
+  }
+  .add-to-cart {
+    width: 100%;
+    text-align: center;
+    padding: $small-margin;
+    color: $text-light;
+    margin: $med-margin;
+    margin-bottom: $very-big-margin;
+    background-color: $card-dark;
+  }
+  .add-to-cart:hover {
+    opacity: 0.8;
+    transition: 0.4s;
+  }
+  .add-to-cart:active {
+    opacity: 0.6;
+    transition: 0.2s;
+  }
+  .short-description {
+    margin-top: $big-margin;
+  }
+}
+
+.lower-container {
+  padding: $med-margin;
 }

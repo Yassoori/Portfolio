@@ -1,13 +1,14 @@
 import {Link} from 'react-router-dom'
 import { X } from 'react-bootstrap-icons'
 
-const MobileMenu = ({closeMethod}) => {
+const MobileMenu = ({closeMethod, isOpen}) => {
   const handleNavClick = () => {
-    closeMethod(); // Close the mobile menu when a navigation button is clicked
+    closeMethod();
   };
 
   return (
-    <div id="mobile-menu-container">
+    // <div className="mobile-menu-container">
+    <div className={`mobile-menu-container ${isOpen ? 'menu-open' : ''}`}>
       <button id='close-nav-menu' onClick={closeMethod}>
         <X />
       </button>
