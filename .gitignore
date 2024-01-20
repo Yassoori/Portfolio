@@ -1,6 +1,5 @@
 *.env
 .env-development
-not-code/
 
 # Logs
 logs
