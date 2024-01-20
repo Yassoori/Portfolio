@@ -15,23 +15,23 @@ if (location.pathname === "/") {
       <div id="social-media-icons">
         <a href="https://www.instagram.com/yassoori_photography/">
           {/* <img src="/iconinstagram.png" alt="Instagram" /> */}
-          <FontAwesomeIcon icon={faInstagram} size="lg" style={{color: "#000000",}} />        
+          <FontAwesomeIcon icon={faInstagram} size="lg" style={{color: "#303030",}} />        
         </a>
         <a href="https://www.facebook.com/Yasser.Saeed.Artist/">
           {/* <img src="/iconfacebook.png" alt="Facebook" /> */}
-          <FontAwesomeIcon icon={faFacebook} size="lg" style={{color: "#000000",}}/>
+          <FontAwesomeIcon icon={faFacebook} size="lg" style={{color: "#303030",}}/>
         </a>
         <a href="https://www.linkedin.com/in/yasserasaeed/">
           {/* <img src="/iconlinkedin.png" alt="LinkedIn" /> */}
-          <FontAwesomeIcon icon={faLinkedin} size="lg" style={{color: "#000000",}}/>
+          <FontAwesomeIcon icon={faLinkedin} size="lg" style={{color: "#303030",}}/>
         </a>
         <a href="https://github.com/Yassoori/">
           {/* <img src="/icongithub.png" alt="Github" /> */}
-          <FontAwesomeIcon icon={faGithub} size="lg" style={{color: "#000000",}}/>
+          <FontAwesomeIcon icon={faGithub} size="lg" style={{color: "#303030",}}/>
         </a>
         <a href="mailto: yasserasaeed@gmail.com">
           {/* <img src="/iconemail.png" alt="E-mail" /> */}
-          <FontAwesomeIcon icon={faEnvelope} size="lg" style={{color: "#000000",}}/>
+          <FontAwesomeIcon icon={faEnvelope} size="lg" style={{color: "#303030",}}/>
         </a>
       </div>
       <p className="contact-info">Phone: +6421 0268 1118</p>

@@ -29,7 +29,10 @@ const MobileMenu = ({closeMethod, isOpen}) => {
           <Link to="/about">About</Link>
         </button>
         <button className="mob-nav-button contact-nav-button" onClick={handleNavClick}>
-          <Link to="/contact">Contact</Link>
+          <Link
+            to="/contact"
+            // to="/about#contact"
+          >Contact</Link>
         </button>
           </div>
     </div>

@@ -11,7 +11,7 @@ const baseUrl = import.meta.env.VITE_WP_BASEURL;
 const Header = () => {
   const [menuIsOpen, openMenu] = useState(false);
   const [logoUrl, setLogoUrl] = useState("");
-  const [activeNavItem, setActiveNavItem] = useState(""); // Add this line
+  const [activeNavItem, setActiveNavItem] = useState("");
   const location = useLocation();
 
   useEffect(() => {
@@ -135,6 +135,7 @@ const Header = () => {
 
             <Link
               to="/contact"
+              // to="/about#contact"
               className={`nav-button contact-nav-button ${
                 activeNavItem === "contact" ? "active" : ""
               }`}
@@ -144,12 +145,12 @@ const Header = () => {
             </Link>
           </div>
           {/* <img src="/iconbag.png" alt="Cart" id="cart"/> */}
-          <FontAwesomeIcon
+          {/* <FontAwesomeIcon
             icon={faBagShopping}
             size="lg"
-            style={{ color: "#000000" }}
+            style={{ color: "#303030" }}
             id="cart"
-          />
+          /> */}
           {/* Hamburger on Mobile */}
           <div id="hamburger-container">
             {/* <div id="nav-icon3 menu-button"

@@ -1,32 +1,42 @@
 @media screen and (min-width: 812px) {
-  // ----- All Tablet -----
+  // ------------------------ All Tablet ------------------------
 
-  h2, h3 {
+  h2,
+  h3 {
     font-size: $sub-size;
   }
-  
-  a, p, div, button, input {
+
+  a,
+  p,
+  div,
+  button,
+  input,
+  textarea {
     font-size: $body-size;
   }
 
   .single-container {
-    max-width: 80%;
+    width: 60%;
   }
 
   .double-container {
-    max-width: 80%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    width: 80%;
     padding: $big-margin;
   }
 
-  .full-container {
-    max-width: 100%;
-    margin: 0;
+  .double-container,
+  .single-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 
-  // -------- Nav --------
+  .full-container {
+    width: 90%;
+    margin: auto;
+  }
+
+  // ------------------------ Nav ------------------------
 
   nav {
     padding: 0 $very-big-margin;
@@ -54,7 +64,7 @@
     display: none;
   }
 
-  // ----- Footer -----
+  // ------------------------ Footer ------------------------
 
   #footer {
     #social-media-icons {
@@ -65,9 +75,9 @@
     }
   }
 
-  // -------- Home --------
+  // ------------------------ Home ------------------------
 
-  #home-container {
+  #home-page {
     grid-template-areas:
     //   "about ux"
     //   "art photo"
@@ -91,7 +101,7 @@
     // }
   }
 
-  // -------- Art --------
+  // ------------------------ Art ------------------------
 
   .filter {
     margin: $med-margin;
@@ -106,6 +116,10 @@
 
   .series-description {
     max-width: 70%;
+  }
+
+  .expanded {
+    height: 240px;
   }
 
   .card-container {
@@ -128,25 +142,36 @@
     }
   }
 
-    // -------- Product --------
+  // ------------------------ Product ------------------------
 
-    .left-container,
-    figure {
-        width: 64%;
-        justify-content: end;
+  .left-container,
+  figure {
+    width: 64%;
+    justify-content: end;
+  }
+  .right-container,
+  .about-bio {
+    width: 34%;
+    display: flex;
+    flex-direction: column;
+
+    .product-heading {
+      display: inline;
     }
-    .right-container,
-    .about-bio {
-      width: 34%;
-      display: flex;
-      flex-direction: column;
 
-      .product-heading {
-        display: inline;
-      }
-    
-      .title, .price {
-        margin-bottom: $big-margin;
-      }
+    .title,
+    .price {
+      margin-bottom: $big-margin;
+    }
+  }
+
+  // ------------------------ UX ------------------------
+
+    .project-card-container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+        "burger aurea"
+        "pokedex regan";
     }
 }

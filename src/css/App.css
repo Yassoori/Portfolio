@@ -32,6 +32,16 @@ body {
   color: #303030;
 }
 
+a,
+p {
+  text-decoration: none;
+  color: #303030;
+}
+
+img {
+  color: #303030;
+}
+
 h2,
 h3 {
   font-size: 22px;
@@ -41,18 +51,41 @@ a,
 p,
 div,
 button,
-input {
+input,
+textarea {
   font-size: 16px;
 }
 
-a,
-p {
-  text-decoration: none;
-  color: #303030;
+input,
+textarea,
+button {
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  text-align: start;
+  margin-bottom: 12px;
+  min-height: 36px;
 }
 
-img {
-  color: #303030;
+textarea {
+  resize: vertical;
+  overflow: auto;
+}
+
+.regular-button {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.regular-button:hover {
+  opacity: 0.8;
+  transition: 0.4s;
+}
+
+.regular-button:active {
+  opacity: 0.6;
+  transition: 0.2s;
 }
 
 button {
@@ -72,7 +105,14 @@ button {
 }
 
 .full-container {
-  max-width: 100%;
+  width: 100%;
+}
+
+#home-page,
+#ux-page,
+#photo-page {
+  width: 100%;
+  margin: 0;
 }
 
 nav {
@@ -197,27 +237,28 @@ nav .left-nav #hamburger-container button {
   margin: 0 12px;
 }
 
-#home-container {
+#home-page {
   display: grid;
   grid-template-areas: "ux" "art" "photo" "contact";
   justify-content: normal;
   align-items: stretch;
+  width: 100%;
   margin: 0;
   color: #e3e3e3;
   text-decoration: none;
 }
-#home-container .home-section {
+#home-page .home-section {
   margin: 12px;
   border-radius: 12px;
   border: none;
   position: relative;
   min-height: 80px;
 }
-#home-container .home-section a,
-#home-container .home-section p {
+#home-page .home-section a,
+#home-page .home-section p {
   color: #e3e3e3;
 }
-#home-container .home-section .home-section-text {
+#home-page .home-section .home-section-text {
   background-color: #303030b0;
   position: absolute;
   border-radius: 12px;
@@ -225,14 +266,14 @@ nav .left-nav #hamburger-container button {
   padding: 24px 12px;
   width: 100%;
 }
-#home-container .home-section .home-section-text p,
-#home-container .home-section .home-section-text h2 {
+#home-page .home-section .home-section-text p,
+#home-page .home-section .home-section-text h2 {
   visibility: hidden;
   opacity: 0;
   height: 0;
   transition: height 0.4s, opacity 0.4s linear;
 }
-#home-container .home-section img {
+#home-page .home-section img {
   position: absolute;
   overflow: hidden;
   -o-object-fit: cover;
@@ -243,41 +284,41 @@ nav .left-nav #hamburger-container button {
   height: 100%;
   border-radius: 12px;
 }
-#home-container .home-section:hover p,
-#home-container .home-section:hover h2 {
+#home-page .home-section:hover p,
+#home-page .home-section:hover h2 {
   visibility: visible;
   opacity: 1;
   height: 48px;
 }
-#home-container .home-about-section {
+#home-page .home-about-section {
   background-color: #f8f8f8;
   grid-area: about;
 }
-#home-container .home-about-section a,
-#home-container .home-about-section p {
+#home-page .home-about-section a,
+#home-page .home-about-section p {
   color: #303030;
 }
-#home-container .home-ux-section {
+#home-page .home-ux-section {
   background-color: #4e4c54;
   grid-area: ux;
 }
-#home-container .home-ux-section img {
+#home-page .home-ux-section img {
   -o-object-position: 50% 0%;
      object-position: 50% 0%;
 }
-#home-container .home-art-section {
+#home-page .home-art-section {
   background-color: #472635;
   grid-area: art;
 }
-#home-container .home-photography-section {
+#home-page .home-photography-section {
   background-color: #2f3e50;
   grid-area: photo;
 }
-#home-container .home-blog-section {
+#home-page .home-blog-section {
   background-color: #2a4939;
   grid-area: blog;
 }
-#home-container .home-contact-section {
+#home-page .home-contact-section {
   background-color: #2f2f2f;
   grid-area: contact;
 }
@@ -304,7 +345,7 @@ nav .left-nav #hamburger-container button {
   overflow: hidden;
   height: 0;
   opacity: 0;
-  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  transition: height 0.8s ease-in-out, opacity 0.4s ease-in-out;
 }
 .series-description h2 {
   text-align: left;
@@ -312,9 +353,10 @@ nav .left-nav #hamburger-container button {
 }
 
 .expanded {
-  height: 200px;
+  height: 300px;
   opacity: 1;
-  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  transition: height 0.4s ease-in-out, opacity 0.8s ease-in-out;
+  overflow: scroll;
 }
 
 .card-container {
@@ -366,13 +408,52 @@ nav .left-nav #hamburger-container button {
   transition: height 0.4s, opacity 0.4s linear;
 }
 
+.left-container {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+}
+.left-container img {
+  max-height: 80vh;
+  max-width: 100%;
+  margin-bottom: 12px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.right-container {
+  padding: 12px;
+}
+.right-container .product-heading {
+  display: flex;
+  justify-content: space-between;
+}
+.right-container .title,
+.right-container .price,
+.right-container p {
+  margin-bottom: 12px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.right-container #add-to-cart {
+  color: #e3e3e3;
+  background-color: #303030;
+}
+.right-container .short-description {
+  margin-top: 24px;
+}
+
+.lower-container {
+  padding: 12px;
+  display: flex;
+}
+
 .project-card-container {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-areas: "burger aurea" "pokedex regan";
+  grid-template-areas: "burger" "aurea" "pokedex" "regan";
   justify-content: normal;
-  align-items: stretch;
   max-width: 100%;
+  height: 75vh;
 }
 .project-card-container .project-card {
   margin: 12px;
@@ -395,77 +476,85 @@ nav .left-nav #hamburger-container button {
   grid-area: regan;
 }
 
-.left-container {
-  padding: 12px;
-  display: flex;
-  justify-content: center;
-}
-.left-container .product-image {
-  max-height: 80vh;
-  max-width: 100%;
-  margin-bottom: 12px;
-  -o-object-fit: cover;
-     object-fit: cover;
+#about-photo {
+  max-width: 70%;
 }
 
-.right-container {
-  padding: 12px;
+.lower-container h2 {
+  position: absolute;
 }
-.right-container .product-heading {
-  display: flex;
-  justify-content: space-between;
+.lower-container .left-exhibitions,
+.lower-container .right-exhibitions {
+  margin-top: 48px;
 }
-.right-container .title,
-.right-container .price {
+.lower-container .left-exhibitions h3,
+.lower-container .left-exhibitions p,
+.lower-container .right-exhibitions h3,
+.lower-container .right-exhibitions p {
   margin-bottom: 12px;
-  width: -moz-fit-content;
-  width: fit-content;
 }
-.right-container .add-to-cart {
+.lower-container .left-exhibitions {
+  margin-right: 12px;
+}
+.lower-container .right-exhibitions {
+  margin-left: 12px;
+}
+
+#contact-page {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+}
+#contact-page h2,
+#contact-page p {
+  margin-bottom: 6px;
+}
+#contact-page p {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+#contact-page form {
   width: 100%;
-  text-align: center;
-  padding: 6px;
+}
+#contact-page form textarea {
+  min-height: 108px;
+}
+#contact-page form #submit-button {
+  background: #303030;
   color: #e3e3e3;
-  margin: 12px;
-  margin-bottom: 48px;
-  background-color: #303030;
-}
-.right-container .add-to-cart:hover {
-  opacity: 0.8;
-  transition: 0.4s;
-}
-.right-container .add-to-cart:active {
-  opacity: 0.6;
-  transition: 0.2s;
-}
-.right-container .short-description {
-  margin-top: 24px;
-}
-
-.lower-container {
-  padding: 12px;
+  text-align: center;
 }
 
 @media screen and (min-width: 812px) {
-  h2, h3 {
+  h2,
+  h3 {
     font-size: 24px;
   }
-  a, p, div, button, input {
+  a,
+  p,
+  div,
+  button,
+  input,
+  textarea {
     font-size: 18px;
   }
   .single-container {
-    max-width: 80%;
+    width: 60%;
   }
   .double-container {
-    max-width: 80%;
+    width: 80%;
+    padding: 24px;
+  }
+  .double-container,
+  .single-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 24px;
   }
   .full-container {
-    max-width: 100%;
-    margin: 0;
+    width: 90%;
+    margin: auto;
   }
   nav {
     padding: 0 48px;
@@ -495,7 +584,7 @@ nav .left-nav #hamburger-container button {
   #footer #social-media-icons a {
     margin: 0 24px;
   }
-  #home-container {
+  #home-page {
     grid-template-areas: "ux ux" "art photo" "contact contact";
   }
   .filter {
@@ -509,6 +598,9 @@ nav .left-nav #hamburger-container button {
   }
   .series-description {
     max-width: 70%;
+  }
+  .expanded {
+    height: 240px;
   }
   .card-container {
     align-items: center;
@@ -542,24 +634,33 @@ nav .left-nav #hamburger-container button {
   .about-bio .product-heading {
     display: inline;
   }
-  .right-container .title, .right-container .price,
+  .right-container .title,
+  .right-container .price,
   .about-bio .title,
   .about-bio .price {
     margin-bottom: 24px;
   }
+  .project-card-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: "burger aurea" "pokedex regan";
+  }
 }
 @media screen and (min-width: 992px) {
   .single-container {
-    max-width: 40%;
+    width: 40%;
   }
   nav {
     padding: 0 48px;
   }
-  #home-container {
+  #home-page {
     grid-template-areas: "ux art photo" "ux art photo" "contact contact contact";
   }
   .series-description {
     max-width: 65%;
+  }
+  .expanded {
+    height: 200px;
   }
   .left-container,
   figure {

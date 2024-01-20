@@ -76,7 +76,7 @@ const UX = () => {
           content="Facebook Open Graph Meta Tag example"
         />
       </Helmet>
-      <div className="container full-container">
+      <div id="photo-page" className="container full-container">
         <div className="photo-types-card-container">
           {/* {loading ? <Loading /> : <PhotoTypes photoTypes={photoTypes} />} */}
           <Link to="/photography/weddings" className="photo-type-card photo-type-link">

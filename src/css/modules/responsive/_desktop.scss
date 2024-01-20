@@ -1,19 +1,19 @@
 @media screen and (min-width: 992px) {
-  // ----- All Desktop -----
+  // ------------------------ All Desktop ------------------------
 
   .single-container {
-    max-width: 40%;
+    width: 40%;
   }
 
-  // -------- Nav --------
+  // ------------------------ Nav ------------------------
 
   nav {
     padding: 0 $very-big-margin;
   }
 
-  // -------- Home --------
+  // ------------------------ Home ------------------------
 
-  #home-container {
+  #home-page {
     grid-template-areas:
       // "about ux art"
       // "photo blog contact"
@@ -25,14 +25,18 @@
 ;
   }
 
-  // -------- Art --------
+  // ------------------------ Art ------------------------
 
   .series-description {
     max-width: 65%;
     // height: 8.5em;
   }
 
-  // -------- Product --------
+  .expanded {
+    height: 200px;
+  }
+
+  // ------------------------ Product ------------------------
 
   .left-container,
   figure {

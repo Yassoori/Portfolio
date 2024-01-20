@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Component } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
@@ -38,7 +38,9 @@ const Product = () => {
 
   return (
     <div id="shop-page" className="container double-container">
-      <div className="left-container">
+      <div 
+        className="left-container"
+      >
         <img
           src={product.images[0].src}
           alt={product.name}
@@ -54,7 +56,7 @@ const Product = () => {
             {/* {product.prices.currency_code} */}
           </h2>
         </div>
-        <button className="add-to-cart">Add to Cart</button>        
+        <button id="add-to-cart" className="regular-button">Add to Cart</button>        
         <div
           className="short-description"
           dangerouslySetInnerHTML={{

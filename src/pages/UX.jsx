@@ -76,7 +76,7 @@ const UX = () => {
           content="Facebook Open Graph Meta Tag example"
         />
       </Helmet>
-      <div className="container full-container" id="ux-container">
+      <div className="container full-container" id="ux-page">
         <div className="project-card-container">
           {/* {loading ? <Loading /> : <Projects projects={projects} />} */}
           <Link to="/ux-projects/273" className="project-card project-link" id="burger-card"
