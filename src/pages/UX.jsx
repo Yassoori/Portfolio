@@ -48,7 +48,11 @@ const UX = () => {
           <Link className="project-link" to={`/ux-projects/${project.id}`}>
             {/* <img src={getFeaturedImage(project)} alt={project.title.rendered} /> */}
             {/* <img src={project._embedded["wp:featuredmedia"][0].source_url} alt={project.title.rendered} /> */}
-            <img src={`${project.title.rendered}-feature.png`} alt={project.title.rendered} className="card-image"/>
+            <img
+              src={`${project.title.rendered}-feature.png`}
+              alt={project.title.rendered}
+              className="card-image"
+            />
             <h2 className="title">{project.title.rendered}</h2>
             <p></p>
             <p></p>
@@ -79,41 +83,93 @@ const UX = () => {
       <div className="container full-container" id="ux-page">
         <div className="project-card-container">
           {/* {loading ? <Loading /> : <Projects projects={projects} />} */}
-          <Link to="/ux-projects/273" className="project-card project-link" id="burger-card"
-                    data-aos="zoom-in"
-                    data-aos-offset="100"
-                    data-set-delay="1000">
-            <img src="realburger-feature.png" alt="Real Burger" className="card-image"/>
+          <Link
+            to="/ux-projects/273"
+            className="project-card project-link"
+            id="burger-card"
+            data-aos="zoom-in"
+            data-aos-offset="100"
+            data-set-delay="1000"
+          >
             <h2 className="card-heading">Real Burger</h2>
-            <p className="card-body">Redesign for a local restaurants ordering app.</p>
-            <p className="card-subheading">CSS / SASS / Figma</p>
+            <div className="card-text">
+              <p className="card-body">
+                Redesign for a local restaurants ordering app.
+              </p>
+              <p className="card-subheading">CSS / SASS / Figma</p>
+            </div>
+            <div className="image-container">
+              <img
+                src="realburger-feature.png"
+                alt="Real Burger"
+                className="card-image"
+              />
+            </div>
           </Link>
-          <Link to="/ux-projects/aurea" className="project-card project-link" id="aurea-card"
-                    data-aos="zoom-in"
-                    data-aos-offset="100"
-                    data-set-delay="1000">
-            <img src="aurea-feature.png" alt="Aurea" className="card-image"/>
-            <h2 className="card-heading">Aurea</h2>
-            <p className="card-body">Jewellery E-Commerce site</p>
-            <p className="card-subheading">Full Stack / React JS / Agile development</p>
+          <Link
+            to="/ux-projects/aurea"
+            className="project-card project-link"
+            id="aurea-card"
+            data-aos="zoom-in"
+            data-aos-offset="100"
+            data-set-delay="1000"
+          >
+            <div className="card-text">
+              <h2 className="card-heading">Aurea</h2>
+              <p className="card-body">Jewellery E-Commerce site</p>
+              <p className="card-subheading">
+                Full Stack / React JS / Agile development
+              </p>
+            </div>
+            <div className="image-container">
+              <img src="aurea-feature.png" alt="Aurea" className="card-image" />
+            </div>
           </Link>
-          <Link to="/ux-projects/pokedex" className="project-card project-link" id="pokedex-card"
-                    data-aos="zoom-in"
-                    data-aos-offset="100"
-                    data-set-delay="1000">
-            <img src="pokedex-feature.png" alt="Pokédex" className="card-image"/>
-            <h2 className="card-heading">Pokédex</h2>
-            <p className="card-body">A simple App using the free PokéAPI and Javascript.</p>
-            <p className="card-subheading">API / React JS / Node JS</p>
+          <Link
+            to="/ux-projects/pokedex"
+            className="project-card project-link"
+            id="pokedex-card"
+            data-aos="zoom-in"
+            data-aos-offset="100"
+            data-set-delay="1000"
+          >
+            <div className="card-text">
+              <h2 className="card-heading">Pokédex</h2>
+              <p className="card-body">
+                A simple App using the free PokéAPI and Javascript.
+              </p>
+              <p className="card-subheading">API / React JS / Node JS</p>
+            </div>
+            <div className="image-container">
+              <img
+                src="pokedex-feature.png"
+                alt="Pokédex"
+                className="card-image"
+              />
+            </div>
           </Link>
-          <Link to="/ux-projects/regan-hill-male" className="project-card project-link" id="regan-card"
-                    data-aos="zoom-in"
-                    data-aos-offset="100"
-                    data-set-delay="1000">
-            <img src="regan-hill-male-feature.png" alt="Regan Hill-Male" className="card-image"/>
-            <h2 className="card-heading">Regan Hill-Male</h2>
-            <p className="card-body">Artist shop and portfolio</p>
-            <p className="card-subheading">Wordpress / React JS / Node JS / PHP</p>
+          <Link
+            to="/ux-projects/regan-hill-male"
+            className="project-card project-link"
+            id="regan-card"
+            data-aos="zoom-in"
+            data-aos-offset="100"
+            data-set-delay="1000"
+          >
+            <div className="card-text">
+              <h2 className="card-heading">Regan Hill-Male</h2>
+              <p className="card-body">Artist shop and portfolio</p>
+              <p className="card-subheading">
+                Wordpress / React JS / Node JS / PHP
+              </p>
+            </div>
+            <div className="image-container">
+              <img
+                src="regan-hill-male-feature.png"
+                alt="Regan Hill-Male"
+                className="card-image"
+              />
+            </div>
           </Link>
         </div>
       </div>

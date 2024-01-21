@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 const baseUrl = import.meta.env.VITE_WP_BASEURL;
 
 const Home = () => {
-  
   return (
     <>
       <Helmet>
@@ -89,14 +88,27 @@ const Home = () => {
           data-aos-offset="100"
           data-set-delay="1000"
         >
-          <Link to="/contact">
-            <img src="" alt="" />
+          <a>
+          {/* <Link to="/contact"> */}
+            {/* <img src="" alt="" /> */}
             <div className="home-section-text">
-              <h2></h2>
-              <h3>Contact me</h3>
-              <p>Lets grab a coffee</p>
+              {/* <h2></h2> */}
+              {/* <h3>Contact me</h3> */}
+              {/* <p></p> */}
+              {/* <h1 className="greeting">
+                Hi, I’m Yasser – UX developer, artist and photographer.
+              </h1> */}
+              <h1 className="greeting">
+                HI, I'M YASSER - UX DEVELOPER, ARTIST AND PHOTOGRAPHER.
+              </h1>
+              <Link to="/contact">
+                <button id="contact-home-button" className="regular-button">
+                  Get in touch
+                </button>
+              </Link>
             </div>
-          </Link>
+          {/* </Link> */}
+          </a>
         </div>
       </div>
     </>

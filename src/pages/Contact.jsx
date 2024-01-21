@@ -113,8 +113,8 @@ const Contact = () => {
   return (
     <>
       <div id="contact-page" className="container single-container">
-        <h2 className="contact-heading">Get in Touch</h2>
-        <p className="contact-sub">for commisions or whatever</p>
+        <p className="contact-sub">Looking to commission a website, an artwork or a photoshoot?</p>
+        <h2 className="contact-heading">Let's chat.</h2>
         <ContactForm />
       </div>
     </>

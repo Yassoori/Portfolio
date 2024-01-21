@@ -64,20 +64,24 @@ const About = () => {
         </div>
         <div class="right-container">
           <p id="about-main">
-            Lorem Ipsum I am a web design graduate looking for roles in front
-            end, back end, or full stack development or UI and UX design. I
-            enjoy coding, and find it interesting and fulfilling to work on the
-            technical side of things. I have a deep passion for the arts, and
-            have experience in the field. I would be excited to learn and bring
+            I’m a UX designer, an artist and photographer based in Auckland, New
+            Zealand. I hold a diploma in UX and Web Design (Level 6) from the
+            Yoobee College of Creative Innovation.
+            <br />
+            <br />
+            I am currently available for front end, back end, and full stack
+            development or UI and UX design. I enjoy coding and find it
+            fulfilling to work on the technical side of things. I have a deep
+            passion for the arts and experience in the field, and love to bring
             my creative skills to web development.
-            <br /><br />
-            I am also currently a multi‑disciplinary artist and photographer whose
-            oeuvre and practice develops from personal interests, experiences
-            and re‑ search in architecture, history, and typography. I pursue
-            this work in my own direction, but often in service for social
-            causes and community projects. Most prominently that includes art
-            for fundraising and raising awareness for the humanitarian crisis in
-            Sudan with the Sudanese community here in Auckland.
+            <br />
+            <br />I am also a multidisciplinary artist and photographer whose
+            practice stems from personal interests, experiences and research in
+            architecture, history, and typography. In addition to my personal
+            practice, I often make art in service of social causes and community
+            projects, most prominently for fundraising and raising awareness for
+            the humanitarian crisis in Sudan with the Sudanese community in
+            Auckland.
           </p>
           {/* <p id="artist-bio">
             Yasser Saeed is a multidisciplinary artist and photographer of Iraqi

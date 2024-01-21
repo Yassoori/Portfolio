@@ -4,6 +4,7 @@ import axios from "axios";
 const useCustomizer = () => {
   const [bgColor, setBgColor] = useState("");
   const [headingFont, setHeadingFont] = useState("");
+  const [subFont, setSubFont] = useState("");
   const [bodyFont, setBodyFont] = useState("");
   const [landingBgColor, setLandingBgColor] = useState("");
   const [navColor, setNavColor] = useState("");
@@ -15,11 +16,12 @@ const useCustomizer = () => {
     axios
       .get(`${baseUrl}/wp-json/custom-theme/v1/customizer-settings`)
       .then((response) => {
-        const { backgroundColor, landingBackgroundColor, headingFont, bodyFont, navbarColor, fontColor } =
+        const { backgroundColor, landingBackgroundColor, headingFont, subFont, bodyFont, navbarColor, fontColor } =
           response.data;
         setBgColor(backgroundColor);
         setLandingBgColor(landingBackgroundColor);
         setHeadingFont(headingFont);
+        setSubFont(subFont);
         setBodyFont(bodyFont);
         setNavColor(navbarColor);
         setFontColor(fontColor);
@@ -29,7 +31,7 @@ const useCustomizer = () => {
       });
   }, [baseUrl]);
 
-  return { bgColor, landingBgColor, headingFont, bodyFont, navColor, fontColor };
+  return { bgColor, landingBgColor, headingFont, subFont, bodyFont, navColor, fontColor };
 };
 
 export default useCustomizer;

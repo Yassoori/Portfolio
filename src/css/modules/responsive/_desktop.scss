@@ -1,6 +1,10 @@
 @media screen and (min-width: 992px) {
   // ------------------------ All Desktop ------------------------
 
+  h1 {
+    font-size: $h1-size-desktop;
+  }
+
   .single-container {
     width: 40%;
   }
@@ -18,11 +22,17 @@
       // "about ux art"
       // "photo blog contact"
 
-      "ux art photo"
-      "ux art photo"
       "contact contact contact"
+      "ux art photo"
+      "ux art photo"
+      // "contact contact contact"
       // "about about contact"
-;
+      ;
+    .home-contact-section {
+      .home-section-text {
+        padding: $big-margin;
+      }
+    }
   }
 
   // ------------------------ Art ------------------------
@@ -40,9 +50,9 @@
 
   .left-container,
   figure {
-      width: 54%;
-      display: flex;
-      justify-content: end;
+    width: 54%;
+    display: flex;
+    justify-content: end;
   }
   .right-container,
   .about-bio {
@@ -54,8 +64,9 @@
       display: flex;
       justify-content: space-between;
     }
-  
-    .title, .price {
+
+    .title,
+    .price {
       margin-bottom: $big-margin;
     }
   }

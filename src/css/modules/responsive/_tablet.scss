@@ -1,6 +1,10 @@
 @media screen and (min-width: 812px) {
   // ------------------------ All Tablet ------------------------
 
+  // h1 {
+  //   font-size: $h1-size-tablet;
+  // }
+
   h2,
   h3 {
     font-size: $sub-size;
@@ -86,10 +90,10 @@
     //   "ux ux" 
     //   "art photo" 
     //   "about contact"
-
+    "contact contact"
       "ux ux"
       "art photo"
-      "contact contact";
+      // "contact contact";
     // height: 80vh;
 
     // .home-section {

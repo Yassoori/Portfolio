@@ -87,7 +87,9 @@ const Header = () => {
             }`}
             // onClick={() => handleNavClick("home")}
           >
-            <img src={logoUrl} alt="Yasser Saeed" />
+            {/* <img src={logoUrl} alt="Yasser Saeed" className="logo-image"/> */}
+            <h4 className="logo-text">YASSER SAEED</h4>
+            {/* <h4 className="logo-text">Yasser Saeed</h4> */}
           </Link>
         </div>
         {/* Desktop Menu */}
