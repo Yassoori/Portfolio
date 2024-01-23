@@ -20,70 +20,70 @@ const Home = () => {
       </Helmet>
       <div className="container full-container" id="home-page">
         {/* <h1>Yasser Saeed</h1> */}
-        {/* <div className="home-section home-about-section">
+        {/* <div className="home-card card home-about-section">
           <Link to="/about">
             <img src="" alt="" />
-            <div className="home-section-text">
+            <div className="card-text">
             <h2>I'm Yasser Saeed</h2>
             <p>I make things</p>
             </div>
           </Link>
         </div> */}
         <div
-          className="home-section home-ux-section"
+          className="home-card card home-ux-section"
           data-aos="zoom-in"
           data-aos-offset="100"
           data-set-delay="1000"
         >
           <Link to="/ux-projects">
-            <img src="/home-ux3.png" alt="" />
-            <div className="home-section-text">
-              <h2>Hire Me!!! I need job</h2>
-              <h3>UX and Web Projects</h3>
-              <p>01011100001011</p>
+            <img src="/home-ux3.png" alt="" id="ux-home-image"/>
+            <div className="card-text">
+              <h3>Hire Me!!! I need job</h3>
+              <h2>UX and Web</h2>
+              {/* <p>01011100001011</p> */}
             </div>
           </Link>
         </div>
         <div
-          className="home-section home-art-section"
+          className="home-card card home-art-section"
           data-aos="zoom-in"
           data-aos-offset="100"
           data-set-delay="1000"
         >
           <Link to="/art">
-            <img src="/home-art.jpeg" alt="" />
-            <div className="home-section-text">
-              <h2></h2>
-              <h3>Art</h3>
-              <p>I've won awards for this</p>
+            <img src="/home-art.jpeg" alt=""  id="art-home-image"/>
+            <div className="card-text">
+              <h3>Paintings, Digital Prints, Abstract Photography</h3>
+              <h2>Art</h2>
+              {/* <p>I've won awards for this</p> */}
             </div>
           </Link>
         </div>
         <div
-          className="home-section home-photography-section"
+          className="home-card card home-photography-section"
           data-aos="zoom-in"
           data-aos-offset="100"
           data-set-delay="1000"
         >
           <Link to="/photography">
-            <img src="/home-photo2.jpg" alt="" />
-            <div className="home-section-text">
-              <h2></h2>
-              <h3>Photography</h3>
-              <p>smile!</p>
+            <img src="/home-photo2.jpg" alt=""  id="photo-home-image"/>
+            <div className="card-text">
+              <h3>Weddings, Graduations and other Celebrations</h3>
+              <h2>Photography</h2>
+              {/* <p>smile!</p> */}
             </div>
           </Link>
         </div>
-        {/* <div className="home-section home-blog-section">
+        {/* <div className="home-card card home-blog-section">
           <Link to="/blog">
             <img src="" alt="" />
-            <div className="home-section-text">
-            <h3>Blog</h3>
-            <p>My thoughts and rants</p>
+            <div className="card-text">
+            <h3>My thoughts and rants</h3>
+            <h2>Blog</h2>
           </Link>
         </div> */}
         <div
-          className="home-section home-contact-section"
+          className="home-card card home-contact-section"
           data-aos="zoom-in"
           data-aos-offset="100"
           data-set-delay="1000"
@@ -91,10 +91,9 @@ const Home = () => {
           <a>
           {/* <Link to="/contact"> */}
             {/* <img src="" alt="" /> */}
-            <div className="home-section-text">
-              {/* <h2></h2> */}
-              {/* <h3>Contact me</h3> */}
-              {/* <p></p> */}
+            <div className="card-text">
+              {/* <h3></h3> */}
+              {/* <h2>Contact me</h2> */}
               {/* <h1 className="greeting">
                 Hi, I’m Yasser – UX developer, artist and photographer.
               </h1> */}

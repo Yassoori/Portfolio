@@ -1,9 +1,9 @@
 @media screen and (min-width: 812px) {
   // ------------------------ All Tablet ------------------------
 
-  // h1 {
-  //   font-size: $h1-size-tablet;
-  // }
+  h1 {
+    font-size: $h1-size-tablet;
+  }
 
   h2,
   h3 {
@@ -33,6 +33,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    max-width: 1200px;
   }
 
   .full-container {
@@ -79,6 +80,18 @@
     }
   }
 
+  // ------------------------ Cards ------------------------
+
+  .card:hover {
+    // p,
+    h3 {
+      visibility: visible;
+      opacity: 1;
+      height: $very-big-margin * 1.5;
+      // height: 100%;
+    }
+  }
+
   // ------------------------ Home ------------------------
 
   #home-page {
@@ -90,10 +103,11 @@
     //   "ux ux" 
     //   "art photo" 
     //   "about contact"
-    "contact contact"
+
+      "contact contact"
       "ux ux"
-      "art photo"
-      // "contact contact";
+      "art photo";
+    // "contact contact";
     // height: 80vh;
 
     // .home-section {
@@ -103,6 +117,12 @@
     //     // height: 240px;
     //   }
     // }
+
+    .home-contact-section {
+      .card-text {
+        padding: $big-margin;
+      }
+    }
   }
 
   // ------------------------ Art ------------------------
@@ -150,12 +170,12 @@
 
   .left-container,
   figure {
-    width: 64%;
-    justify-content: end;
+    // width: 64%;
+    justify-content: center;
   }
   .right-container,
   .about-bio {
-    width: 34%;
+    // width: 34%;
     display: flex;
     flex-direction: column;
 
@@ -171,11 +191,25 @@
 
   // ------------------------ UX ------------------------
 
-    .project-card-container {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-areas:
-        "burger aurea"
-        "pokedex regan";
+  .project-card-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "burger aurea"
+      "pokedex regan";
+    .card {
+      margin: $med-margin;
     }
+  }
+
+  // ------------------------ About ------------------------
+
+  // .lower-container{
+  //   .left-exhibitions {
+  //     width: 48%;
+  //   }
+  //   .right-exhibitions {
+  //     width: 48%;
+  //   }
+  // }
 }

@@ -43,7 +43,8 @@ img {
   color: #303030;
 }
 
-h1, h4 {
+h1,
+h4 {
   font-size: 44px;
 }
 
@@ -88,7 +89,14 @@ textarea {
   overflow: auto;
 }
 
+button {
+  background: none;
+  border: none;
+}
+
 .regular-button {
+  background: #303030;
+  color: #e3e3e3;
   text-align: center;
 }
 
@@ -102,9 +110,8 @@ textarea {
   transition: 0.2s;
 }
 
-button {
-  background: none;
-  border: none;
+figure img {
+  border-radius: 12px;
 }
 
 .container {
@@ -251,6 +258,59 @@ nav .left-nav #hamburger-container button {
   margin: 0 12px;
 }
 
+.card {
+  margin: 12px;
+  border-radius: 12px;
+  border: none;
+  position: relative;
+}
+.card a,
+.card p {
+  color: #e3e3e3;
+}
+.card .card-text {
+  background-color: #303030b0;
+  position: absolute;
+  border-radius: 12px;
+  bottom: 0;
+  padding: 24px 24px;
+  width: 100%;
+}
+.card .card-text div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.card .card-text h3 {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  transition: height 0.4s, opacity 0.4s linear;
+}
+.card .card-text h3,
+.card .card-text h2 {
+  color: #e3e3e3;
+}
+.card img {
+  position: absolute;
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background-color: transparent;
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+.card:hover h3 {
+  visibility: visible;
+  opacity: 1;
+  height: 48px;
+}
+
 #home-page {
   display: grid;
   grid-template-areas: "contact" "ux" "art" "photo";
@@ -261,92 +321,55 @@ nav .left-nav #hamburger-container button {
   color: #e3e3e3;
   text-decoration: none;
 }
-#home-page .home-section {
-  margin: 12px;
-  border-radius: 12px;
-  border: none;
-  position: relative;
+
+.home-card {
   min-height: 80px;
 }
-#home-page .home-section a,
-#home-page .home-section p {
-  color: #e3e3e3;
-}
-#home-page .home-section .home-section-text {
-  background-color: #303030b0;
-  position: absolute;
-  border-radius: 12px;
-  bottom: 0;
-  padding: 24px 24px;
-  width: 100%;
-}
-#home-page .home-section .home-section-text p,
-#home-page .home-section .home-section-text h2 {
-  visibility: hidden;
-  opacity: 0;
-  height: 0;
-  transition: height 0.4s, opacity 0.4s linear;
-}
-#home-page .home-section img {
-  position: absolute;
-  overflow: hidden;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: 0% 15%;
-     object-position: 0% 15%;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-}
-#home-page .home-section:hover p,
-#home-page .home-section:hover h2 {
-  visibility: visible;
-  opacity: 1;
-  height: 48px;
-}
-#home-page .home-about-section {
+
+.home-about-section {
   background-color: #f8f8f8;
   grid-area: about;
 }
-#home-page .home-about-section a,
-#home-page .home-about-section p {
+.home-about-section a,
+.home-about-section p {
   color: #303030;
 }
-#home-page .home-ux-section {
+
+.home-ux-section {
   background-color: #4e4c54;
   grid-area: ux;
 }
-#home-page .home-ux-section img {
-  -o-object-position: 50% 0%;
-     object-position: 50% 0%;
-}
-#home-page .home-art-section {
+
+.home-art-section {
   background-color: #472635;
   grid-area: art;
 }
-#home-page .home-photography-section {
+
+.home-photography-section {
   background-color: #2f3e50;
   grid-area: photo;
 }
-#home-page .home-blog-section {
+
+.home-blog-section {
   background-color: #2a4939;
   grid-area: blog;
 }
-#home-page .home-contact-section {
+
+.home-contact-section {
   background-color: #2f2f2f;
   background-color: transparent;
   grid-area: contact;
 }
-#home-page .home-contact-section .home-section-text {
+.home-contact-section .card-text {
   background-color: transparent;
   color: #303030;
   text-align: center;
   padding: 0;
 }
-#home-page .home-contact-section .home-section-text h1 {
+.home-contact-section .card-text h1 {
   margin-bottom: 6px;
 }
-#home-page .home-contact-section .home-section-text #contact-home-button {
+.home-contact-section .card-text #contact-home-button {
   margin-bottom: 0;
   background-color: #303030;
   color: #e3e3e3;
@@ -373,7 +396,7 @@ nav .left-nav #hamburger-container button {
   margin: 24px;
   max-width: 90%;
   min-width: 40%;
-  overflow: hidden;
+  overflow: scroll;
   height: 0;
   opacity: 0;
   transition: height 0.8s ease-in-out, opacity 0.4s ease-in-out;
@@ -417,10 +440,7 @@ nav .left-nav #hamburger-container button {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-}
-.card-container .product-card .product-overlay .text-overlay {
   padding: 6px;
-  border-radius: 6px;
 }
 .card-container .product-card .product-overlay h2,
 .card-container .product-card .product-overlay div {
@@ -440,6 +460,7 @@ nav .left-nav #hamburger-container button {
 }
 
 .left-container {
+  max-width: 100%;
   padding: 12px;
   display: flex;
   justify-content: center;
@@ -453,6 +474,7 @@ nav .left-nav #hamburger-container button {
 }
 
 .right-container {
+  max-width: 100%;
   padding: 12px;
 }
 .right-container .product-heading {
@@ -467,8 +489,6 @@ nav .left-nav #hamburger-container button {
   width: fit-content;
 }
 .right-container #add-to-cart {
-  color: #e3e3e3;
-  background-color: #303030;
   margin-top: 48px;
   margin-bottom: 48px;
 }
@@ -477,8 +497,13 @@ nav .left-nav #hamburger-container button {
 }
 
 .lower-container {
+  max-width: 100%;
+  margin-top: 24px;
   padding: 12px;
   display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .project-card-container {
@@ -486,63 +511,140 @@ nav .left-nav #hamburger-container button {
   grid-template-areas: "burger" "aurea" "pokedex" "regan";
   justify-content: normal;
   max-width: 100%;
-  height: 75vh;
+  min-height: 75vh;
 }
-.project-card-container .project-card {
-  margin: 12px;
-  border-radius: 6px;
-  padding: 6px;
-  border-radius: 6px;
-  background-color: #f8f8f8;
-  min-height: 80px;
+
+.project-card {
+  min-height: 180px;
+  margin: 6px;
 }
-.project-card-container .project-card .image-container {
+
+#burger-card {
+  grid-area: burger;
+  background-color: #03b2ad;
+}
+
+#aurea-card {
+  grid-area: aurea;
+  background-color: #d1b864;
+}
+
+#pokedex-card {
+  grid-area: pokedex;
+  background-color: #449e3c;
+}
+
+#regan-card {
+  grid-area: regan;
+  background-color: #875858;
+}
+
+#project-page .project-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px auto;
+  justify-content: center;
+}
+#project-page .project-container .project-text {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#project-page .project-container .project-text,
+#project-page .project-container .disclaimer {
+  padding: 0 12px;
+}
+#project-page .project-container .project-text h2,
+#project-page .project-container .disclaimer h2 {
+  margin-bottom: 24px;
+  width: 100%;
+  text-align: center;
+}
+#project-page .project-container .project-text .project-description,
+#project-page .project-container .disclaimer .project-description {
+  width: 100%;
+}
+#project-page .project-container .project-text .tags,
+#project-page .project-container .disclaimer .tags {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 12px;
+}
+#project-page .project-container .project-text .project-links,
+#project-page .project-container .disclaimer .project-links {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+#project-page .project-container .project-text .project-links a,
+#project-page .project-container .disclaimer .project-links a {
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  width: 100%;
+}
+#project-page .project-container .project-text a,
+#project-page .project-container .disclaimer a {
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  width: 100%;
+}
+#project-page .project-container .functionalities {
+  width: 100%;
+}
+#project-page .project-container .functionalities p {
+  width: 100%;
+  margin-bottom: 24px;
+}
+#project-page .project-container .functionalities ul {
+  width: 100%;
+}
+#project-page .project-container .functionalities ul li {
+  margin-bottom: 24px;
+}
+#project-page .project-container figure {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+#project-page .project-container figure img {
+  border-radius: 6px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  overflow: hidden;
   width: 100%;
   height: 100%;
-  background-color: transparent;
-  z-index: -1;
 }
-.project-card-container .project-card h2,
-.project-card-container .project-card p {
-  color: #e3e3e3;
-  z-index: 2;
+#project-page .project-container .disclaimer {
+  margin: 48px auto;
 }
-.project-card-container .project-card img {
+#project-page a {
   width: 100%;
-  position: absolute;
-  top: 0;
-  -o-object-fit: cover;
-     object-fit: cover;
-  overflow: hidden;
 }
-.project-card-container #burger-card {
-  grid-area: burger;
-  background-color: rgba(61, 102, 102, 0.8901960784);
+#project-page .back-button {
+  margin: 48px 0;
 }
-.project-card-container #aurea-card {
-  grid-area: aurea;
-  background-color: rgba(72, 50, 82, 0.8901960784);
-}
-.project-card-container #pokedex-card {
-  grid-area: pokedex;
-  background-color: rgba(86, 62, 57, 0.8901960784);
-}
-.project-card-container #regan-card {
-  grid-area: regan;
-  background-color: rgba(255, 228, 228, 0.8901960784);
+
+#about-page h2 {
+  width: 100%;
+  text-align: center;
+  margin: 24px;
 }
 
 #about-photo {
-  max-width: 70%;
+  max-height: 70vh;
 }
 
-.lower-container h2 {
-  position: absolute;
+#about-main {
+  max-width: 100%;
 }
-.lower-container .left-exhibitions,
-.lower-container .right-exhibitions {
-  margin-top: 48px;
-}
+
 .lower-container .left-exhibitions h3,
 .lower-container .left-exhibitions p,
 .lower-container .right-exhibitions h3,
@@ -550,18 +652,19 @@ nav .left-nav #hamburger-container button {
   margin-bottom: 12px;
 }
 .lower-container .left-exhibitions {
-  margin-right: 12px;
+  width: 100%;
 }
 .lower-container .right-exhibitions {
-  margin-left: 12px;
+  width: 100%;
 }
 
 #contact-page {
   display: flex;
   flex-direction: column;
-  margin: auto;
-  align-items: center;
+  margin: 48px auto;
   text-align: center;
+  align-items: center;
+  justify-content: flex-start;
 }
 #contact-page h2 {
   margin-bottom: 48px;
@@ -576,13 +679,11 @@ nav .left-nav #hamburger-container button {
 #contact-page form textarea {
   min-height: 108px;
 }
-#contact-page form #submit-button {
-  background: #303030;
-  color: #e3e3e3;
-  text-align: center;
-}
 
 @media screen and (min-width: 812px) {
+  h1 {
+    font-size: 72px;
+  }
   h2,
   h3 {
     font-size: 24px;
@@ -607,6 +708,7 @@ nav .left-nav #hamburger-container button {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    max-width: 1200px;
   }
   .full-container {
     width: 90%;
@@ -640,8 +742,16 @@ nav .left-nav #hamburger-container button {
   #footer #social-media-icons a {
     margin: 0 24px;
   }
+  .card:hover h3 {
+    visibility: visible;
+    opacity: 1;
+    height: 72px;
+  }
   #home-page {
     grid-template-areas: "contact contact" "ux ux" "art photo";
+  }
+  #home-page .home-contact-section .card-text {
+    padding: 24px;
   }
   .filter {
     margin: 12px;
@@ -677,12 +787,10 @@ nav .left-nav #hamburger-container button {
   }
   .left-container,
   figure {
-    width: 64%;
-    justify-content: end;
+    justify-content: center;
   }
   .right-container,
   .about-bio {
-    width: 34%;
     display: flex;
     flex-direction: column;
   }
@@ -701,6 +809,9 @@ nav .left-nav #hamburger-container button {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-areas: "burger aurea" "pokedex regan";
   }
+  .project-card-container .card {
+    margin: 12px;
+  }
 }
 @media screen and (min-width: 992px) {
   h1 {
@@ -715,9 +826,6 @@ nav .left-nav #hamburger-container button {
   #home-page {
     grid-template-areas: "contact contact contact" "ux art photo" "ux art photo";
   }
-  #home-page .home-contact-section .home-section-text {
-    padding: 24px;
-  }
   .series-description {
     max-width: 65%;
   }
@@ -726,13 +834,13 @@ nav .left-nav #hamburger-container button {
   }
   .left-container,
   figure {
-    width: 54%;
+    width: 48%;
     display: flex;
     justify-content: end;
   }
   .right-container,
   .about-bio {
-    width: 44%;
+    width: 48%;
     display: flex;
     flex-direction: column;
   }
@@ -749,6 +857,52 @@ nav .left-nav #hamburger-container button {
   }
   .lower-container {
     padding: 0 48px;
+  }
+  #about-photo {
+    max-width: 70%;
+  }
+  #about-main {
+    max-width: 85%;
+  }
+  .lower-container .left-exhibitions {
+    width: 48%;
+  }
+  .lower-container .right-exhibitions {
+    width: 48%;
+  }
+  #project-page .project-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: auto;
+  }
+  #project-page .project-container .project-text {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  #project-page .project-container .project-text,
+  #project-page .project-container .disclaimer {
+    width: 100%;
+  }
+  #project-page .project-container .two-column .functionalities, #project-page .project-container .two-column .project-description {
+    width: 48%;
+    margin: 0 auto;
+  }
+  #project-page .project-container figure img {
+    max-height: 80vh;
+  }
+  #project-page .project-container .half-image {
+    width: 48%;
+  }
+  #project-page .project-container .disclaimer {
+    width: 100%;
+  }
+  #project-page .project-container #regan-text .project-description {
+    width: 100%;
   }
 }
 @font-face {

@@ -16,7 +16,7 @@ const UX = () => {
       .then((res) => {
         setProjects(res.data);
         setLoading(false);
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -45,7 +45,7 @@ const UX = () => {
       //   }
       return (
         <div key={project.slug + "_" + index} className="project-card">
-          <Link className="project-link" to={`/ux-projects/${project.id}`}>
+          <Link className="card" to={`/ux-projects/${project.id}`}>
             {/* <img src={getFeaturedImage(project)} alt={project.title.rendered} /> */}
             {/* <img src={project._embedded["wp:featuredmedia"][0].source_url} alt={project.title.rendered} /> */}
             <img
@@ -53,7 +53,7 @@ const UX = () => {
               alt={project.title.rendered}
               className="card-image"
             />
-            <h2 className="title">{project.title.rendered}</h2>
+            <h3 className="title">{project.title.rendered}</h3>
             <p></p>
             <p></p>
           </Link>
@@ -85,90 +85,98 @@ const UX = () => {
           {/* {loading ? <Loading /> : <Projects projects={projects} />} */}
           <Link
             to="/ux-projects/273"
-            className="project-card project-link"
+            className="project-card card"
             id="burger-card"
             data-aos="zoom-in"
             data-aos-offset="100"
             data-set-delay="1000"
           >
-            <h2 className="card-heading">Real Burger</h2>
+            <img
+              src="realburger-feature4.png"
+              alt="Real Burger"
+              className="card-image"
+              id="burger-ux-image"
+            />
             <div className="card-text">
-              <p className="card-body">
-                Redesign for a local restaurants ordering app.
-              </p>
-              <p className="card-subheading">CSS / SASS / Figma</p>
-            </div>
-            <div className="image-container">
-              <img
-                src="realburger-feature.png"
-                alt="Real Burger"
-                className="card-image"
-              />
+              <h3 className="card-body">
+                Redesign for a local restaurant's ordering app.
+              </h3>
+              <div className="">
+                <h2 className="card-heading">Real Burger</h2>
+                <p className="card-subheading">CSS | SASS | Figma</p>
+              </div>
             </div>
           </Link>
           <Link
-            to="/ux-projects/aurea"
-            className="project-card project-link"
+            to="/ux-projects/346"
+            className="project-card card"
             id="aurea-card"
             data-aos="zoom-in"
             data-aos-offset="100"
             data-set-delay="1000"
           >
+            <img src="aurea-feature.png" alt="Aurea" className="card-image" id="aurea-ux-image"/>
             <div className="card-text">
-              <h2 className="card-heading">Aurea</h2>
-              <p className="card-body">Jewellery E-Commerce site</p>
-              <p className="card-subheading">
-                Full Stack / React JS / Agile development
-              </p>
-            </div>
-            <div className="image-container">
-              <img src="aurea-feature.png" alt="Aurea" className="card-image" />
+              <h3 className="card-body">
+                Team project for a jewellery E-commerce site.
+              </h3>
+              <div className="">
+                <h2 className="card-heading">Aurea</h2>
+                <p className="card-subheading">
+                  MongoDB | React | Node | Agile
+                </p>
+              </div>
             </div>
           </Link>
           <Link
-            to="/ux-projects/pokedex"
-            className="project-card project-link"
+            to="/ux-projects/406"
+            className="project-card card"
             id="pokedex-card"
             data-aos="zoom-in"
             data-aos-offset="100"
             data-set-delay="1000"
           >
+            <img
+              src="pokedex-feature4.png"
+              alt="Pokédex"
+              className="card-image"
+              id="pokedex-ux-image"
+            />
             <div className="card-text">
-              <h2 className="card-heading">Pokédex</h2>
-              <p className="card-body">
-                A simple App using the free PokéAPI and Javascript.
-              </p>
-              <p className="card-subheading">API / React JS / Node JS</p>
-            </div>
-            <div className="image-container">
-              <img
-                src="pokedex-feature.png"
-                alt="Pokédex"
-                className="card-image"
-              />
+              <h3 className="card-body">
+                A simple Pokémon index App using the free PokéAPI.
+              </h3>
+              <div className="">
+                <h2 className="card-heading">Pokédex</h2>
+                <p className="card-subheading">API | React | Node</p>
+              </div>
             </div>
           </Link>
           <Link
-            to="/ux-projects/regan-hill-male"
-            className="project-card project-link"
+            to="/ux-projects/364"
+            className="project-card card"
             id="regan-card"
             data-aos="zoom-in"
             data-aos-offset="100"
             data-set-delay="1000"
           >
+            <img
+              src="regan-feature3.png"
+              alt="Regan Hill-Male"
+              className="card-image"
+              id="regan-ux-image"
+            />
             <div className="card-text">
-              <h2 className="card-heading">Regan Hill-Male</h2>
-              <p className="card-body">Artist shop and portfolio</p>
-              <p className="card-subheading">
-                Wordpress / React JS / Node JS / PHP
-              </p>
-            </div>
-            <div className="image-container">
-              <img
-                src="regan-hill-male-feature.png"
-                alt="Regan Hill-Male"
-                className="card-image"
-              />
+              <h3 className="card-body">
+                Artist's online portfolio and shop to boost commissions
+              </h3>
+              <div className="">
+                <h2 className="card-heading">Regan Hill-Male</h2>
+                <p className="card-subheading">
+                  Wordpress | React | Node | PHP
+                </p>
+              </div>
+              {/* <p className="tags"></p> */}
             </div>
           </Link>
         </div>

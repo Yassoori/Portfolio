@@ -20,7 +20,7 @@ const ContactForm = () => {
     contactForm.append("your-email", email);
     contactForm.append("your-subject", subject);
     contactForm.append("your-message", message);
-    console.log();
+    // console.log();
 
     axios
       .post(formEndpoint, contactForm, {

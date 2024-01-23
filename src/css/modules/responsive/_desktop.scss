@@ -27,12 +27,7 @@
       "ux art photo"
       // "contact contact contact"
       // "about about contact"
-      ;
-    .home-contact-section {
-      .home-section-text {
-        padding: $big-margin;
-      }
-    }
+;
   }
 
   // ------------------------ Art ------------------------
@@ -50,13 +45,13 @@
 
   .left-container,
   figure {
-    width: 54%;
+    width: 48%;
     display: flex;
     justify-content: end;
   }
   .right-container,
   .about-bio {
-    width: 44%;
+    width: 48%;
     display: flex;
     flex-direction: column;
 
@@ -72,5 +67,72 @@
   }
   .lower-container {
     padding: 0 $very-big-margin;
+  }
+
+  // ------------------------ About ------------------------
+
+  #about-photo {
+    max-width: 70%;
+    // max-height: 70vh;
+  }
+
+  #about-main {
+    max-width: 85%;
+  }
+
+  .lower-container {
+    .left-exhibitions {
+      width: 48%;
+    }
+    .right-exhibitions {
+      width: 48%;
+    }
+  }
+
+  // ------------------------ Projects ------------------------
+  #project-page {
+    .project-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $med-margin;
+      margin: auto;
+      .project-text {
+        // width: 48%;
+        width: 100%;
+        margin: auto;
+        display: flex;
+        gap: $med-margin;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        // justify-content: center;
+      }
+      .project-text,
+      .disclaimer {
+        width: 100%;
+        // .project-description {
+        //   width: 48%;
+        // }
+      }
+      .two-column .functionalities, .two-column .project-description {
+        width: 48%;
+        margin: 0 auto;
+      }
+      figure {
+        img {
+          max-height: 80vh;
+        }
+      }
+      .half-image {
+        width: 48%;
+      }
+      .disclaimer {
+        width: 100%;
+      }
+      #regan-text {
+        .project-description {
+          width: 100%;
+        }
+      }
+    }
   }
 }

@@ -61,14 +61,14 @@ const Product = () => {
           Shop is out of order, sorry!
           </button>        
         <div
-          className="short-description"
           dangerouslySetInnerHTML={{
             __html: product.short_description,
           }}
+          className="short-description"
         />
       </div>
       <div className="lower-container">
-        <div dangerouslySetInnerHTML={{ __html: product.description }} />
+        <div dangerouslySetInnerHTML={{ __html: product.description }} className="long-description"/>
       </div>
     </div>
   );

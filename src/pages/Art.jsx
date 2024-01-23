@@ -137,7 +137,7 @@ const Art = () => {
           <Link className="product-link" to={`/product/${product.id}`}>
             <img src={product.images[0].src} alt={product.name} />
             <div className="product-overlay">
-              <div className="text-overlay">
+              {/* <div className="text-overlay"> */}
                 <h2 className="title">{product.name}</h2>
                 <h2 className="price">
                   ${(parseFloat(product.prices.price) / 100).toFixed(2)}
@@ -150,7 +150,7 @@ const Art = () => {
                     __html: product.short_description,
                   }}
                 /> */}
-              </div>
+              {/* </div> */}
             </div>
           </Link>
         </div>

@@ -37,7 +37,7 @@ const About = () => {
     return <>{mappedAboutPosts}</>;
   };
 
-  console.log(aboutPost);
+  // console.log(aboutPost);
 
   return (
     <>
@@ -59,10 +59,11 @@ const About = () => {
           key={index}
           dangerouslySetInnerHTML={{ __html: aboutPosts.content.rendered }}
         /> */}
-        <div class="left-container">
+        <h2>Kia Ora, I'm Yasser</h2>
+        <div className="left-container">
           <img src="/about.jpg" alt="" id="about-photo" />
         </div>
-        <div class="right-container">
+        <div className="right-container">
           <p id="about-main">
             I’m a UX designer, an artist and photographer based in Auckland, New
             Zealand. I hold a diploma in UX and Web Design (Level 6) from the
@@ -100,7 +101,7 @@ const About = () => {
             Experiment” was acquired by the James Wallace Arts Trust.
           </p> */}
         </div>
-        <div class="lower-container">
+        <div className="lower-container">
           <h2>Exhibitions</h2>
           <div className="left-exhibitions">
             <h3>Solo Exhibition:</h3>
