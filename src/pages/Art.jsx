@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Loading from "../components/Loading";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 
 const productsUrl = import.meta.env.VITE_WC_PRODUCTS_URL;
 
@@ -11,8 +13,8 @@ const Art = () => {
   const [products, setProducts] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [filter, setFilter] = useState(null);
-
-  const [descriptionText, setDescriptionText] = useState(null);
+  const [series, setSeries] = useState(null);
+  const [description, setDescription] = useState(null);
 
   useEffect(() => {
     axios
@@ -20,7 +22,6 @@ const Art = () => {
       .then((res) => {
         setProducts(res.data);
         setLoading(false);
-        console.log(res.data);
       })
       .catch((err) => console.log(err));
   }, [productsUrl]);
@@ -37,40 +38,76 @@ const Art = () => {
   }, [filter, products]);
 
   const handleFilterClick = (selectedFilter) => {
-    setFilter((prevFilter) =>
-      prevFilter === selectedFilter ? null : selectedFilter
-    );
-    // console.log(`clicked ${selectedFilter}`);
+    // // ---- This version resets on reclick
+    // // Reset filter if clicked again
+    // setFilter((prevFilter) =>
+    //   prevFilter === selectedFilter ? null : selectedFilter
+    // );
 
-    // If the same filter is clicked again, clear the description
-    if (filter === selectedFilter) {
-      setDescriptionText(null);
-    } else {
-      // Set description text based on the selected filter
+    // // If the same filter is clicked again, clear the series and description
+    // if (filter === selectedFilter) {
+    // if (isSameFilter) {
+    //   setSeries(null);
+    //   setDescription(null);
+    // } else {
+
+    // ---- This version does nothing on reclick
+    // Check if the filter is already set to the selected filter
+    const isSameFilter = filter === selectedFilter;
+
+    // Always update the filter to the selected filter
+    setFilter(selectedFilter);
+
+    // If the same filter is clicked again, clear the series and description
+    if (!isSameFilter) {
+      // ---- END
+      // Set series and description  based on the selected filter
       switch (selectedFilter) {
+        case "All":
+          setFilter(null);
+          setSeries(null);
+          setDescription(null);
+          break;
         case "Text Experiments":
-          setDescriptionText(
+          setSeries("Text Experiments");
+          setDescription(
             "Digital artworks which explore the related geometries of character forms in different writing scripts that share historical links to ancient Phoenician, then layers, rearranges, subtracts and outlines them beyond legibility."
           );
           break;
         case "In Ruins":
-          setDescriptionText(
+          setSeries("In Ruins");
+          setDescription(
             "An ongoing series of drawings, paintings and mixed media work, loosely related through inspirations from the histories of the greater Middle East. Some of the work reconstructs myths and mythologised histories by surrealising and dislocating spaces and structures lifted from ancient ruins. Others add to the new myths being built around the social and political movements of today, for example of the ongoing Sudanese Revolution."
           );
           break;
         case "Structure Alone":
-          setDescriptionText(
+          setSeries("Structure Alone");
+          setDescription(
             "A photography series exploring modernist architecture looking through its layers of glass, and closely to its steel structures, losing sense of the buildings as a whole, but finding the compositions within the reflections and geometries. Shot from 2018 to 2021 in Auckland, Berlin, Barcelona, Madrid, and London."
           );
           break;
         case "Other":
-          setDescriptionText(
+          setSeries("Other");
+          setDescription(
             "Work created either not in series, or prior to 2018."
           );
           break;
         default:
-          setDescriptionText(null);
+          setSeries(null);
+          setDescription(null);
       }
+    }
+
+    // Reset styles for all filter buttons
+    const filterButtons = document.querySelectorAll(".filter-button");
+    filterButtons.forEach((button) => button.classList.remove("selected"));
+
+    // Set styles for the selected filter button
+    const selectedButton = document.getElementById(
+      `filter-${selectedFilter.toLowerCase().replace(" ", "-")}`
+    );
+    if (selectedButton) {
+      selectedButton.classList.add("selected");
     }
   };
 
@@ -84,20 +121,37 @@ const Art = () => {
 
   const Products = ({ products }) => {
     const mappedProducts = products.map((product, index) => {
+      const isFiltered =
+        filter &&
+        product.categories.some((category) => category.name === filter);
+      const productCardClasses = `product-card${isFiltered ? " filtered" : ""}`;
+
       return (
-        <div key={product.slug + "_" + index} className="product-card">
+        <div
+          key={product.slug + "_" + index}
+          className={productCardClasses}
+          data-aos="zoom-in"
+          data-aos-offset="100"
+          data-set-delay="1000"
+        >
           <Link className="product-link" to={`/product/${product.id}`}>
-            <h2 className="title">{product.name}</h2>
-            <h2 className="price">
-              ${(parseFloat(product.prices.price) / 100).toFixed(2)}
-              {/* {" "}
-                  {product.prices.currency_code} */}
-            </h2>
-            <div
-              className="short-description"
-              dangerouslySetInnerHTML={{ __html: product.short_description }}
-            />
             <img src={product.images[0].src} alt={product.name} />
+            <div className="product-overlay">
+              {/* <div className="text-overlay"> */}
+                <h2 className="title">{product.name}</h2>
+                <h2 className="price">
+                  ${(parseFloat(product.prices.price) / 100).toFixed(2)}
+                  {/* {" "}
+                    {product.prices.currency_code} */}
+                </h2>
+                {/* <div
+                  className="short-description"
+                  dangerouslySetInnerHTML={{
+                    __html: product.short_description,
+                  }}
+                /> */}
+              {/* </div> */}
+            </div>
           </Link>
         </div>
       );
@@ -110,7 +164,10 @@ const Art = () => {
     <>
       <Helmet>
         <title>Art</title>
-        <meta name="description" content="This is the Art portfolio and shop page" />
+        <meta
+          name="description"
+          content="This is the Art portfolio and shop page"
+        />
         <meta
           name="keywords"
           content="UX, Web Development, UX design, Web design, Portfolio"
@@ -121,30 +178,56 @@ const Art = () => {
           content="Facebook Open Graph Meta Tag example"
         />
       </Helmet>
-      <div className="container full-container">
-        <ul className="filter">
-          <li onClick={() => handleFilterClick("Text Experiments")}>
+      <div className="container full-container" id="art-page">
+        <div className="filter">
+          <a
+            onClick={() => handleFilterClick("All")}
+            id="filter-all"
+            className="filter-button selected"
+          >
+            All
+          </a>
+          <a
+            onClick={() => handleFilterClick("Text Experiments")}
+            id="filter-text-experiments"
+            className="filter-button"
+          >
             Text Experiments
-          </li>
-          <li onClick={() => handleFilterClick("In Ruins")}>In Ruins</li>
-          <li onClick={() => handleFilterClick("Structure Alone")}>
+          </a>
+          <a
+            onClick={() => handleFilterClick("In Ruins")}
+            id="filter-in-ruins"
+            className="filter-button"
+          >
+            In Ruins
+          </a>
+          <a
+            onClick={() => handleFilterClick("Structure Alone")}
+            id="filter-structure-alone"
+            className="filter-button"
+          >
             Structure Alone
-          </li>
-          <li onClick={() => handleFilterClick("Other")}>Other</li>
-        </ul>
+          </a>
+          {/* <a onClick={() => handleFilterClick("Other")}>
+            Other
+          </a> */}
+        </div>
         {/* <div className="feature">
         <div className="text-experiments-feature"></div>
         <div className="in-ruins-feature"></div>
         <div className="structure-alone-feature"></div>
         <div className="other-feature"></div>
-      </div> */}
-        <div className="series-description">{descriptionText}</div>
+        </div> */}
+        <div className={`series-description ${description ? "expanded" : ""}`}>
+          <h2>{series}</h2>
+          <p>{description}</p>
+        </div>
         <div className="card-container">
           {loading ? (
             <Loading />
           ) : (
             <Products products={filteredProducts || products} />
-            // filter && <Products products={filteredProducts} />
+            // {/* filter && <Products products={filteredProducts} /> */}
           )}
         </div>
       </div>

@@ -19,7 +19,7 @@ const project = () => {
     axios
       .get(`${endpoint}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setProject(res.data);
         const loader = setTimeout(() => setLoading(false), 1000);
       })
@@ -41,17 +41,18 @@ const project = () => {
     <div
       key={project.slug}
       id="project-page"
-      className="container full-container"
+      className="container double-container"
     >
-      <img
+      {/* <img
         src={project._embedded["wp:featuredmedia"][0].source_url}
         alt={project.title.rendered}
-      />
+      /> */}
       <div
         dangerouslySetInnerHTML={{ __html: project.content.rendered }}
+        id={project.title.rendered}
         className="project-container"
       />
-      <Link to={"/ux-projects/"}><button>Back to UX Projects</button></Link>
+      <Link to={"/ux-projects/"}><button className="back-button regular-button">Back to UX Projects</button></Link>
     </div>
   );
 };

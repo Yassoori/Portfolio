@@ -1,0 +1,215 @@
+@media screen and (min-width: 812px) {
+  // ------------------------ All Tablet ------------------------
+
+  h1 {
+    font-size: $h1-size-tablet;
+  }
+
+  h2,
+  h3 {
+    font-size: $sub-size;
+  }
+
+  a,
+  p,
+  div,
+  button,
+  input,
+  textarea {
+    font-size: $body-size;
+  }
+
+  .single-container {
+    width: 60%;
+  }
+
+  .double-container {
+    width: 80%;
+    padding: $big-margin;
+  }
+
+  .double-container,
+  .single-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 1200px;
+  }
+
+  .full-container {
+    width: 90%;
+    margin: auto;
+  }
+
+  // ------------------------ Header ------------------------
+
+  nav {
+    padding: 0 $very-big-margin;
+
+    #desktop-nav-menu {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .nav-button {
+        padding: $small-margin;
+        margin-left: $small-margin;
+        margin-right: $small-margin;
+      }
+    }
+    #hamburger-container {
+      display: none;
+      button {
+        display: none;
+      }
+    }
+  }
+
+  #mobile-menu-container {
+    display: none;
+  }
+
+  // ------------------------ Footer ------------------------
+
+  #footer {
+    #social-media-icons {
+      margin: $med-margin;
+      a {
+        margin: 0 $big-margin;
+      }
+    }
+  }
+
+  // ------------------------ Cards ------------------------
+
+  .card:hover {
+    // p,
+    h3 {
+      visibility: visible;
+      opacity: 1;
+      height: $very-big-margin * 1.5;
+      // height: 100%;
+    }
+  }
+
+  // ------------------------ Home ------------------------
+
+  #home-page {
+    grid-template-areas:
+    //   "about ux"
+    //   "art photo"
+    //   "blog contact"
+
+    //   "ux ux" 
+    //   "art photo" 
+    //   "about contact"
+
+      "contact contact"
+      "ux ux"
+      "art photo";
+    // "contact contact";
+    // height: 80vh;
+
+    // .home-section {
+    //   //   height: 25%;
+    //   img {
+
+    //     // height: 240px;
+    //   }
+    // }
+
+    .home-contact-section {
+      .card-text {
+        padding: $big-margin;
+      }
+    }
+  }
+
+  // ------------------------ Art ------------------------
+
+  .filter {
+    margin: $med-margin;
+    // display: block;
+    justify-content: flex-end;
+
+    a {
+      margin: 0 $med-margin;
+      width: fit-content;
+    }
+  }
+
+  .series-description {
+    max-width: 70%;
+  }
+
+  .expanded {
+    height: 240px;
+  }
+
+  .card-container {
+    align-items: center;
+    .product-card {
+      max-width: 15%;
+      min-width: 5%;
+      margin: $med-margin;
+      transition: 0.2s ease;
+    }
+    .filtered {
+      max-width: 30%;
+      min-width: 20%;
+      transition: 0.2s ease;
+    }
+    .product-overlay {
+      h2 {
+        font-size: $mob-sub-size;
+      }
+    }
+  }
+
+  // ------------------------ Product ------------------------
+
+  .left-container,
+  figure {
+    // width: 64%;
+    justify-content: center;
+  }
+  .right-container,
+  .about-bio {
+    // width: 34%;
+    display: flex;
+    flex-direction: column;
+
+    .product-heading {
+      display: inline;
+    }
+
+    .title,
+    .price {
+      margin-bottom: $big-margin;
+    }
+  }
+
+  // ------------------------ UX ------------------------
+
+  .project-card-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "burger aurea"
+      "pokedex regan";
+    .card {
+      margin: $med-margin;
+    }
+  }
+
+  // ------------------------ About ------------------------
+
+  // .lower-container{
+  //   .left-exhibitions {
+  //     width: 48%;
+  //   }
+  //   .right-exhibitions {
+  //     width: 48%;
+  //   }
+  // }
+}

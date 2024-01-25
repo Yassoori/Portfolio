@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Component } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
@@ -10,6 +10,7 @@ const Product = () => {
   const navigate = useNavigate();
 
   const [product, setProduct] = useState(null);
+  // const [productType, setProductType ] = useState(null)
   const [loading, setLoading] = useState(true);
 
   const endpoint = `${productsUrl}/${id}`;
@@ -18,7 +19,7 @@ const Product = () => {
     axios
       .get(`${endpoint}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setProduct(res.data);
         const loader = setTimeout(() => setLoading(false), 1000);
       })
@@ -38,17 +39,37 @@ const Product = () => {
 
   return (
     <div id="shop-page" className="container double-container">
-      <div className="left-container">
-        <img src={product.images[0].src} alt={product.name} />
+      <div 
+        className="left-container"
+      >
+        <img
+          src={product.images[0].src}
+          alt={product.name}
+          className="product-image"
+        />
       </div>
       <div className="right-container">
-        <h2 className="title">{product.name}</h2>
-        <h2 className="price">
-          ${(parseFloat(product.prices.price) / 100).toFixed(2)}{/*{" "}*/}
-          {/* {product.prices.currency_code} */}
-        </h2>
-        <div dangerouslySetInnerHTML={{ __html: product.description }} />
-        <button>Add to Cart</button>
+        <div className="product-heading">
+          <h2 className="title">{product.name}</h2>
+          <h2 className="price">
+            ${(parseFloat(product.prices.price) / 100).toFixed(2)}
+            {/*{" "}*/}
+            {/* {product.prices.currency_code} */}
+          </h2>
+        </div>
+        <button id="add-to-cart" className="regular-button">
+          {/* Add to Cart */}
+          Shop is out of order, sorry!
+          </button>        
+        <div
+          dangerouslySetInnerHTML={{
+            __html: product.short_description,
+          }}
+          className="short-description"
+        />
+      </div>
+      <div className="lower-container">
+        <div dangerouslySetInnerHTML={{ __html: product.description }} className="long-description"/>
       </div>
     </div>
   );
