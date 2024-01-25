@@ -10,6 +10,7 @@ const Product = () => {
   const navigate = useNavigate();
 
   const [product, setProduct] = useState(null);
+  // const [productType, setProductType ] = useState(null)
   const [loading, setLoading] = useState(true);
 
   const endpoint = `${productsUrl}/${id}`;
