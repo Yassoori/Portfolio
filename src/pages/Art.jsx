@@ -227,7 +227,7 @@ const Art = () => {
             <Loading />
           ) : (
             <Products products={filteredProducts || products} />
-            // {/* filter && <Products products={filteredProducts} /> */}
+            // filter && <Products products={filteredProducts} />
           )}
         </div>
       </div>

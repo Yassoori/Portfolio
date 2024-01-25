@@ -7,35 +7,35 @@ import Contact from "./Contact";
 const aboutUrl = import.meta.env.VITE_WP_ABOUT_URL;
 
 const About = () => {
-  const [aboutPost, setAboutPost] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // const [aboutPost, setAboutPost] = useState(null);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    axios
-      .get(`${aboutUrl}`)
-      .then((res) => {
-        setAboutPost(res.data);
-        setLoading(false);
-      })
-      .catch((err) => console.log(err));
-  }, [aboutUrl]);
+  // useEffect(() => {
+  //   axios
+  //     .get(`${aboutUrl}`)
+  //     .then((res) => {
+  //       setAboutPost(res.data);
+  //       setLoading(false);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, [aboutUrl]);
 
-  const AboutPost = ({ aboutPosts }) => {
-    if (!aboutPosts) {
-      return null;
-    }
+  // const AboutPost = ({ aboutPosts }) => {
+  //   if (!aboutPosts) {
+  //     return null;
+  //   }
 
-    const mappedAboutPosts = aboutPosts.map((about, index) => (
-      <div
-        id="about-page"
-        className="container double-container about-section"
-        key={index}
-        dangerouslySetInnerHTML={{ __html: about.content.rendered }}
-      />
-    ));
+  //   const mappedAboutPosts = aboutPosts.map((about, index) => (
+  //     <div
+  //       id="about-page"
+  //       className="container double-container about-section"
+  //       key={index}
+  //       dangerouslySetInnerHTML={{ __html: about.content.rendered }}
+  //     />
+  //   ));
 
-    return <>{mappedAboutPosts}</>;
-  };
+  //   return <>{mappedAboutPosts}</>;
+  // };
 
   // console.log(aboutPost);
 

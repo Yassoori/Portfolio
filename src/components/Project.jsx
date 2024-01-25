@@ -7,19 +7,18 @@ import Loading from "./Loading";
 const uxUrl = import.meta.env.VITE_WP_UX_URL;
 
 const project = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const { id } = useParams();
+  const navigate = useNavigate();
   const endpoint = `${uxUrl}/${id}?_embed`;
 
   useEffect(() => {
     axios
       .get(`${endpoint}`)
       .then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         setProject(res.data);
         const loader = setTimeout(() => setLoading(false), 1000);
       })

@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
 
+import AddToCart from "./cart/AddToCart";
+
 const productsUrl = import.meta.env.VITE_WC_PRODUCTS_URL;
 
 const Product = () => {
@@ -10,7 +12,9 @@ const Product = () => {
   const navigate = useNavigate();
 
   const [product, setProduct] = useState(null);
-  // const [productType, setProductType ] = useState(null)
+  // discovered new way to read res data!!
+  const productType = product?.type ?? "";
+
   const [loading, setLoading] = useState(true);
 
   const endpoint = `${productsUrl}/${id}`;
@@ -57,10 +61,17 @@ const Product = () => {
             {/* {product.prices.currency_code} */}
           </h2>
         </div>
-        <button id="add-to-cart" className="regular-button">
-          {/* Add to Cart */}
-          Shop is out of order, sorry!
-          </button>        
+
+        { "simple" === productType ? <AddToCart product={product}/> : null}
+
+        {/* <div className="cart-container"> */}
+          {/* <button id="add-to-cart" className="regular-button"> */}
+            {/* Add to Cart */}
+            {/* Shop is out of order, sorry! */}
+          {/* </button>    */}
+        {/* </div>   */}
+
+
         <div
           dangerouslySetInnerHTML={{
             __html: product.short_description,

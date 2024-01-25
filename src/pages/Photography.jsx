@@ -79,7 +79,7 @@ const UX = () => {
       <div id="photo-page" className="container full-container">
         <div className="photo-card-container">
           {/* {loading ? <Loading /> : <PhotoTypes photoTypes={photoTypes} />} */}
-          <Link to="/photography/weddings" className="photo-card">
+          {/* <Link to="/photography/weddings" className="photo-card">
             <img src="weddings-feature.png" alt="Weddings" className="card-image"/>
             <h2 className="card-heading">Weddings</h2>
             <p className="card-subheading"></p>
@@ -102,7 +102,7 @@ const UX = () => {
             <h2 className="card-heading">Portraits</h2>
             <p className="card-subheading"></p>
             <p className="card-body"></p>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </>

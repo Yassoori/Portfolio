@@ -53,7 +53,6 @@ const UX = () => {
               alt={project.title.rendered}
               className="card-image"
             />
-            <h3 className="title">{project.title.rendered}</h3>
             <p></p>
             <p></p>
           </Link>
@@ -63,7 +62,7 @@ const UX = () => {
     return <>{mappedProjects}</>;
   };
 
-  //   console.log(projects);
+    console.log(projects);
 
   return (
     <>
@@ -103,7 +102,7 @@ const UX = () => {
               </h3>
               <div className="">
                 <h2 className="card-heading">Real Burger</h2>
-                <p className="card-subheading">CSS | SASS | Figma</p>
+                <p className="card-subheading">Figma | CSS | SASS </p>
               </div>
             </div>
           </Link>
@@ -115,7 +114,12 @@ const UX = () => {
             data-aos-offset="100"
             data-set-delay="1000"
           >
-            <img src="aurea-feature.png" alt="Aurea" className="card-image" id="aurea-ux-image"/>
+            <img
+              src="aurea-feature.png"
+              alt="Aurea"
+              className="card-image"
+              id="aurea-ux-image"
+            />
             <div className="card-text">
               <h3 className="card-body">
                 Team project for a jewellery E-commerce site.
@@ -123,7 +127,7 @@ const UX = () => {
               <div className="">
                 <h2 className="card-heading">Aurea</h2>
                 <p className="card-subheading">
-                  MongoDB | React | Node | Agile
+                  Figma | MongoDB | React | Node
                 </p>
               </div>
             </div>
@@ -173,10 +177,9 @@ const UX = () => {
               <div className="">
                 <h2 className="card-heading">Regan Hill-Male</h2>
                 <p className="card-subheading">
-                  Wordpress | React | Node | PHP
+                  Figma | WordPress | PHP | React | Node
                 </p>
               </div>
-              {/* <p className="tags"></p> */}
             </div>
           </Link>
         </div>
