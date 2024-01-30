@@ -36,7 +36,7 @@ const Home = () => {
           data-set-delay="1000"
         >
           <Link to="/ux-projects">
-            <img src="/home-ux3.png" alt="" id="ux-home-image"/>
+            <img src="images/home/home-ux3.png" alt="" id="ux-home-image"/>
             <div className="card-text">
               <h3>UX Design and Web Development Portfolio</h3>
               <h2>UX</h2>
@@ -51,7 +51,7 @@ const Home = () => {
           data-set-delay="1000"
         >
           <Link to="/art">
-            <img src="/home-art.jpeg" alt=""  id="art-home-image"/>
+            <img src="images/home/home-art.jpeg" alt=""  id="art-home-image"/>
             <div className="card-text">
               <h3>Paintings, Digital Prints, Abstract Photography</h3>
               <h2>Art</h2>
@@ -66,7 +66,7 @@ const Home = () => {
           data-set-delay="1000"
         >
           <Link to="/photography">
-            <img src="/IMG_9309.jpg" alt=""  id="photo-home-image"/>
+            <img src="images/home/IMG_9309.jpg" alt=""  id="photo-home-image"/>
             <div className="card-text">
               <h3>Weddings, Graduations and other Celebrations</h3>
               <h2>Photography</h2>

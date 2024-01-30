@@ -95,7 +95,7 @@ const UX = () => {
               src="realburger-feature4.png"
               alt="Real Burger"
               className="card-image"
-              id="burger-ux-image"
+              id="images/ux/burger-ux-image"
             />
             <div className="card-text">
               <h3 className="card-body">
@@ -115,7 +115,7 @@ const UX = () => {
             data-aos-offset="100"
             data-set-delay="1000"
           >
-            <img src="aurea-feature.png" alt="Aurea" className="card-image" id="aurea-ux-image"/>
+            <img src="images/ux/aurea-feature.png" alt="Aurea" className="card-image" id="aurea-ux-image"/>
             <div className="card-text">
               <h3 className="card-body">
                 Team project for a jewellery E-commerce site.
@@ -137,7 +137,7 @@ const UX = () => {
             data-set-delay="1000"
           >
             <img
-              src="pokedex-feature4.png"
+              src="images/ux/pokedex-feature4.png"
               alt="Pokédex"
               className="card-image"
               id="pokedex-ux-image"
@@ -161,7 +161,7 @@ const UX = () => {
             data-set-delay="1000"
           >
             <img
-              src="regan-feature3.png"
+              src="images/ux/regan-feature3.png"
               alt="Regan Hill-Male"
               className="card-image"
               id="regan-ux-image"
