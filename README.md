@@ -1,8 +1,20 @@
-# React + Vite
+# Yasser Saeed Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Home Page](public/home-screenshot.png)
 
-Currently, two official plugins are available:
+This is a React and headless WordPress site to showcase my work as a UX and web developer, as well as an Artist and Photographer.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Dependencies
+
+axios: ^1.6.2,
+react: ^18.2.0,
+react-bootstrap-icons: ^1.10.3,
+react-dom: ^18.2.0,
+react-helmet: ^6.1.0,
+react-router-dom: ^6.21.0
+aos: ^2.3.4,
+@fortawesome/fontawesome-svg-core: ^6.5.1,
+@fortawesome/free-brands-svg-icons: ^6.5.1,
+@fortawesome/free-regular-svg-icons: ^6.5.1,
+@fortawesome/free-solid-svg-icons: ^6.5.1,
+@fortawesome/react-fontawesome: ^0.2.0,
