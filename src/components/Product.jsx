@@ -59,7 +59,7 @@ const Product = () => {
         </div>
         <button id="add-to-cart" className="regular-button">
           {/* Add to Cart */}
-          Shop is out of order, sorry!
+            Shop is temporarily out of order, sorry!
           </button>        
         <div
           dangerouslySetInnerHTML={{

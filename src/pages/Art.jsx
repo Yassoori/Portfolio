@@ -18,7 +18,7 @@ const Art = () => {
 
   useEffect(() => {
     axios
-      .get(`${productsUrl}?per_page=60`)
+      .get(`${productsUrl}?per_page=100`)
       .then((res) => {
         setProducts(res.data);
         setLoading(false);

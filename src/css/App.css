@@ -53,7 +53,11 @@ h4 {
     font-size: 36px;
   }
 }
-h2,
+h2 {
+  font-size: 18px;
+}
+
+.card-body p,
 h3 {
   font-size: 18px;
 }
@@ -74,7 +78,8 @@ textarea {
 
 input,
 textarea,
-button {
+button,
+.regular-button {
   width: 100%;
   border: none;
   border-radius: 6px;
@@ -133,7 +138,6 @@ figure img {
 #ux-page,
 #photo-page {
   width: 100%;
-  margin: 0;
 }
 
 nav {
@@ -158,8 +162,11 @@ nav .left-nav {
   justify-content: space-around;
   align-items: flex-start;
 }
-nav .left-nav #cart,
+nav .left-nav #cart button,
 nav .left-nav #hamburger-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: 0.4s;
   width: 30px;
   padding: 6px;
@@ -219,10 +226,9 @@ nav .left-nav #hamburger-container button {
 }
 .mobile-menu-container #close-nav-menu {
   position: absolute;
-  top: 5%;
-  right: 5%;
-  width: 24px;
-  height: 24px;
+  top: -8px;
+  right: 1px;
+  justify-content: center;
 }
 
 .menu-open {
@@ -259,7 +265,6 @@ nav .left-nav #hamburger-container button {
 }
 
 .card {
-  margin: 12px;
   border-radius: 12px;
   border: none;
   position: relative;
@@ -276,12 +281,17 @@ nav .left-nav #hamburger-container button {
   padding: 24px 24px;
   width: 100%;
 }
+.card .card-text .card-subheading {
+  display: flex;
+  align-items: center;
+}
 .card .card-text div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
 }
+.card .card-text .card-body,
 .card .card-text h3 {
   visibility: hidden;
   opacity: 0;
@@ -305,10 +315,16 @@ nav .left-nav #hamburger-container button {
      object-position: center center;
 }
 
+.card:hover .card-body,
 .card:hover h3 {
   visibility: visible;
   opacity: 1;
   height: 48px;
+}
+
+.grid-container {
+  gap: 12px;
+  margin: 12px;
 }
 
 #home-page {
@@ -344,15 +360,14 @@ nav .left-nav #hamburger-container button {
   background-color: #472635;
   grid-area: art;
 }
+.home-art-section #art-home-image {
+  -o-object-position: 15% center;
+     object-position: 15% center;
+}
 
 .home-photography-section {
   background-color: #2f3e50;
   grid-area: photo;
-}
-
-.home-blog-section {
-  background-color: #2a4939;
-  grid-area: blog;
 }
 
 .home-contact-section {
@@ -369,8 +384,11 @@ nav .left-nav #hamburger-container button {
 .home-contact-section .card-text h1 {
   margin-bottom: 6px;
 }
-.home-contact-section .card-text #contact-home-button {
-  margin-bottom: 0;
+
+#contact-home-button,
+#contact-photo-button {
+  display: block;
+  margin: auto;
   background-color: #303030;
   color: #e3e3e3;
   width: -moz-fit-content;
@@ -516,7 +534,6 @@ nav .left-nav #hamburger-container button {
 
 .project-card {
   min-height: 180px;
-  margin: 6px;
 }
 
 #burger-card {
@@ -627,35 +644,119 @@ nav .left-nav #hamburger-container button {
 #project-page a {
   width: 100%;
 }
-#project-page .back-button {
+
+.back-button-container {
+  text-align: center;
+}
+
+.back-button {
   margin: 48px 0;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 #about-page h2 {
-  width: 100%;
   text-align: center;
   margin: 24px;
 }
 
-#about-photo {
+#Bio {
+  display: grid;
+  grid-template-areas: "photo" "main";
+}
+
+.about-photo-container {
+  grid-area: photo;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+}
+.about-photo-container .about-photo {
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+  width: 100%;
   max-height: 70vh;
 }
 
 #about-main {
+  grid-area: main;
   max-width: 100%;
 }
-
-.lower-container .left-exhibitions h3,
-.lower-container .left-exhibitions p,
-.lower-container .right-exhibitions h3,
-.lower-container .right-exhibitions p {
+#about-main p {
   margin-bottom: 12px;
 }
-.lower-container .left-exhibitions {
+
+#Exhibitions {
+  display: grid;
+  grid-template-areas: "heading" "image-exhibitions" "left-exhibitions" "right-exhibitions";
+}
+#Exhibitions h2 {
+  grid-area: heading;
+}
+#Exhibitions .left-exhibitions h3,
+#Exhibitions .left-exhibitions p,
+#Exhibitions .right-exhibitions h3,
+#Exhibitions .right-exhibitions p {
+  margin-bottom: 12px;
+}
+#Exhibitions .left-exhibitions {
+  width: 100%;
+  grid-area: left-exhibitions;
+}
+#Exhibitions .right-exhibitions {
+  width: 100%;
+  grid-area: right-exhibitions;
+}
+#Exhibitions figure {
+  grid-area: image-exhibitions;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+#Exhibitions figure img {
+  width: 100%;
+  max-height: 320px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#Clients {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+#Clients h2 {
   width: 100%;
 }
-.lower-container .right-exhibitions {
-  width: 100%;
+
+.client-logo {
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 12px;
+}
+.client-logo img {
+  max-height: 80px;
+  width: -moz-fit-content;
+  width: fit-content;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-areas: "Bio" "Exhibitions" "Clients";
+}
+.about-grid #Bio {
+  grid-area: Bio;
+}
+.about-grid #Exhibitions {
+  grid-area: Exhibitions;
+}
+.about-grid #Clients {
+  grid-area: Clients;
 }
 
 #contact-page {
@@ -680,12 +781,82 @@ nav .left-nav #hamburger-container button {
   min-height: 108px;
 }
 
+#photo-page .card {
+  min-height: 300px;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  position: relative;
+}
+#photo-page .photo-card-container {
+  display: grid;
+  grid-template-areas: "photography" "weddings" "graduations" "commercial";
+  grid-template-rows: min-content;
+  min-height: 70vh;
+}
+#photo-page .photo-card-container .photo-post-card .photo-content figure img,
+#photo-page .photo-card-container .photo-post-card .photo-content figure figure img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+#photo-page #Weddings-card {
+  grid-area: weddings;
+}
+#photo-page #Graduations-card {
+  grid-area: graduations;
+}
+#photo-page #Commercial-card {
+  grid-area: commercial;
+}
+#photo-page #Photography-card {
+  grid-area: photography;
+  background-color: transparent;
+  text-align: center;
+  padding: 0;
+  min-height: 120px;
+}
+#photo-page #Photography-card .book-links {
+  margin: 24px;
+}
+#photo-page #Photography-card h2,
+#photo-page #Photography-card p {
+  color: #303030;
+  margin: auto;
+  margin-bottom: 12px;
+}
+
+.phototype-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+.phototype-container .photo-text {
+  width: 100%;
+  margin-bottom: 24px;
+}
+.phototype-container figure {
+  min-width: 20%;
+  max-width: 100%;
+  margin: 12px;
+}
+.phototype-container figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  overflow: hidden;
+}
+
 @media screen and (min-width: 812px) {
   h1 {
     font-size: 72px;
   }
-  h2,
-  h3 {
+  .card-body p,
+  h3,
+  h2 {
     font-size: 24px;
   }
   a,
@@ -702,6 +873,7 @@ nav .left-nav #hamburger-container button {
   .double-container {
     width: 80%;
     padding: 24px;
+    margin: 0 auto;
   }
   .double-container,
   .single-container {
@@ -712,7 +884,7 @@ nav .left-nav #hamburger-container button {
   }
   .full-container {
     width: 90%;
-    margin: auto;
+    margin: 0 auto;
   }
   nav {
     padding: 0 48px;
@@ -742,10 +914,14 @@ nav .left-nav #hamburger-container button {
   #footer #social-media-icons a {
     margin: 0 24px;
   }
+  .card:hover .card-body,
   .card:hover h3 {
     visibility: visible;
     opacity: 1;
     height: 72px;
+  }
+  .grid-container {
+    gap: 24px;
   }
   #home-page {
     grid-template-areas: "contact contact" "ux ux" "art photo";
@@ -809,10 +985,22 @@ nav .left-nav #hamburger-container button {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-areas: "burger aurea" "pokedex regan";
   }
-  .project-card-container .card {
-    margin: 12px;
+  .client-logo {
+    max-height: 100px;
+  }
+  #photo-page .photo-card-container {
+    display: grid;
+    grid-template-areas: "photography photography photography" "weddings graduations commercial";
+  }
+  #photo-page .photo-card-container #Photography-card p {
+    width: 70%;
   }
 }
+.phototype-container figure {
+  min-width: 20%;
+  max-width: 30%;
+}
+
 @media screen and (min-width: 992px) {
   h1 {
     font-size: 72px;
@@ -832,8 +1020,7 @@ nav .left-nav #hamburger-container button {
   .expanded {
     height: 200px;
   }
-  .left-container,
-  figure {
+  .left-container {
     width: 48%;
     display: flex;
     justify-content: end;
@@ -858,16 +1045,35 @@ nav .left-nav #hamburger-container button {
   .lower-container {
     padding: 0 48px;
   }
-  #about-photo {
-    max-width: 70%;
+  .about-photo-container {
+    justify-content: flex-end;
+  }
+  .about-photo-container .about-photo {
+    max-height: 70vh;
   }
   #about-main {
-    max-width: 85%;
+    max-width: 100%;
   }
-  .lower-container .left-exhibitions {
+  #about-main h2 {
+    text-align: start;
+    margin: 0;
+    margin-bottom: 24px;
+  }
+  #Bio,
+  #Exhibitions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #Bio {
+    grid-template-areas: "photo main";
+  }
+  #Exhibitions {
+    grid-template-areas: "heading heading" "image-exhibitions image-exhibitions" "left-exhibitions right-exhibitions";
+  }
+  .left-exhibitions {
     width: 48%;
   }
-  .lower-container .right-exhibitions {
+  .right-exhibitions {
     width: 48%;
   }
   #project-page .project-container {
@@ -888,7 +1094,8 @@ nav .left-nav #hamburger-container button {
   #project-page .project-container .disclaimer {
     width: 100%;
   }
-  #project-page .project-container .two-column .functionalities, #project-page .project-container .two-column .project-description {
+  #project-page .project-container .two-column .functionalities,
+  #project-page .project-container .two-column .project-description {
     width: 48%;
     margin: 0 auto;
   }

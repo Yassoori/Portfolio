@@ -8,12 +8,14 @@ const uxUrl = import.meta.env.VITE_WP_UX_URL;
 
 const project = () => {
   const { id } = useParams();
+  // const { title } = useParams();
   const navigate = useNavigate();
 
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const endpoint = `${uxUrl}/${id}?_embed`;
+  // const endpoint = `${uxUrl}/${title}?_embed`;
 
   useEffect(() => {
     axios
@@ -52,7 +54,11 @@ const project = () => {
         id={project.title.rendered}
         className="project-container"
       />
-      <Link to={"/ux-projects/"}><button className="back-button regular-button">Back to UX Projects</button></Link>
+      <Link to={"/ux-projects/"} className="back-button-container">
+        <button className="back-button regular-button">
+          Back to UX Projects
+        </button>
+      </Link>
     </div>
   );
 };

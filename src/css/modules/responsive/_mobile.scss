@@ -26,7 +26,11 @@ h4 {
   }
 }
 
-h2,
+h2 {
+  font-size: $mob-sub-size;
+}
+
+.card-body p,
 h3 {
   font-size: $mob-sub-size;
 }
@@ -47,7 +51,8 @@ textarea {
 
 input,
 textarea,
-button {
+button,
+.regular-button {
   width: 100%;
   border: none;
   border-radius: $small-margin;
@@ -111,7 +116,6 @@ figure {
 #ux-page,
 #photo-page {
   width: 100%;
-  margin: 0;
 }
 
 // #home-page,
@@ -154,12 +158,17 @@ nav {
     align-items: flex-start;
 
     #cart,
-    #hamburger-container button {
-      transition: 0.4s;
-      width: 30px;
-      padding: $small-margin;
-      margin-left: $small-margin;
-      margin-right: $small-margin;
+    #hamburger-container {
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.4s;
+        width: 30px;
+        padding: $small-margin;
+        margin-left: $small-margin;
+        margin-right: $small-margin;
+      }
     }
   }
 }
@@ -222,10 +231,10 @@ nav {
 
   #close-nav-menu {
     position: absolute;
-    top: 5%;
-    right: 5%;
-    width: $big-margin;
-    height: $big-margin;
+    top: -8px;
+    right: 1px;
+    justify-content: center;
+
   }
 }
 
@@ -241,6 +250,8 @@ nav {
   width: 100%;
   height: 100%;
 }
+
+// ------------------------ Hamburger ------------------------
 
 // ------------------------ Footer ------------------------
 
@@ -273,7 +284,7 @@ nav {
 // ------------------------ Cards ------------------------
 
 .card {
-  margin: $med-margin;
+  // margin: $small-margin;
   border-radius: $med-margin;
   border: none;
   // padding: $small-margin;
@@ -295,6 +306,11 @@ nav {
     padding: $big-margin $big-margin;
     width: 100%;
 
+    .card-subheading {
+      display: flex;
+      align-items: center;
+    }
+
     div {
       display: flex;
       flex-direction: row;
@@ -302,7 +318,7 @@ nav {
       flex-wrap: wrap;
     }
 
-    // p,
+    .card-body,
     h3 {
       // display: none;
       visibility: hidden;
@@ -334,12 +350,17 @@ nav {
 
 .card:hover {
   // p,
+  .card-body,
   h3 {
     visibility: visible;
     opacity: 1;
     height: $very-big-margin;
-    // height: 100%;
   }
+}
+
+.grid-container {
+  gap: $med-margin;
+  margin: $med-margin;
 }
 
 // ------------------------ Home ------------------------
@@ -387,15 +408,18 @@ nav {
 .home-art-section {
   background-color: $card-art;
   grid-area: art;
+  #art-home-image {
+    object-position: 15% center;
+  }
 }
 .home-photography-section {
   background-color: $card-photo;
   grid-area: photo;
 }
-.home-blog-section {
-  background-color: $card-blog;
-  grid-area: blog;
-}
+// .home-blog-section {
+//   background-color: $card-blog;
+//   grid-area: blog;
+// }
 .home-contact-section {
   background-color: $card-contact;
   background-color: transparent;
@@ -410,14 +434,16 @@ nav {
     h1 {
       margin-bottom: $small-margin;
     }
-
-    #contact-home-button {
-      margin-bottom: 0;
-      background-color: $text-dark;
-      color: $text-light;
-      width: fit-content;
-    }
   }
+}
+
+#contact-home-button,
+#contact-photo-button {
+  display: block;
+  margin: auto;
+  background-color: $text-dark;
+  color: $text-light;
+  width: fit-content;
 }
 
 // ------------------------ Art ------------------------
@@ -583,7 +609,7 @@ nav {
 
 .project-card {
   min-height: 180px;
-  margin: $small-margin;
+  // margin: $small-margin;
 }
 //   margin: $med-margin;
 //   border-radius: $small-margin;
@@ -717,9 +743,14 @@ nav {
   a {
     width: 100%;
   }
-  .back-button {
-    margin: $very-big-margin 0;
-  }
+}
+
+.back-button-container {
+  text-align: center;
+}
+.back-button {
+  margin: $very-big-margin 0;
+  width: fit-content;
 }
 
 // ------------------------ About ------------------------
@@ -727,21 +758,50 @@ nav {
 #about-page {
   h2 {
     // position: absolute;
-    width: 100%;
+    // width: 100%;
     text-align: center;
     margin: $big-margin;
   }
 }
 
-#about-photo {
-  max-height: 70vh;
+#Bio {
+  display: grid;
+  grid-template-areas: 
+  "photo" "main";
+  // margin: 0 auto;
+}
+.about-photo-container {
+  grid-area: photo;
+  border-radius: $med-margin;
+  display: flex;
+  justify-content: center;
+  .about-photo {
+    object-fit: cover;
+    overflow: hidden;
+    width: 100%;
+    max-height: 70vh;
+  }
 }
 
 #about-main {
+  grid-area: main;
   max-width: 100%;
+  p {
+    margin-bottom: $med-margin;
+  }
 }
 
-.lower-container {
+#Exhibitions {
+  display: grid;
+  grid-template-areas: 
+  "heading"
+  "image-exhibitions"
+  "left-exhibitions" 
+  "right-exhibitions"
+  ;
+  h2 {
+    grid-area: heading;
+  }
   .left-exhibitions,
   .right-exhibitions {
     h3,
@@ -751,10 +811,52 @@ nav {
   }
   .left-exhibitions {
     width: 100%;
+    grid-area: left-exhibitions;
   }
   .right-exhibitions {
     width: 100%;
+    grid-area: right-exhibitions;
   }
+
+figure {
+  grid-area: image-exhibitions;
+  border-radius: $med-margin;
+  margin-bottom: $med-margin;
+  img {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+  }
+}
+}
+#Clients {
+  // width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  h2 {width: 100%;}
+}
+.client-logo {
+  width: fit-content;
+  // margin: $small-margin;
+  background-color: #ffffff;
+  border-radius: $med-margin;
+  padding: $med-margin;
+  img {
+    max-height: 80px;
+    width: fit-content;
+    object-fit: contain;
+  }
+}
+
+.about-grid {
+  display: grid;
+  grid-template-areas: "Bio" "Exhibitions" "Clients";
+
+  #Bio {grid-area: Bio;}
+  #Exhibitions {grid-area: Exhibitions;}
+  #Clients {grid-area: Clients;}
 }
 
 // ------------------------ Contact ------------------------
@@ -784,5 +886,88 @@ nav {
     // #submit-button {
 
     // }
+  }
+}
+
+// ------------------------ Photography ------------------------
+
+#photo-page {
+  .card {
+    min-height: 300px;
+    max-height: fit-content;
+    position: relative;
+    // img {
+    //   position: relative;
+    // }
+  }
+  .photo-card-container {
+    display: grid;
+    grid-template-areas: 
+      // "photography photography photography"
+      // "weddings graduations commercial";
+
+      "photography" "weddings" "graduations" "commercial"
+      // "photography weddings" "graduations commercial"
+;
+    grid-template-rows: min-content;
+    min-height: 70vh;
+
+    .photo-post-card .photo-content figure img,
+    .photo-post-card .photo-content figure figure img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  #Weddings-card {
+    grid-area: weddings;
+  }
+  #Graduations-card {
+    grid-area: graduations;
+  }
+  #Commercial-card {
+    grid-area: commercial;
+  }
+  #Photography-card {
+    grid-area: photography;
+    background-color: transparent;
+    text-align: center;
+    padding: 0;
+    min-height: 120px;
+    .book-links {
+      margin: $big-margin;
+    }
+    h2,
+    p {
+      color: $text-dark;
+      margin: auto;
+      margin-bottom: $med-margin;
+    }
+  }
+}
+
+// ------------------------ Phototype ------------------------
+
+.phototype-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+
+  .photo-text {
+    width: 100%;
+    margin-bottom: $big-margin;
+  }
+  figure {
+    min-width: 20%;
+    max-width: 100%;
+    margin: $med-margin;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      overflow: hidden;
+    }
   }
 }

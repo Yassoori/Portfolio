@@ -12,7 +12,7 @@ import Photography from './pages/Photography'
 // import Components
 import Product from './components/Product'
 import Project from './components/Project'
-// import PhotoTypes from './components/PhotoTypes'
+import Phototype from './components/Phototype'
 
 // import UXProjects
 // import RealBurger from './UXProjects/RealBurger'
@@ -44,7 +44,7 @@ const Links = () => {
         <Route path="/ux-projects/regan-hill-male" element={<ReganHillMale/>}/>
         <Route path="/ux-projects/pokedex" element={<Pokedex/>}/> */}
         {/* PhotoTypes */}
-        {/* <Route path="/photography/:id" element={<PhotoTypes/>}/> */}
+        <Route path="/photography/:id" element={<Phototype/>}/>
         {/* <Route path='/photography/weddings' element={<Weddings/>}/>
         <Route path='/photography/graduations' element={<Graduations/>}/>
         <Route path='/photography/events' element={<Events/>}/>

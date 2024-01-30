@@ -18,7 +18,7 @@ const Home = () => {
           content="Facebook Open Graph Meta Tag example"
         />
       </Helmet>
-      <div className="container full-container" id="home-page">
+      <div className="container full-container grid-container" id="home-page">
         {/* <h1>Yasser Saeed</h1> */}
         {/* <div className="home-card card home-about-section">
           <Link to="/about">
@@ -38,8 +38,8 @@ const Home = () => {
           <Link to="/ux-projects">
             <img src="/home-ux3.png" alt="" id="ux-home-image"/>
             <div className="card-text">
-              <h3>Hire Me!!! I need job</h3>
-              <h2>UX and Web</h2>
+              <h3>UX Design and Web Development Portfolio</h3>
+              <h2>UX</h2>
               {/* <p>01011100001011</p> */}
             </div>
           </Link>
@@ -66,7 +66,7 @@ const Home = () => {
           data-set-delay="1000"
         >
           <Link to="/photography">
-            <img src="/home-photo2.jpg" alt=""  id="photo-home-image"/>
+            <img src="/IMG_9309.jpg" alt=""  id="photo-home-image"/>
             <div className="card-text">
               <h3>Weddings, Graduations and other Celebrations</h3>
               <h2>Photography</h2>
@@ -88,7 +88,7 @@ const Home = () => {
           data-aos-offset="100"
           data-set-delay="1000"
         >
-          <a>
+          
           {/* <Link to="/contact"> */}
             {/* <img src="" alt="" /> */}
             <div className="card-text">
@@ -107,7 +107,7 @@ const Home = () => {
               </Link>
             </div>
           {/* </Link> */}
-          </a>
+          
         </div>
       </div>
     </>
