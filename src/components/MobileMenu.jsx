@@ -8,7 +8,7 @@ const MobileMenu = ({closeMethod, isOpen}) => {
 
   return (
     // <div className="mobile-menu-container">
-    <div className={`mobile-menu-container ${isOpen ? 'menu-open' : ''}`} onClick={handleNavClick}>
+    <div className={`mobile-menu-container ${isOpen ? 'menu-open' : ''}`}>
       <button id='close-nav-menu' onClick={closeMethod}>
         <XLg />
       </button>

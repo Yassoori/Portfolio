@@ -3,7 +3,6 @@ import MobileMenu from "./MobileMenu";
 import { Link, useLocation } from "react-router-dom";
 import { List } from "react-bootstrap-icons";
 import axios from "axios";
-// import { Divide as Hamburger } from 'hamburger-react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 
@@ -58,14 +57,6 @@ const Header = () => {
     document.body.classList.toggle("no-scroll");
   };
 
-  // useEffect (() => {
-  //   if (menuIsOpen) {
-  //   document.body.classList.toggle("no-scroll");
-  //   } if (!menuIsOpen) {
-  //     document.body.classList.remove("no-scroll");
-  //   }
-  // })
-
   useEffect(() => {
     return () => {
       document.body.classList.remove("no-scroll");
@@ -79,9 +70,17 @@ const Header = () => {
     setActiveNavItem(baseRoute);
   }, [location.pathname]);
 
+  useEffect(() => {
+    const pathParts = location.pathname.split("/").filter(Boolean);
+    const baseRoute =
+      pathParts[0] === "product" ? "art" : pathParts[0] || "home";
+    setActiveNavItem(baseRoute);
+    toggleMobileMenu(); // Toggle mobile menu when location changes
+  }, [location.pathname]);
+
   const handleNavClick = (navItem) => {
     setActiveNavItem(navItem);
-    toggleMobileMenu();
+    // toggleMobileMenu();
   };
 
   return (
@@ -164,16 +163,14 @@ const Header = () => {
           /> */}
             {/* Hamburger on Mobile */}
             <div id="hamburger-container">
-              {/* <div
-                id="nav-icon3"
-                className="show-mobile-menu-button"
-                onClick={toggleMobileMenu}
-              >
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div> */}
+              {/* <div id="nav-icon3 menu-button"
+              className="show-mobile-menu-button"
+              onClick={toggleMobileMenu}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div> */}
               <button
                 id="menu-button"
                 className="show-mobile-menu-button"
