@@ -65,18 +65,10 @@ const Header = () => {
 
   useEffect(() => {
     const pathParts = location.pathname.split("/").filter(Boolean);
-    const baseRoute =
-      pathParts[0] === "product" ? "art" : pathParts[0] || "home";
+    const baseRoute = pathParts[0] === "product" ? "art" : pathParts[0] || "home";
     setActiveNavItem(baseRoute);
   }, [location.pathname]);
-
-  useEffect(() => {
-    const pathParts = location.pathname.split("/").filter(Boolean);
-    const baseRoute =
-      pathParts[0] === "product" ? "art" : pathParts[0] || "home";
-    setActiveNavItem(baseRoute);
-    toggleMobileMenu(); // Toggle mobile menu when location changes
-  }, [location.pathname]);
+  
 
   const handleNavClick = (navItem) => {
     setActiveNavItem(navItem);
@@ -85,85 +77,85 @@ const Header = () => {
 
   return (
     <>
-      {activeNavItem !== "home" && (
-        <nav>
-          <div id="logo">
+    {activeNavItem !== "home" && (
+      <nav>
+        <div id="logo">
+          <Link
+            to="/"
+            className={`nav-button photo-nav-button ${
+              activeNavItem === "home" ? "active" : ""
+            }`}
+            // onClick={() => handleNavClick("home")}
+          >
+            {/* <img src={logoUrl} alt="Yasser Saeed" className="logo-image"/> */}
+            <h4 className="logo-text">YASSER SAEED</h4>
+            {/* <h4 className="logo-text">Yasser Saeed</h4> */}
+          </Link>
+        </div>
+        {/* Desktop Menu */}
+        <div className="left-nav">
+          <div id="desktop-nav-menu">
             <Link
-              to="/"
-              className={`nav-button photo-nav-button ${
-                activeNavItem === "home" ? "active" : ""
+              to="/ux-projects"
+              className={`nav-button ux-nav-button ${
+                activeNavItem === "ux-projects" ? "active" : ""
               }`}
-              // onClick={() => handleNavClick("home")}
+              onClick={() => handleNavClick("ux-projects")}
             >
-              {/* <img src={logoUrl} alt="Yasser Saeed" className="logo-image"/> */}
-              <h4 className="logo-text">YASSER SAEED</h4>
-              {/* <h4 className="logo-text">Yasser Saeed</h4> */}
+              UX
+            </Link>
+
+            <Link
+              to="/art"
+              className={`nav-button art-nav-button ${
+                activeNavItem === "art" ? "active" : ""
+              }`}
+              onClick={() => handleNavClick("art")}
+            >
+              Art
+            </Link>
+
+            <Link
+              to="/photography"
+              className={`nav-button photo-nav-button ${
+                activeNavItem === "photography" ? "active" : ""
+              }`}
+              onClick={() => handleNavClick("photography")}
+            >
+              Photography
+            </Link>
+
+            <Link
+              to="/about"
+              className={`nav-button about-nav-button ${
+                activeNavItem === "about" ? "active" : ""
+              }`}
+              onClick={() => handleNavClick("about")}
+            >
+              About
+            </Link>
+
+            <Link
+              to="/contact"
+              // to="/about#contact"
+              className={`nav-button contact-nav-button ${
+                activeNavItem === "contact" ? "active" : ""
+              }`}
+              onClick={() => handleNavClick("contact")}
+            >
+              Contact
             </Link>
           </div>
-          {/* Desktop Menu */}
-          <div className="left-nav">
-            <div id="desktop-nav-menu">
-              <Link
-                to="/ux-projects"
-                className={`nav-button ux-nav-button ${
-                  activeNavItem === "ux-projects" ? "active" : ""
-                }`}
-                onClick={() => handleNavClick("ux-projects")}
-              >
-                UX
-              </Link>
-
-              <Link
-                to="/art"
-                className={`nav-button art-nav-button ${
-                  activeNavItem === "art" ? "active" : ""
-                }`}
-                onClick={() => handleNavClick("art")}
-              >
-                Art
-              </Link>
-
-              <Link
-                to="/photography"
-                className={`nav-button photo-nav-button ${
-                  activeNavItem === "photography" ? "active" : ""
-                }`}
-                onClick={() => handleNavClick("photography")}
-              >
-                Photography
-              </Link>
-
-              <Link
-                to="/about"
-                className={`nav-button about-nav-button ${
-                  activeNavItem === "about" ? "active" : ""
-                }`}
-                onClick={() => handleNavClick("about")}
-              >
-                About
-              </Link>
-
-              <Link
-                to="/contact"
-                // to="/about#contact"
-                className={`nav-button contact-nav-button ${
-                  activeNavItem === "contact" ? "active" : ""
-                }`}
-                onClick={() => handleNavClick("contact")}
-              >
-                Contact
-              </Link>
-            </div>
-            {/* <img src="/iconbag.png" alt="Cart" id="cart"/> */}
-            {/* <FontAwesomeIcon
+          {/* <img src="/iconbag.png" alt="Cart" id="cart"/> */}
+          {/* <FontAwesomeIcon
             icon={faBagShopping}
             size="lg"
             style={{ color: "#303030" }}
             id="cart"
           /> */}
-            {/* Hamburger on Mobile */}
-            <div id="hamburger-container">
-              {/* <div id="nav-icon3 menu-button"
+          {/* Hamburger on Mobile */}
+          <div id="hamburger-container">
+            {/* <div id="nav-icon3 menu-button"
               className="show-mobile-menu-button"
               onClick={toggleMobileMenu}>
               <span></span>
@@ -171,18 +163,18 @@ const Header = () => {
               <span></span>
               <span></span>
             </div> */}
-              <button
-                id="menu-button"
-                className="show-mobile-menu-button"
-                onClick={toggleMobileMenu}
-              >
-                <List id="hamburger-icon" />
-              </button>
-            </div>
+            <button
+              id="menu-button"
+              className="show-mobile-menu-button"
+              onClick={toggleMobileMenu}
+            >
+              <List id="hamburger-icon" />
+            </button>
           </div>
-        </nav>
+        </div>
+      </nav>
       )}
-      <MobileMenu closeMethod={toggleMobileMenu} isOpen={menuIsOpen} />
+      <MobileMenu closeMethod={toggleMobileMenu} isOpen={menuIsOpen}/>
     </>
   );
 };
