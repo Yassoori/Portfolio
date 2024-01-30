@@ -738,7 +738,7 @@ nav .left-nav #hamburger-container button {
   padding: 12px;
 }
 .client-logo img {
-  max-height: 40px;
+  height: 40px;
   width: -moz-fit-content;
   width: fit-content;
   -o-object-fit: contain;
@@ -986,7 +986,7 @@ nav .left-nav #hamburger-container button {
     grid-template-areas: "burger aurea" "pokedex regan";
   }
   .client-logo img {
-    max-height: 80px;
+    height: 80px;
   }
   #photo-page .photo-card-container {
     display: grid;
@@ -1075,9 +1075,6 @@ nav .left-nav #hamburger-container button {
   }
   .right-exhibitions {
     width: 48%;
-  }
-  .client-logo img {
-    max-height: 100px;
   }
   #project-page .project-container {
     display: flex;
