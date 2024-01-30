@@ -767,11 +767,11 @@ nav {
 #Bio {
   display: grid;
   grid-template-areas: 
-  "photo" "main";
+  "about-photo" "main";
   // margin: 0 auto;
 }
 .about-photo-container {
-  grid-area: photo;
+  grid-area: about-photo;
   border-radius: $med-margin;
   display: flex;
   justify-content: center;

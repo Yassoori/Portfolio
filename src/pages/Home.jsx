@@ -100,11 +100,12 @@ const Home = () => {
               <h1 className="greeting">
                 HI, I'M YASSER - UX DEVELOPER, ARTIST AND PHOTOGRAPHER.
               </h1>
-              <Link to="/contact">
-                <button id="contact-home-button" className="regular-button">
+              
+                <button id="contact-home-button" className="regular-button"><Link to="/contact">
                   Get in touch
+                  </Link>
                 </button>
-              </Link>
+              
             </div>
           {/* </Link> */}
           

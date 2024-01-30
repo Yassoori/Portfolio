@@ -662,11 +662,11 @@ nav .left-nav #hamburger-container button {
 
 #Bio {
   display: grid;
-  grid-template-areas: "photo" "main";
+  grid-template-areas: "about-photo" "main";
 }
 
 .about-photo-container {
-  grid-area: photo;
+  grid-area: about-photo;
   border-radius: 12px;
   display: flex;
   justify-content: center;
@@ -1065,7 +1065,7 @@ nav .left-nav #hamburger-container button {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   #Bio {
-    grid-template-areas: "photo main";
+    grid-template-areas: "about-photo main";
   }
   #Exhibitions {
     grid-template-areas: "heading heading" "image-exhibitions image-exhibitions" "left-exhibitions right-exhibitions";
