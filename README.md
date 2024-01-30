@@ -1,6 +1,6 @@
 # Yasser Saeed Portfolio Website
 
-![Home Page](public/screenshot.png)
+![Home Page](/screenshot.png)
 
 This is a React and headless WordPress site to showcase my work as a UX and web developer as well as an artist and photographer.
 
