@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Trykker|Lustria|Big+Shoulders+Text|Bebas+Neue|Overpass|Alfa+Slab+One");
 @import url("https://fonts.googleapis.com/css?family=Montserrat|Fira+sans+Condensed|Dosis|Josefin+Sans");
+@font-face {
+  font-family: "Wallau Unzial Bold";
+  src: url("/typefaces/Wallau Unzial Bold/Wallau Unzial Bold.ttf");
+}
+@font-face {
+  font-family: "Le Murmure";
+  src: url("/typefaces/Le Murmure/le-murmure.otf");
+}
 * {
   margin: 0;
   padding: 0;
@@ -654,6 +662,9 @@ nav .left-nav #hamburger-container button {
   width: -moz-fit-content;
   width: fit-content;
 }
+.back-button a {
+  color: #e3e3e3;
+}
 
 #about-page h2 {
   text-align: center;
@@ -1111,12 +1122,4 @@ nav .left-nav #hamburger-container button {
   #project-page .project-container #regan-text .project-description {
     width: 100%;
   }
-}
-@font-face {
-  font-family: "Wallau Unzial Bold";
-  src: url("/typefaces/Wallau Unzial Bold/Wallau Unzial Bold.ttf");
-}
-@font-face {
-  font-family: "Le Murmure";
-  src: url("/typefaces/Le Murmure/le-murmure.otf");
 }/*# sourceMappingURL=App.css.map */

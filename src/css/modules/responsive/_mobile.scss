@@ -751,6 +751,9 @@ nav {
 .back-button {
   margin: $very-big-margin 0;
   width: fit-content;
+  a {
+    color: $text-light;
+  }
 }
 
 // ------------------------ About ------------------------
