@@ -43,8 +43,7 @@
 
   // ------------------------ Product ------------------------
 
-  .left-container,
-  figure {
+  .left-container {
     width: 48%;
     display: flex;
     justify-content: end;
@@ -71,22 +70,45 @@
 
   // ------------------------ About ------------------------
 
-  #about-photo {
-    max-width: 70%;
-    // max-height: 70vh;
+  .about-photo-container {
+    justify-content: flex-end;
+    .about-photo {
+      // width: 70%;
+      max-height: 70vh;
+    }
   }
 
   #about-main {
-    max-width: 85%;
+    max-width: 100%;
+    h2 {
+      text-align: start;
+      margin: 0;
+      margin-bottom: $big-margin;
+    }
   }
 
-  .lower-container {
-    .left-exhibitions {
-      width: 48%;
-    }
-    .right-exhibitions {
-      width: 48%;
-    }
+  #Bio,
+  #Exhibitions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #Bio {
+    grid-template-areas: "photo main";
+  }
+
+  #Exhibitions {
+    grid-template-areas:
+      "heading heading"
+      "image-exhibitions image-exhibitions"
+      "left-exhibitions right-exhibitions";
+  }
+
+  .left-exhibitions {
+    width: 48%;
+  }
+  .right-exhibitions {
+    width: 48%;
   }
 
   // ------------------------ Projects ------------------------
@@ -113,7 +135,8 @@
         //   width: 48%;
         // }
       }
-      .two-column .functionalities, .two-column .project-description {
+      .two-column .functionalities,
+      .two-column .project-description {
         width: 48%;
         margin: 0 auto;
       }

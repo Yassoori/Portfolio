@@ -3,23 +3,25 @@ import axios from "axios";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
+// import { Params } from "react-router-dom";
 
-const PhotoURL = import.meta.env.VITE_WP_UX_URL;
+const PhotoURL = import.meta.env.VITE_WP_PHOTOGRAPHY_URL;
+const MediaURL = import.meta.env.VITE_WP_MEDIA_URL;
 
 const UX = () => {
-  const [photoTypes, setPhotoTypes] = useState(null);
+  const [photoPosts, setPhotoPosts] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get(`${PhotoURL}`)
+      .get(`${PhotoURL}?_embed`)
       .then((res) => {
-        setPhotoTypes(res.data);
+        setPhotoPosts(res.data);
         setLoading(false);
         // console.log(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [PhotoURL]);
 
   if (loading) {
     return (
@@ -29,37 +31,67 @@ const UX = () => {
     );
   }
 
-  const PhotoTypes = ({ photoTypes }) => {
-    const mappedPhotoTypes = photoTypes.map((photoType, index) => {
-      //   function getFeaturedImage(photoType, index) {
-      //     if (
-      //       photoType &&
-      //       photoType._embedded &&
-      //       photoType._embedded["wp:featuredmedia"] &&
-      //       photoType._embedded["wp:featuredmedia"][0].source_url
-      //     ) {
-      //       return photoType._embedded["wp:featuredmedia"][0].source_url;
-      //     } else {
-      //       return "https://placehold.co/600x400";
-      //     }
-      //   }
+  const PhotoPosts = ({ photoPosts }) => {
+    const mappedPhotoPosts = photoPosts.map((photoPost, index) => {
+      function getFeaturedImage(photoPost, index) {
+        if (
+          photoPost &&
+          photoPost._embedded &&
+          photoPost._embedded["wp:featuredmedia"] &&
+          photoPost._embedded["wp:featuredmedia"][0].source_url
+        ) {
+          return photoPost._embedded["wp:featuredmedia"][0].source_url;
+        } else {
+          // return "https://placehold.co/600x400";
+          return (
+            <div
+              className="photo-content"
+              dangerouslySetInnerHTML={{ __html: photoPost.content.rendered }}
+            />
+          );
+        }
+      }
       return (
-        <div key={photoType.slug + "_" + index} className="photoType-card">
-          <Link className="photo-type-link" to={`/ux-photo-types/${photoType.id}`}>
-            {/* <img src={getFeaturedImage(photoType)} alt={photoType.title.rendered} /> */}
-            {/* <img src={photoType._embedded["wp:featuredmedia"][0].source_url} alt={photoType.title.rendered} /> */}
-            <img src={`${photoTypes.title.rendered}-feature.png`} alt={photoTypes.title.rendered} className="card-image"/>
-            <h2 className="title">{photoTypes.title.rendered}</h2>
-            <p></p>
-            <p></p>
+        // <div
+        //   key={photoPost.slug + "_" + index}
+        //   className="photo-post-card card"
+        //   id={`${photoPost.title.rendered}-card`}
+        // >
+          <Link 
+          key={photoPost.slug + "_" + index}
+          className="photo-post-card card"
+          id={`${photoPost.title.rendered}-card`}
+          // className="photo-link" 
+          to={`/photography/${photoPost.id}`}
+          data-aos="zoom-in"
+          data-aos-offset="100"
+          data-set-delay="1000">
+            <img
+              src={getFeaturedImage(photoPost)}
+              alt={photoPost.title.rendered}
+              className="card-image"
+            />
+            <div className="card-text">
+              <div
+                dangerouslySetInnerHTML={{ __html: photoPost.excerpt.rendered }}
+                className="card-body"
+              />
+              {/* <h3>{photoPost.excerpt.rendered}</h3> */}
+              <h2 className="card-heading">{photoPost.title.rendered}</h2>
+            </div>
+            {/* <h2 className="title">{photoPost.title.rendered}</h2> */}
+            {/* <div
+            className="photo-content"
+            dangerouslySetInnerHTML={{ __html: photoPost.content.rendered }}
+          /> */}
           </Link>
-        </div>
+        // </div>
       );
     });
-    return <>{mappedPhotoTypes}</>;
+    return <>{mappedPhotoPosts}</>;
   };
 
-  //   console.log(projects);
+  //   console.log(photoPosts);
 
   return (
     <>
@@ -77,32 +109,50 @@ const UX = () => {
         />
       </Helmet>
       <div id="photo-page" className="container full-container">
-        <div className="photo-card-container">
-          {/* {loading ? <Loading /> : <PhotoTypes photoTypes={photoTypes} />} */}
-          <Link to="/photography/weddings" className="photo-card">
+        <div className="photo-card-container grid-container">
+          <div
+            // key={photoPost.slug + "_" + index}
+            className="photo-post-card card"
+            id={`Photography-card`}
+          >
+            <div className="photo-text">
+              <h2>Photography</h2>
+              <p>
+                I keep my photography style casual and true to life, while
+                providing my clients with a personalised photoshoot experience.
+              </p>
+            </div>
+            <div className="book-links">
+              <a
+                id="contact-photo-button"
+                className="book-link regular-button"
+                href="http://localhost:5173/#/contact"
+              >
+                Book a photoshoot
+              </a>
+            </div>
+          </div>
+          {loading ? <Loading /> : <PhotoPosts photoPosts={photoPosts} />}
+          {/* 
+          <Link to="/photography/weddings" className="photo-card card">
             <img src="weddings-feature.png" alt="Weddings" className="card-image"/>
             <h2 className="card-heading">Weddings</h2>
             <p className="card-subheading"></p>
             <p className="card-body"></p>
           </Link>
-          <Link to="/photography/graduations" className="photo-card">
+          <Link to="/photography/graduations" className="photo-card card">
             <img src="graduations-feature.png" alt="Graduations" className="card-image"/>
             <h2 className="card-heading">Graduations</h2>
             <p className="card-subheading"></p>
             <p className="card-body"></p>
           </Link>
-          <Link to="/photography/events" className="photo-card">
-            <img src="events-feature.png" alt="Events" className="card-image"/>
-            <h2 className="card-heading">Events</h2>
-            <p className="card-subheading"></p>
-            <p className="card-body"></p>
-          </Link>
-          <Link to="/photography/portraits" className="photo-card">
+          <Link to="/photography/portraits" className="photo-card card">
             <img src="portraits-feature.png" alt="Portraits" className="card-image"/>
             <h2 className="card-heading">Portraits</h2>
             <p className="card-subheading"></p>
             <p className="card-body"></p>
-          </Link>
+          </Link> 
+          */}
         </div>
       </div>
     </>

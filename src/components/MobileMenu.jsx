@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom'
-import { X } from 'react-bootstrap-icons'
+import { XLg} from 'react-bootstrap-icons'
 
 const MobileMenu = ({closeMethod, isOpen}) => {
   const handleNavClick = () => {
@@ -8,9 +8,9 @@ const MobileMenu = ({closeMethod, isOpen}) => {
 
   return (
     // <div className="mobile-menu-container">
-    <div className={`mobile-menu-container ${isOpen ? 'menu-open' : ''}`}>
+    <div className={`mobile-menu-container ${isOpen ? 'menu-open' : ''}`} onClick={handleNavClick}>
       <button id='close-nav-menu' onClick={closeMethod}>
-        <X />
+        <XLg />
       </button>
       <div id="mobile-nav-menu">
         <button className="mob-nav-button Home-nav-button" onClick={handleNavClick}>

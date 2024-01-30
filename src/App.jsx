@@ -26,7 +26,7 @@ function App() {
       const styles = document.getElementById("dynamicStyles");
       styles.innerHTML = `
       h1, h4 { font-family: ${headingFont}, serif; }
-      h2, h3 { font-family: ${subFont}, serif; }
+      h2, h3, .card-body p { font-family: ${subFont}, serif; }
       p, li, a, input, textarea, button { font-family: ${bodyFont}, sans-serif; } 
       body { background: #${bgColor}; color: ${fontColor}}
       a, button, .inquire { color: ${fontColor}}

@@ -81,7 +81,7 @@ const UX = () => {
         />
       </Helmet>
       <div className="container full-container" id="ux-page">
-        <div className="project-card-container">
+        <div className="project-card-container grid-container">
           {/* {loading ? <Loading /> : <Projects projects={projects} />} */}
           <Link
             to="/ux-projects/273"
@@ -168,7 +168,7 @@ const UX = () => {
             />
             <div className="card-text">
               <h3 className="card-body">
-                Artist's online portfolio and shop to boost commissions
+                Artist's online portfolio and shop to boost commissions.
               </h3>
               <div className="">
                 <h2 className="card-heading">Regan Hill-Male</h2>

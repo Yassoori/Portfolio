@@ -5,8 +5,9 @@
     font-size: $h1-size-tablet;
   }
 
-  h2,
-  h3 {
+  .card-body p,
+  h3,
+  h2 {
     font-size: $sub-size;
   }
 
@@ -26,6 +27,7 @@
   .double-container {
     width: 80%;
     padding: $big-margin;
+    margin: 0 auto;
   }
 
   .double-container,
@@ -38,7 +40,7 @@
 
   .full-container {
     width: 90%;
-    margin: auto;
+    margin: 0 auto;
   }
 
   // ------------------------ Header ------------------------
@@ -84,12 +86,17 @@
 
   .card:hover {
     // p,
+    .card-body,
     h3 {
       visibility: visible;
       opacity: 1;
       height: $very-big-margin * 1.5;
       // height: 100%;
     }
+  }
+
+  .grid-container {
+    gap: $big-margin;
   }
 
   // ------------------------ Home ------------------------
@@ -197,9 +204,9 @@
     grid-template-areas:
       "burger aurea"
       "pokedex regan";
-    .card {
-      margin: $med-margin;
-    }
+    // .card {
+    //   margin: $med-margin;
+    // }
   }
 
   // ------------------------ About ------------------------
@@ -212,4 +219,38 @@
   //     width: 48%;
   //   }
   // }
+
+  .client-logo {
+    max-height: 100px;
+  }
+
+  // ------------------------ Photography ------------------------
+
+  #photo-page {
+    .photo-card-container {
+      display: grid;
+      grid-template-areas: 
+      "photography photography photography"
+      "weddings graduations commercial"
+      // "weddings graduations commercial"
+      // "weddings graduations commercial"
+      // "photography weddings"
+      // "graduations commercial"
+      ;
+      #Photography-card {
+        p {
+          width: 70%;
+        }
+      }
+    }
+  }
+}
+
+// ------------------------ Phototype ------------------------
+
+.phototype-container {
+  figure {
+    min-width: 20%;
+    max-width: 30%;
+  }
 }
