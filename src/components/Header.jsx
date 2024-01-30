@@ -58,6 +58,14 @@ const Header = () => {
     document.body.classList.toggle("no-scroll");
   };
 
+  // useEffect (() => {
+  //   if (menuIsOpen) {
+  //   document.body.classList.toggle("no-scroll");
+  //   } if (!menuIsOpen) {
+  //     document.body.classList.remove("no-scroll");
+  //   }
+  // })
+
   useEffect(() => {
     return () => {
       document.body.classList.remove("no-scroll");
@@ -73,7 +81,7 @@ const Header = () => {
 
   const handleNavClick = (navItem) => {
     setActiveNavItem(navItem);
-    // toggleMobileMenu();
+    toggleMobileMenu();
   };
 
   return (
