@@ -14,7 +14,7 @@ const useCustomizer = () => {
 
   useEffect(() => {
     axios
-      .get(`${baseUrl}/wp-json/custom-theme/v1/customizer-settings`)
+      .get(`${baseUrl}/wp-json/custom/v1/customizer-settings`)
       .then((response) => {
         const { backgroundColor, landingBackgroundColor, headingFont, subFont, bodyFont, navbarColor, fontColor } =
           response.data;
