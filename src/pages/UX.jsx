@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
 
-const UXUrl = import.meta.env.VITE_WP_UX_URL;
+const apiUrl = import.meta.env.VITE_WP_API_BASEURL;
 
 const UX = () => {
   const [projects, setProjects] = useState(null);
@@ -12,14 +12,14 @@ const UX = () => {
 
   useEffect(() => {
     axios
-      .get(`${UXUrl}`)
+      .get(`${apiUrl}/ux?_embed`)
       .then((res) => {
         setProjects(res.data);
         setLoading(false);
         // console.log(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [apiUrl]);
 
   if (loading) {
     return (
@@ -31,30 +31,29 @@ const UX = () => {
 
   const Projects = ({ projects }) => {
     const mappedProjects = projects.map((project, index) => {
-      //   function getFeaturedImage(project, index) {
-      //     if (
-      //       project &&
-      //       project._embedded &&
-      //       project._embedded["wp:featuredmedia"] &&
-      //       project._embedded["wp:featuredmedia"][0].source_url
-      //     ) {
-      //       return project._embedded["wp:featuredmedia"][0].source_url;
-      //     } else {
-      //       return "https://placehold.co/600x400";
-      //     }
-      //   }
+        function getFeaturedImage(project, index) {
+          if (
+            project &&
+            project._embedded &&
+            project._embedded["wp:featuredmedia"] &&
+            project._embedded["wp:featuredmedia"][0].source_url
+          ) {
+            return project._embedded["wp:featuredmedia"][0].source_url;
+          } else {
+            return null;
+          }
+        }
       return (
         <div key={project.slug + "_" + index} className="project-card">
           <Link className="card" to={`/ux-projects/${project.id}`}>
-            {/* <img src={getFeaturedImage(project)} alt={project.title.rendered} /> */}
-            {/* <img src={project._embedded["wp:featuredmedia"][0].source_url} alt={project.title.rendered} /> */}
-            <img
+            <img src={getFeaturedImage(project)} alt={project.title.rendered} className="card-image"/>
+            {/* <img
               src={`${project.title.rendered}-feature.png`}
               alt={project.title.rendered}
               className="card-image"
-            />
+            /> */}
             <h3 className="title">{project.title.rendered}</h3>
-            <p></p>
+            <p>{project.tags}</p>
             <p></p>
           </Link>
         </div>
@@ -63,7 +62,7 @@ const UX = () => {
     return <>{mappedProjects}</>;
   };
 
-  //   console.log(projects);
+    console.log(projects);
 
   return (
     <>

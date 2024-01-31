@@ -1,13 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Trykker|Lustria|Big+Shoulders+Text|Bebas+Neue|Overpass|Alfa+Slab+One");
 @import url("https://fonts.googleapis.com/css?family=Montserrat|Fira+sans+Condensed|Dosis|Josefin+Sans");
-@font-face {
-  font-family: "Wallau Unzial Bold";
-  src: url("/typefaces/Wallau Unzial Bold/Wallau Unzial Bold.ttf");
-}
-@font-face {
-  font-family: "Le Murmure";
-  src: url("/typefaces/Le Murmure/le-murmure.otf");
-}
 * {
   margin: 0;
   padding: 0;
@@ -54,6 +46,7 @@ img {
 h1,
 h4 {
   font-size: 44px;
+  font-family: "Le Murmure", sans-serif;
 }
 
 @media screen and (max-width: 420px) {
@@ -63,16 +56,22 @@ h4 {
 }
 h2 {
   font-size: 18px;
+  font-family: "Lustria", sans-serif;
 }
 
 .card-body p,
 h3 {
   font-size: 18px;
+  font-family: "Lustria", sans-serif;
 }
 
 h4 {
   position: absolute;
   top: 8px;
+}
+
+p, li, a, input, textarea, button {
+  font-family: "Montserrat", sans-serif;
 }
 
 a,
@@ -359,7 +358,7 @@ nav .left-nav #hamburger-container button {
   color: #303030;
 }
 
-.home-ux-section {
+.home-ux-projects-section {
   background-color: #4e4c54;
   grid-area: ux;
 }
@@ -1122,4 +1121,12 @@ nav .left-nav #hamburger-container button {
   #project-page .project-container #regan-text .project-description {
     width: 100%;
   }
+}
+@font-face {
+  font-family: "Wallau Unzial Bold";
+  src: url("/typefaces/Wallau Unzial Bold/Wallau Unzial Bold.ttf");
+}
+@font-face {
+  font-family: "Le Murmure";
+  src: url("/typefaces/Le Murmure/le-murmure.otf");
 }/*# sourceMappingURL=App.css.map */

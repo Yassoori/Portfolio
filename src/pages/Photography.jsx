@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
 // import { Params } from "react-router-dom";
 
-const PhotoURL = import.meta.env.VITE_WP_PHOTOGRAPHY_URL;
-const MediaURL = import.meta.env.VITE_WP_MEDIA_URL;
+const apiUrl = import.meta.env.VITE_WP_API_BASEURL;
 
 const UX = () => {
   const [photoPosts, setPhotoPosts] = useState(null);
@@ -14,14 +13,14 @@ const UX = () => {
 
   useEffect(() => {
     axios
-      .get(`${PhotoURL}?_embed`)
+      .get(`${apiUrl}/photography?_embed`)
       .then((res) => {
         setPhotoPosts(res.data);
         setLoading(false);
         // console.log(res.data);
       })
       .catch((err) => console.log(err));
-  }, [PhotoURL]);
+  }, [apiUrl]);
 
   if (loading) {
     return (
@@ -42,7 +41,6 @@ const UX = () => {
         ) {
           return photoPost._embedded["wp:featuredmedia"][0].source_url;
         } else {
-          // return "https://placehold.co/600x400";
           return (
             <div
               className="photo-content"
@@ -52,16 +50,10 @@ const UX = () => {
         }
       }
       return (
-        // <div
-        //   key={photoPost.slug + "_" + index}
-        //   className="photo-post-card card"
-        //   id={`${photoPost.title.rendered}-card`}
-        // >
           <Link 
           key={photoPost.slug + "_" + index}
           className="photo-post-card card"
           id={`${photoPost.title.rendered}-card`}
-          // className="photo-link" 
           to={`/photography/${photoPost.id}`}
           data-aos="zoom-in"
           data-aos-offset="100"
@@ -76,16 +68,9 @@ const UX = () => {
                 dangerouslySetInnerHTML={{ __html: photoPost.excerpt.rendered }}
                 className="card-body"
               />
-              {/* <h3>{photoPost.excerpt.rendered}</h3> */}
               <h2 className="card-heading">{photoPost.title.rendered}</h2>
             </div>
-            {/* <h2 className="title">{photoPost.title.rendered}</h2> */}
-            {/* <div
-            className="photo-content"
-            dangerouslySetInnerHTML={{ __html: photoPost.content.rendered }}
-          /> */}
           </Link>
-        // </div>
       );
     });
     return <>{mappedPhotoPosts}</>;
