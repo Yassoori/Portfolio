@@ -1,3 +1,13 @@
+// ------------------------ Variables ------------------------
+
+@import "modules/variables";
+
+// ------------------------ Responsive ------------------------
+
+@import "modules/responsive/mobile";
+@import "modules/responsive/tablet";
+@import "modules/responsive/desktop";
+
 // ------------------------ Font Imports ------------------------
 
 @import url("https://fonts.googleapis.com/css?family=Trykker|Lustria|Big+Shoulders+Text|Bebas+Neue|Overpass|Alfa+Slab+One");
@@ -12,13 +22,3 @@
     font-family: "Le Murmure";
     src: url("/typefaces/Le Murmure/le-murmure.otf");
 };
-
-// ------------------------ Variables ------------------------
-
-@import "modules/variables";
-
-// ------------------------ Responsive ------------------------
-
-@import "modules/responsive/mobile";
-@import "modules/responsive/tablet";
-@import "modules/responsive/desktop";

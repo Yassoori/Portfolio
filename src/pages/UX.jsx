@@ -92,7 +92,7 @@ const UX = () => {
             data-set-delay="1000"
           >
             <img
-              src="realburger-feature4.png"
+              src="images/ux/realburger-feature4.png"
               alt="Real Burger"
               className="card-image"
               id="images/ux/burger-ux-image"
