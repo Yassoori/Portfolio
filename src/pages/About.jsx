@@ -3,7 +3,7 @@ import axios from "axios";
 import { Helmet } from "react-helmet";
 import Loading from "../components/Loading";
 
-const aboutUrl = import.meta.env.VITE_WP_ABOUT_URL;
+const apiUrl = import.meta.env.VITE_WP_API_BASEURL;
 
 const About = () => {
   const [aboutPost, setAboutPost] = useState(null);
@@ -11,13 +11,13 @@ const About = () => {
 
   useEffect(() => {
     axios
-      .get(`${aboutUrl}`)
+      .get(`${apiUrl}/about-post`)
       .then((res) => {
         setAboutPost(res.data);
         setLoading(false);
       })
       .catch((err) => console.log(err));
-  }, [aboutUrl]);
+  }, [apiUrl]);
 
   const AboutPost = ({ aboutPosts }) => {
     if (!aboutPosts) {
