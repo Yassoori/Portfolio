@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
 
-const phototypeUrl = import.meta.env.VITE_WP_PHOTOGRAPHY_URL;
+const apiUrl = import.meta.env.VITE_WP_API_BASEURL;
 
 const phototype = () => {
   const { id } = useParams();
@@ -14,7 +14,7 @@ const phototype = () => {
   const [phototype, setPhototype] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const endpoint = `${phototypeUrl}/${id}?_embed`;
+  const endpoint = `${apiUrl}/photography/${id}?_embed`;
   // const endpoint = `${phototypeUrl}/${title}?_embed`;
 
   useEffect(() => {

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
 
-const productsUrl = import.meta.env.VITE_WC_PRODUCTS_URL;
+const apiUrl = import.meta.env.VITE_WP_API_BASEURL;
 
 const Product = () => {
   const { id } = useParams();
@@ -13,7 +13,7 @@ const Product = () => {
   // const [productType, setProductType ] = useState(null)
   const [loading, setLoading] = useState(true);
 
-  const endpoint = `${productsUrl}/${id}`;
+  const endpoint = `${apiUrl}/products/${id}`;
 
   useEffect(() => {
     axios

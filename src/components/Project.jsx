@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
 
-const uxUrl = import.meta.env.VITE_WP_UX_URL;
+const apiUrl = import.meta.env.VITE_WP_API_BASEURL;
 
 const project = () => {
   const { id } = useParams();
@@ -14,7 +14,7 @@ const project = () => {
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const endpoint = `${uxUrl}/${id}?_embed`;
+  const endpoint = `${apiUrl}/ux-projects/${id}?_embed`;
   // const endpoint = `${uxUrl}/${title}?_embed`;
 
   useEffect(() => {
