@@ -14,7 +14,7 @@ const project = () => {
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const endpoint = `${apiUrl}/ux-projects/${id}?_embed`;
+  const endpoint = `${apiUrl}/ux/${id}?_embed`;
   // const endpoint = `${uxUrl}/${title}?_embed`;
 
   useEffect(() => {
