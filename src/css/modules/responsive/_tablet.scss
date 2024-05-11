@@ -229,14 +229,14 @@
   #photo-page {
     .photo-card-container {
       display: grid;
-      grid-template-areas: 
-      "photography photography photography"
-      "weddings graduations commercial"
-      // "weddings graduations commercial"
-      // "weddings graduations commercial"
-      // "photography weddings"
-      // "graduations commercial"
-      ;
+      grid-template-areas:
+        "photography photography photography"
+        "weddings graduations commercial"
+        // "weddings graduations commercial"
+        // "weddings graduations commercial"
+        // "photography weddings"
+        // "graduations commercial"
+;
       #Photography-card {
         p {
           width: 70%;
@@ -244,13 +244,13 @@
       }
     }
   }
-}
 
-// ------------------------ Phototype ------------------------
+  // ------------------------ Phototype ------------------------
 
-.phototype-container {
-  figure {
-    min-width: 20%;
-    max-width: 30%;
+  .phototype-container {
+    figure {
+      min-width: 20%;
+      max-width: 30%;
+    }
   }
 }

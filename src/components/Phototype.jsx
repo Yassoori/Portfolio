@@ -54,7 +54,11 @@ const phototype = () => {
         id={phototype.title.rendered}
         className="phototype-container"
       />
-      <Link to={"/photography/"} className="back-button-container"><button className="back-button regular-button">Back to Photography</button></Link>
+      <Link to={"/photography/"} className="back-button-container">
+        <button className="back-button regular-button">
+          Back to Photography
+        </button>
+      </Link>
     </div>
   );
 };
