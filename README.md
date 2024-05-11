@@ -10,7 +10,7 @@ This is a React and headless WordPress site to showcase my work as a UX and web 
 
 It contains posts for UX and web development projects, a portfolio of my photography which is divided by category, and gallery for my artworks. The site also includes a homepage, a contact form and an about section.
 
-A fully functional WooCommerce shop is in the works. I may add a blog section in the future - That is, if I ever get around to writing anything worth showing off. Likely, I will make the animations flashier as well.
+A fully functional WooCommerce shop is in the works. I may add a blog section in the future - that is, if I ever get around to writing anything worth showing off. Likely, I will make the animations flashier as well.
 
 ### Dependencies
 
