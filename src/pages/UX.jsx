@@ -82,6 +82,7 @@ const UX = () => {
       <div className="container full-container" id="ux-page">
         <div className="project-card-container grid-container">
           {/* {loading ? <Loading /> : <Projects projects={projects} />} */}
+          {/* test */}
           <Link
             to="/ux-projects/273"
             className="project-card card"
