@@ -81,7 +81,7 @@ const UX = () => {
       </Helmet>
       <div className="container full-container" id="ux-page">
         <div className="project-card-container grid-container">
-          {loading ? <Loading /> : <Projects projects={projects} />}
+          {/* {loading ? <Loading /> : <Projects projects={projects} />} */}
           <Link
             to="/ux-projects/273"
             className="project-card card"
@@ -122,7 +122,7 @@ const UX = () => {
               <div className="">
                 <h2 className="card-heading">Aurea</h2>
                 <p className="card-subheading">
-                  MongoDB | React | Node | Agile
+                  MongoDB | React | Node
                 </p>
               </div>
             </div>
