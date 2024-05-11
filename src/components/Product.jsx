@@ -1,5 +1,6 @@
 import { useState, useEffect, Component } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
 
@@ -71,6 +72,11 @@ const Product = () => {
       <div className="lower-container">
         <div dangerouslySetInnerHTML={{ __html: product.description }} className="long-description"/>
       </div>
+      <Link to={"/art/"} className="back-button-container">
+        <button className="back-button regular-button">
+          Back to Art
+        </button>
+      </Link>
     </div>
   );
 };
