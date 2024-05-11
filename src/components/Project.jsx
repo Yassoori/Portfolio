@@ -54,12 +54,12 @@ const project = () => {
         id={project.title.rendered}
         className="project-container"
       />
-
-      <button className="back-button regular-button">
-        <Link to={"/ux-projects/"} className="back-button-container">
+      
+      <Link to={"/ux-projects/"} className="back-button-container">
+        <button className="back-button regular-button">
           Back to UX Projects
-        </Link>
-      </button>
+        </button>
+      </Link>
     </div>
   );
 };
