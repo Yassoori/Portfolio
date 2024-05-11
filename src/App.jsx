@@ -43,7 +43,7 @@ function App() {
     AOS.init({
       duration: 1200,
     });
-    console.log("AOS initialized");
+    // console.log("AOS initialized");
   }, []);
 
   return (

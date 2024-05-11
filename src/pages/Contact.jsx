@@ -29,7 +29,7 @@ const ContactForm = () => {
         },
       })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         setSubmitted(true);
       })
       .catch((error) => {
