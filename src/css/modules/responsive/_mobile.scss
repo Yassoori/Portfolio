@@ -748,6 +748,7 @@ nav {
     }
     .disclaimer {
       margin: $very-big-margin auto;
+      p {font-size: $mob-fine-size;}
     }
   }
   a {

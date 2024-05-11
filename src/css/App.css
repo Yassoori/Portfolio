@@ -653,6 +653,9 @@ nav .left-nav #hamburger-container button {
 #project-page .project-container .disclaimer {
   margin: 48px auto;
 }
+#project-page .project-container .disclaimer p {
+  font-size: 12px;
+}
 #project-page a {
   width: 100%;
 }
@@ -1123,6 +1126,9 @@ nav .left-nav #hamburger-container button {
   }
   #project-page .project-container .disclaimer {
     width: 100%;
+  }
+  #project-page .project-container .disclaimer p {
+    font-size: 14px;
   }
   #project-page .project-container #regan-text .project-description {
     width: 100%;
