@@ -3,7 +3,6 @@ import axios from "axios";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
-// import { Params } from "react-router-dom";
 
 const apiUrl = import.meta.env.VITE_WP_API_BASEURL;
 
@@ -54,7 +53,7 @@ const UX = () => {
           key={photoPost.slug + "_" + index}
           className="photo-post-card card"
           id={`${photoPost.title.rendered}-card`}
-          to={`/photography/${photoPost.id}`}
+          to={`/photography/${photoPost.slug}`}
           data-aos="zoom-in"
           data-aos-offset="100"
           data-set-delay="1000">

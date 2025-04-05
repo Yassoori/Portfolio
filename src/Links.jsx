@@ -7,6 +7,7 @@ import Contact from './pages/Contact'
 import UX from './pages/UX'
 import Art from './pages/Art'
 import Photography from './pages/Photography'
+import NotFound from './pages/NotFound'
 // import Cart from './pages/Cart'
 
 // import Components
@@ -29,6 +30,7 @@ import Phototype from './components/Phototype'
 const Links = () => {
   return (
     <Routes>
+        <Route path="*" element={<NotFound />} />
         <Route exact path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
@@ -38,13 +40,13 @@ const Links = () => {
         <Route path="/product/:id" element={<Product/>}/>
         {/* <Route path='/cart' element={<Cart/>}/> */}
         {/* UXProjects */}
-        <Route path="/ux-projects/:id" element={<Project/>}/>
+        <Route path="/ux-projects/:slug" element={<Project/>}/>
         {/* <Route path="/ux-projects/realburger" element={<RealBurger/>}/>
         <Route path="/ux-projects/aurea" element={<Aurea/>}/>
         <Route path="/ux-projects/regan-hill-male" element={<ReganHillMale/>}/>
         <Route path="/ux-projects/pokedex" element={<Pokedex/>}/> */}
         {/* PhotoTypes */}
-        <Route path="/photography/:id" element={<Phototype/>}/>
+        <Route path="/photography/:slug" element={<Phototype/>}/>
         {/* <Route path='/photography/weddings' element={<Weddings/>}/>
         <Route path='/photography/graduations' element={<Graduations/>}/>
         <Route path='/photography/events' element={<Events/>}/>

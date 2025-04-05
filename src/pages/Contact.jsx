@@ -3,7 +3,7 @@ import axios from "axios";
 
 const formEndpoint = import.meta.env.VITE_APP_WP_API_FORM_ENDPOINT;
 
-console.log(formEndpoint);
+// console.log(formEndpoint);
 
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);

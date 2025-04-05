@@ -6,30 +6,36 @@ import Loading from "./Loading";
 
 const apiUrl = import.meta.env.VITE_WP_API_BASEURL;
 
-const project = () => {
-  const { id } = useParams();
-  // const { title } = useParams();
+const Project = () => {
+  const { id, slug } = useParams();
   const navigate = useNavigate();
 
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  const endpoint = `${apiUrl}/ux/${id}?_embed`;
-  // const endpoint = `${uxUrl}/${title}?_embed`;
+  
+  // const endpoint = `${apiUrl}/ux/slug=${slug}&_embed`;
+  const endpoint = `${apiUrl}/ux?slug=${encodeURIComponent(slug)}&_embed`;
 
   useEffect(() => {
+    // console.log("Fetching project with slug:", slug);
+    // console.log("Using endpoint:", endpoint);
     axios
       .get(`${endpoint}`)
       .then((res) => {
         // console.log(res.data);
-        setProject(res.data);
-        const loader = setTimeout(() => setLoading(false), 1000);
+        if (res.data && res.data.length > 0) {
+          setProject(res.data[0]); // Note: slug query returns an array
+          const loading = setTimeout(() => setLoading(false), 1000);
+        } else {
+          // If no project found with this slug, redirect to 404
+          navigate('/404');
+        }
       })
       .catch((err) => {
         console.log(err);
         setLoading(false);
       });
-  }, [id]);
+  }, [slug, navigate]);
 
   if (loading) {
     return (
@@ -41,7 +47,7 @@ const project = () => {
 
   return (
     <div
-      key={project.slug}
+      key={project.id}
       id="project-page"
       className="container double-container"
     >
@@ -51,7 +57,7 @@ const project = () => {
       /> */}
       <div
         dangerouslySetInnerHTML={{ __html: project.content.rendered }}
-        id={project.title.rendered}
+        id={project.slug}
         className="project-container"
       />
       
@@ -64,4 +70,4 @@ const project = () => {
   );
 };
 
-export default project;
+export default Project;
