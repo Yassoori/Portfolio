@@ -46,7 +46,6 @@ img {
 h1,
 h4 {
   font-size: 44px;
-  font-family: "Le Murmure", sans-serif;
 }
 
 @media screen and (max-width: 420px) {
@@ -56,22 +55,16 @@ h4 {
 }
 h2 {
   font-size: 18px;
-  font-family: "Lustria", sans-serif;
 }
 
 .card-body p,
 h3 {
   font-size: 18px;
-  font-family: "Lustria", sans-serif;
 }
 
 h4 {
   position: absolute;
   top: 8px;
-}
-
-p, li, a, input, textarea, button {
-  font-family: "Montserrat", sans-serif;
 }
 
 a,
@@ -143,13 +136,31 @@ figure img {
 
 #home-page,
 #ux-page,
-#photo-page {
+#photo-page,
+#notfound-page {
   width: 100%;
 }
 
-.loader {
-  width: 100%;
-  height: 90vh;
+#loader-box {
+  position: relative;
+  height: 80vh;
+}
+
+#loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30%;
+  height: 100%;
+}
+
+#notfound-container .notfound {
+  margin-top: 15%;
+}
+#notfound-container .notfound h2,
+#notfound-container .notfound p {
+  text-align: center;
+  margin-bottom: 24px;
 }
 
 nav {
@@ -297,11 +308,13 @@ nav .left-nav #hamburger-container button {
   display: flex;
   align-items: center;
 }
-.card .card-text div {
+.card .card-text div,
+.card .card-text card-heading-with-tags {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 .card .card-text .card-body,
 .card .card-text h3 {
@@ -548,7 +561,11 @@ nav .left-nav #hamburger-container button {
   min-height: 180px;
 }
 
-#burger-card {
+.tags .tag {
+  margin-left: 6px;
+}
+
+#real-burger-card {
   grid-area: burger;
   background-color: #03b2ad;
 }
@@ -563,7 +580,7 @@ nav .left-nav #hamburger-container button {
   background-color: #449e3c;
 }
 
-#regan-card {
+#regan-hill-male-card {
   grid-area: regan;
   background-color: #875858;
 }

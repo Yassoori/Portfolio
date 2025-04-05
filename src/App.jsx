@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./css/App.css";
 import useCustomizer from "./hooks/useCustomizer.jsx";
 
@@ -48,11 +48,11 @@ function App() {
 
   return (
     <>
-      <HashRouter>
+      <BrowserRouter>
         <Header />
         <Links />
         <Footer />
-      </HashRouter>
+      </BrowserRouter>
     </>
   );
 }

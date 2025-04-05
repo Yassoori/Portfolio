@@ -7,12 +7,17 @@ import Loading from "../components/Loading";
 const apiUrl = import.meta.env.VITE_WP_API_BASEURL;
 
 const UX = () => {
-  const [projects, setProjects] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [projects, setProjects] = useState(null);
 
   useEffect(() => {
     axios
-      .get(`${apiUrl}/ux?_embed`)
+      // .get(`${apiUrl}/ux?_embed`)
+      .get(`${apiUrl}/ux?
+        _embed&
+        _fields=id,title,slug,excerpt,featured_media,_links,_embedded&
+        _embed=wp:featuredmedia,wp:term
+      `)
       .then((res) => {
         setProjects(res.data);
         setLoading(false);
@@ -28,41 +33,79 @@ const UX = () => {
       </>
     );
   }
-
+  console.log(projects)
   const Projects = ({ projects }) => {
     const mappedProjects = projects.map((project, index) => {
-        function getFeaturedImage(project, index) {
-          if (
-            project &&
-            project._embedded &&
-            project._embedded["wp:featuredmedia"] &&
-            project._embedded["wp:featuredmedia"][0].source_url
-          ) {
-            return project._embedded["wp:featuredmedia"][0].source_url;
-          } else {
-            return null;
-          }
+      function getFeaturedImage(project) {
+        if (
+          project &&
+          project._embedded &&
+          project._embedded["wp:featuredmedia"] &&
+          project._embedded["wp:featuredmedia"][0].source_url
+        ) {
+          return project._embedded["wp:featuredmedia"][0].source_url;
+        } else {
+          return null;
         }
+      }
+      function getTags(project) {
+        if (
+          project &&
+          project._embedded &&
+          project._embedded["wp:term"]
+        ) {
+          const allTerms = project._embedded["wp:term"];
+          for (let termsArray of allTerms) {
+            if (termsArray.length && termsArray[0].taxonomy === "post_tag") {
+              return termsArray;
+            }
+          }
+          return [];
+        } else {
+          return null;
+        }
+      }
+      const tags = getTags(project);
+
       return (
-        <div key={project.slug + "_" + index} className="project-card">
-          <Link className="card" to={`/ux-projects/${project.id}`}>
-            <img src={getFeaturedImage(project)} alt={project.title.rendered} className="card-image"/>
-            {/* <img
-              src={`${project.title.rendered}-feature.png`}
-              alt={project.title.rendered}
-              className="card-image"
-            /> */}
-            <h3 className="title">{project.title.rendered}</h3>
-            <p>{project.tags}</p>
-            <p></p>
-          </Link>
-        </div>
+        <Link
+          key={project.slug + "_" + index}
+          id={`${project.slug}-card`}
+          className="project-card card"
+          // to={project.slug ? `/ux-projects/${project.slug}` : `/ux-projects/${project.id}`}
+          to={`/ux-projects/${project.slug}`}
+          data-aos="zoom-in"
+          data-aos-offset="100"
+          data-set-delay="1000"
+        >
+          <img
+            src={getFeaturedImage(project)}
+            alt={project.title.rendered}
+            className="card-image"
+          />
+          <div className="card-text">
+            <div
+              dangerouslySetInnerHTML={{ __html: project.excerpt.rendered }}
+              className="card-body"
+            />
+            <div className="card-heading-with-tags">
+              <h2 className="card-heading">{project.title.rendered}</h2>
+              <p className="tags">
+                {tags.map((tag) => (
+                  <span key={tag.id} className="tag">
+                    {tag.name}
+                  </span>
+                ))}
+              </p>
+            </div>
+          </div>
+        </Link>
       );
     });
     return <>{mappedProjects}</>;
   };
 
-    console.log(projects);
+  // console.log(projects);
 
   return (
     <>
@@ -81,9 +124,9 @@ const UX = () => {
       </Helmet>
       <div className="container full-container" id="ux-page">
         <div className="project-card-container grid-container">
-          {/* {loading ? <Loading /> : <Projects projects={projects} />} */}
+          {loading ? <Loading /> : <Projects projects={projects} />}
           {/* test */}
-          <Link
+          {/* <Link
             to="/ux-projects/273"
             className="project-card card"
             id="burger-card"
@@ -106,8 +149,8 @@ const UX = () => {
                 <p className="card-subheading">CSS | SASS | Figma</p>
               </div>
             </div>
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             to="/ux-projects/346"
             className="project-card card"
             id="aurea-card"
@@ -127,8 +170,8 @@ const UX = () => {
                 </p>
               </div>
             </div>
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             to="/ux-projects/406"
             className="project-card card"
             id="pokedex-card"
@@ -151,8 +194,8 @@ const UX = () => {
                 <p className="card-subheading">API | React | Node</p>
               </div>
             </div>
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             to="/ux-projects/364"
             className="project-card card"
             id="regan-card"
@@ -176,9 +219,8 @@ const UX = () => {
                   Wordpress | React | Node | PHP
                 </p>
               </div>
-              {/* <p className="tags"></p> */}
             </div>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </>

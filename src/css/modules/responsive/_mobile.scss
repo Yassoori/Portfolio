@@ -18,7 +18,7 @@ img {
 h1,
 h4 {
   font-size: $h1-size-big-mob;
-  font-family: "Le Murmure", sans-serif;
+  // font-family: "Le Murmure", sans-serif;
 }
 
 @media screen and (max-width: 420px) {
@@ -29,13 +29,13 @@ h4 {
 
 h2 {
   font-size: $mob-sub-size;
-  font-family: "Lustria", sans-serif;
+  // font-family: "Lustria", sans-serif;
 }
 
 .card-body p,
 h3 {
   font-size: $mob-sub-size;
-  font-family: "Lustria", sans-serif;
+  // font-family: "Lustria", sans-serif;
 }
 
 h4 {
@@ -43,9 +43,14 @@ h4 {
   top: 8px;
 }
 
-p, li, a, input, textarea, button {
-  font-family: "Montserrat", sans-serif;
-}
+// p,
+// li,
+// a,
+// input,
+// textarea,
+// button {
+//   font-family: "Montserrat", sans-serif;
+// }
 
 a,
 p,
@@ -121,13 +126,33 @@ figure {
 
 #home-page,
 #ux-page,
-#photo-page {
+#photo-page,
+#notfound-page {
   width: 100%;
 }
 
-.loader {
-  width: 100%;
-  height: 90vh;
+#loader-box {
+  position: relative;
+  height: 80vh;
+}
+
+#loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30%;
+  height: 100%;
+}
+
+#notfound-container {
+  .notfound {
+    margin-top: 15%;
+    h2,
+    p {
+      text-align: center;
+      margin-bottom: $big-margin;
+    }
+  }
 }
 
 // #home-page,
@@ -246,7 +271,6 @@ nav {
     top: -8px;
     right: 1px;
     justify-content: center;
-
   }
 }
 
@@ -321,11 +345,13 @@ nav {
       align-items: center;
     }
 
-    div {
+    div,
+    card-heading-with-tags {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      align-items: center;
     }
 
     .card-body,
@@ -379,6 +405,7 @@ nav {
   display: grid;
   grid-template-areas:
     // "about"
+
     "contact"
     "ux"
     "art"
@@ -618,35 +645,15 @@ nav {
 
 .project-card {
   min-height: 180px;
-  // margin: $small-margin;
 }
-//   margin: $med-margin;
-//   border-radius: $small-margin;
-//   // padding: $small-margin;
-//   // border-radius: $small-margin;
-//   // background-color: $card-about;
-//   position: relative;
-//   min-height: 80px;
 
-//   img {
-//     position: absolute;
-//     overflow: hidden;
-//     object-fit: cover;
-//     object-position: 0% 15%;
-//     width: 100%;
-//     height: 100%;
-//     border-radius: $med-margin;
-//     background-color: transparent;
-//   }
+.tags {
+  .tag {
+    margin-left: $small-margin;
+  }
+}
 
-//   h2,
-//   p {
-//     color: $text-light;
-//     z-index: 2;
-//   }
-// }
-
-#burger-card {
+#real-burger-card {
   grid-area: burger;
   background-color: #03b2ad;
 }
@@ -658,7 +665,7 @@ nav {
   grid-area: pokedex;
   background-color: #449e3c;
 }
-#regan-card {
+#regan-hill-male-card {
   grid-area: regan;
   // background-color: #ffe4e4;
   // background-color: #583b3b;
@@ -748,7 +755,9 @@ nav {
     }
     .disclaimer {
       margin: $very-big-margin auto;
-      p {font-size: $mob-fine-size;}
+      p {
+        font-size: $mob-fine-size;
+      }
     }
   }
   a {
@@ -782,8 +791,7 @@ nav {
 
 #Bio {
   display: grid;
-  grid-template-areas: 
-  "about-photo" "main";
+  grid-template-areas: "about-photo" "main";
   // margin: 0 auto;
 }
 .about-photo-container {
@@ -809,12 +817,11 @@ nav {
 
 #Exhibitions {
   display: grid;
-  grid-template-areas: 
-  "heading"
-  "image-exhibitions"
-  "left-exhibitions" 
-  "right-exhibitions"
-  ;
+  grid-template-areas:
+    "heading"
+    "image-exhibitions"
+    "left-exhibitions"
+    "right-exhibitions";
   h2 {
     grid-area: heading;
   }
@@ -834,16 +841,16 @@ nav {
     grid-area: right-exhibitions;
   }
 
-figure {
-  grid-area: image-exhibitions;
-  border-radius: $med-margin;
-  margin-bottom: $med-margin;
-  img {
-    width: 100%;
-    max-height: 320px;
-    object-fit: cover;
+  figure {
+    grid-area: image-exhibitions;
+    border-radius: $med-margin;
+    margin-bottom: $med-margin;
+    img {
+      width: 100%;
+      max-height: 320px;
+      object-fit: cover;
+    }
   }
-}
 }
 #Clients {
   // width: 100%;
@@ -851,7 +858,9 @@ figure {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  h2 {width: 100%;}
+  h2 {
+    width: 100%;
+  }
 }
 .client-logo {
   width: fit-content;
@@ -870,9 +879,15 @@ figure {
   display: grid;
   grid-template-areas: "Bio" "Exhibitions" "Clients";
 
-  #Bio {grid-area: Bio;}
-  #Exhibitions {grid-area: Exhibitions;}
-  #Clients {grid-area: Clients;}
+  #Bio {
+    grid-area: Bio;
+  }
+  #Exhibitions {
+    grid-area: Exhibitions;
+  }
+  #Clients {
+    grid-area: Clients;
+  }
 }
 
 // ------------------------ Contact ------------------------
@@ -987,5 +1002,4 @@ figure {
     width: 100%;
     margin-bottom: $big-margin;
   }
-
 }

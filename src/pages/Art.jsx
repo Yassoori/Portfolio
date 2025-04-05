@@ -3,8 +3,6 @@ import axios from "axios";
 import Loading from "../components/Loading";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-// import AOS from "aos";
-// import "aos/dist/aos.css";
 
 const productsUrl = import.meta.env.VITE_WC_PRODUCTS_URL;
 
@@ -134,17 +132,18 @@ const Art = () => {
           data-aos-offset="100"
           data-set-delay="1000"
         >
-          <Link className="product-link" to={`/product/${product.id}`}>
+          {/* changed from to={`/product/${product.id} for prettier urls */}
+          <Link className="product-link" to={`/product/${product.slug}`}>
             <img src={product.images[0].src} alt={product.name} />
             <div className="product-overlay">
               {/* <div className="text-overlay"> */}
-                <h2 className="title">{product.name}</h2>
-                <h2 className="price">
-                  ${(parseFloat(product.prices.price) / 100).toFixed(2)}
-                  {/* {" "}
+              <h2 className="title">{product.name}</h2>
+              <h2 className="price">
+                ${(parseFloat(product.prices.price) / 100).toFixed(2)}
+                {/* {" "}
                     {product.prices.currency_code} */}
-                </h2>
-                {/* <div
+              </h2>
+              {/* <div
                   className="short-description"
                   dangerouslySetInnerHTML={{
                     __html: product.short_description,
