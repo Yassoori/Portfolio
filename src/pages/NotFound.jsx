@@ -6,7 +6,7 @@ import Loading from "../components/Loading";
 const NotFound = () => {
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>404 Error page</title>
         <meta name="description" content="This is the 404 Error page" />
         <meta name="keywords" content="" />
@@ -14,17 +14,15 @@ const NotFound = () => {
           property="og:title"
           content="Facebook Open Graph Meta Tag example"
         />
-      </Helmet>
+      </Helmet> */}
       <div id="notfound-page" className="container full-container">
         <div id="notfound-container">
           <div className="notfound">
             <h2>404 error</h2>
-            <p>Oops, You shouldn't be here</p>
-            <Link to={".."} className="back-button-container">
-              <button className="back-button regular-button">
-                Home
-              </button>
-            </Link>
+            <p>Oops, you shouldn't be here</p>
+            {/* <Link to={".."} className="back-button-container">
+              <button className="back-button regular-button">Home</button>
+            </Link> */}
           </div>
         </div>
         {/* use this page to test loaders */}

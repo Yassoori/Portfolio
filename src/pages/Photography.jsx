@@ -6,7 +6,8 @@ import Loading from "../components/Loading";
 
 const apiUrl = import.meta.env.VITE_WP_API_BASEURL;
 
-const UX = () => {
+// const UX = () => {
+const Photography = () => {
   const [photoPosts, setPhotoPosts] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -144,4 +145,5 @@ const UX = () => {
   );
 };
 
-export default UX;
+export default Photography;
+// export default UX;
