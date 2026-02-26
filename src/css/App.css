@@ -363,7 +363,7 @@ nav .left-nav #hamburger-container button {
   align-items: stretch;
   width: 100%;
   margin: 0;
-  margin-bottom: 5%;
+  margin-bottom: 10%;
   color: #e3e3e3;
   text-decoration: none;
 }
@@ -970,6 +970,7 @@ nav .left-nav #hamburger-container button {
   }
   #home-page {
     grid-template-areas: "contact contact" "ux ux" "art photo";
+    margin-bottom: 0;
   }
   #home-page .home-contact-section .card-text {
     padding: 24px;
