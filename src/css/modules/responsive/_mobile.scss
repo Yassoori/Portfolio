@@ -126,7 +126,7 @@ figure {
 
 #home-page,
 #ux-page,
-#photo-page,
+// #photo-page,
 #notfound-page {
   width: 100%;
 }
@@ -146,6 +146,8 @@ figure {
 
 #notfound-container {
   .notfound {
+    display: flex;
+    flex-direction: column;
     margin-top: 15%;
     h2,
     p {
@@ -350,8 +352,9 @@ nav {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       align-items: center;
+
     }
 
     .card-body,
@@ -366,6 +369,7 @@ nav {
     h3,
     h2 {
       color: $text-light;
+      width: 100%;
     }
     // p:hover {
     //   display: block;
@@ -648,8 +652,9 @@ nav {
 }
 
 .tags {
+  margin-top: $small-margin;
   .tag {
-    margin-left: $small-margin;
+    margin-right: $small-margin;
   }
 }
 

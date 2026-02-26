@@ -13,13 +13,15 @@ body {
   min-height: 99.4vh;
   box-sizing: border-box;
   height: 100vh;
+}
+body ::-webkit-scrollbar {
+  display: none;
+}
+body {
   -ms-overflow-style: none;
   /* IE and Edge */
   scrollbar-width: none;
   /* Firefox */
-}
-body ::-webkit-scrollbar {
-  display: none;
 }
 
 #root {
@@ -136,7 +138,6 @@ figure img {
 
 #home-page,
 #ux-page,
-#photo-page,
 #notfound-page {
   width: 100%;
 }
@@ -155,6 +156,8 @@ figure img {
 }
 
 #notfound-container .notfound {
+  display: flex;
+  flex-direction: column;
   margin-top: 15%;
 }
 #notfound-container .notfound h2,
@@ -313,7 +316,7 @@ nav .left-nav #hamburger-container button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
 }
 .card .card-text .card-body,
@@ -326,6 +329,7 @@ nav .left-nav #hamburger-container button {
 .card .card-text h3,
 .card .card-text h2 {
   color: #e3e3e3;
+  width: 100%;
 }
 .card img {
   position: absolute;
@@ -561,8 +565,11 @@ nav .left-nav #hamburger-container button {
   min-height: 180px;
 }
 
+.tags {
+  margin-top: 6px;
+}
 .tags .tag {
-  margin-left: 6px;
+  margin-right: 6px;
 }
 
 #real-burger-card {
