@@ -218,6 +218,8 @@ nav {
 
 #desktop-nav-menu .nav-button,
 .filter a {
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
   font-size: $body-size;
   padding: $small-margin;
   margin: auto;
@@ -226,8 +228,8 @@ nav {
 
 #desktop-nav-menu .nav-button:hover,
 .filter a:hover {
-  border-bottom: 4px solid $text-dark;
   transition: 0.2s ease;
+  border-bottom: 4px solid $text-dark;
   margin-bottom: $small-margin;
 }
 
