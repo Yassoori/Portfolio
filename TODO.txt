@@ -22,7 +22,7 @@ I reviewed the **whole project**, including its pages, components, hooks, stylin
 
 9. **Done** ~~**Make deployments less environment-specific.** The `Vite config` hard-codes the canonical site URL as the asset base. Check that the generated site also works on the Vercel domain and preview deployments, and document the server-side fallback needed for React Router routes such as `/product/...` and `/ux-projects/...`.~~
 
-10. **In progress — Polish metadata, cleanup, and project guidance.** Updated page-specific metadata, removed stray explanatory strings rendered in page content, and expanded the `README` with setup, environment variables, deployment guidance, and actual project commands. The production build now compiles Sass before bundling. Commented experiments and debug logging were retained as requested; broader code cleanup remains deferred.
+10. **Done** ~~ **In progress — Polish metadata, cleanup, and project guidance.** Updated page-specific metadata, removed stray explanatory strings rendered in page content, and expanded the `README` with setup, environment variables, deployment guidance, and actual project commands. The production build now compiles Sass before bundling. Commented experiments and debug logging were retained as requested; broader code cleanup remains deferred.~~
 
 The overall structure is understandable: the site is divided into pages and reusable components, and it already has the core portfolio sections. The main improvements are reliability around API failures, completing or removing unfinished shop code, and making builds and interactions dependable.
 
