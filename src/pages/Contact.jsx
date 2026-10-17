@@ -100,7 +100,7 @@ const ContactForm = () => {
   }
 
   return (
-    <>
+    <div className="contact-form-wrapper">
       <form onSubmit={handleSubmit} method="POST">
         <input type="hidden" name="_wpcf7_unit_tag" value={formUnitTag} />
         <input
@@ -156,25 +156,25 @@ const ContactForm = () => {
         >
           {status === "submitting" ? "Sending…" : "Send"}
         </button>
-        {status === "success" && (
-          <p role="status" aria-live="polite">
-            Thank you for your message! We'll be in touch soon.
-          </p>
-        )}
-        {(!isEndpointConfigured || status === "error") && (
-          <p role="alert" aria-live="assertive">
-            {isEndpointConfigured
-              ? statusMessage
-              : "The contact form is not configured. Please contact me by email instead."}
-          </p>
-        )}
-        {status === "submitting" && (
-          <p role="status" aria-live="polite">
-            Sending your message…
-          </p>
-        )}
       </form>
-    </>
+      {status === "success" && (
+        <p role="status" aria-live="polite">
+          Thank you for your message! We'll be in touch soon.
+        </p>
+      )}
+      {(!isEndpointConfigured || status === "error") && (
+        <p role="alert" aria-live="assertive">
+          {isEndpointConfigured
+            ? statusMessage
+            : "The contact form is not configured. Please contact me by email instead."}
+        </p>
+      )}
+      {status === "submitting" && (
+        <p role="status" aria-live="polite">
+          Sending your message…
+        </p>
+      )}
+    </div>
   );
 };
 
