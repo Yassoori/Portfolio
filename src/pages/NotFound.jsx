@@ -15,6 +15,10 @@ const NotFound = () => {
           content="Facebook Open Graph Meta Tag example"
         />
       </Helmet> */}
+      <Helmet>
+        <title>Page Not Found | Yasser Saeed</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <div id="notfound-page" className="container full-container">
         <div id="notfound-container">
           <div className="notfound">

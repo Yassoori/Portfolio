@@ -1,28 +1,60 @@
-# Yasser Saeed Portfolio Website
+# Yasser Saeed Portfolio
 
-https://yassersaeed.com/
-or
-https://portfolio-yassoori.vercel.app
+Live sites:
+
+- https://yassersaeed.com/
+- https://portfolio-yassoori.vercel.app/
 
 ![Home Page](public/images/screenshot-home.png)
 
-This is a React and headless WordPress site to showcase my work as a UX and web developer as well as an artist and photographer.
+A React portfolio for UX and web development projects, artwork, and photography. The frontend is built with Vite and retrieves public content and product data from a headless WordPress/WooCommerce backend.
 
-It contains posts for UX and web development projects, a portfolio of my photography which is divided by category, and gallery for my artworks. The site also includes a homepage, a contact form and an about section.
+## Requirements
 
-A fully functional WooCommerce shop is in the works. I may add a blog section in the future - that is, if I ever get around to writing anything worth showing off. Likely, I will make the animations flashier as well.
+- Node.js 24 LTS
+- npm
+- A WordPress site providing the REST API, custom portfolio routes, WooCommerce Store API, and Contact Form 7 endpoint used by the app
 
-### Dependencies
+## Local setup
 
-- axios: ^1.6.2
-- react: ^18.2.0
-- react-bootstrap-icons: ^1.10.3
-- react-dom: ^18.2.0
-- react-helmet: ^6.1.0
-- react-router-dom: ^6.21.0
-- aos: ^2.3.4
-- @fortawesome/fontawesome-svg-core: ^6.5.1
-- @fortawesome/free-brands-svg-icons: ^6.5.1
-- @fortawesome/free-regular-svg-icons: ^6.5.1
-- @fortawesome/free-solid-svg-icons: ^6.5.1
-- @fortawesome/react-fontawesome: ^0.2.0
+```bash
+npm ci
+cp .env.example .env.local
+```
+
+Edit `.env.local` with the correct public WordPress URLs and Contact Form 7 form ID. These `VITE_` values are compiled into browser code, so never put passwords, API secrets, or private credentials in them.
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Vite prints the local URL, usually http://localhost:5173/.
+
+## Build and deploy
+
+```bash
+npm run build
+npm run preview
+```
+
+`npm run build` recompiles `src/css/App.scss` and its imported Sass modules into `src/css/App.css`, then creates the static production site in `dist/`. Edit the Sass source files rather than editing the generated CSS directly. The development server currently reads the compiled CSS file; after changing Sass while developing, run `npm run styles:build` to refresh it.
+
+For Vercel, configure the same `VITE_` variables in the project’s environment-variable settings for each environment, then deploy. For cPanel, build with the production variables and upload the **contents** of `dist/` into the public web root. If WordPress is installed in that same root, preserve its files and merge `public/.htaccess` rules with the existing cPanel/WordPress rules rather than overwriting the existing file.
+
+The Apache rules serve existing WordPress files and send `/wp-json/` requests to WordPress; other paths fall back to the React app so direct visits to client-side routes work. Confirm the REST API, `/wp-admin/`, frontend routes, and Contact Form 7 submission after deployment.
+
+## Project commands
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start Vite in development mode |
+| `npm run styles:build` | Compile Sass to the CSS file used by the app |
+| `npm run build` | Compile Sass and create the static production build |
+| `npm run preview` | Preview the most recent production build locally |
+| `npm run lint` | Run ESLint; the repository needs an ESLint configuration for this command to work |
+
+## Main dependencies
+
+Dependency versions and the complete dependency list are maintained in [package.json](./package.json). The app uses React, React Router, Vite, Axios, Sass, React Helmet, AOS, Bootstrap icons, and Font Awesome.

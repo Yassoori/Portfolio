@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
+import { Helmet } from "react-helmet";
 
 const apiUrl = import.meta.env.VITE_WP_API_BASEURL;
 
@@ -46,27 +47,45 @@ const Project = () => {
   }
 
   return (
-    <div
-      key={project.id}
-      id="project-page"
-      className="container double-container"
-    >
-      {/* <img
-        src={project._embedded["wp:featuredmedia"][0].source_url}
-        alt={project.title.rendered}
-      /> */}
+    <>
+      <Helmet>
+        <title>{project.title.rendered} | UX Projects | Yasser Saeed</title>
+        <meta
+          name="description"
+          content={`Explore ${project.title.rendered}, a UX and web development project by Yasser Saeed.`}
+        />
+        <meta
+          property="og:title"
+          content={`${project.title.rendered} | UX Projects | Yasser Saeed`}
+        />
+        <meta
+          property="og:description"
+          content={`Explore ${project.title.rendered}, a UX and web development project by Yasser Saeed.`}
+        />
+        <meta property="og:type" content="article" />
+      </Helmet>
       <div
-        dangerouslySetInnerHTML={{ __html: project.content.rendered }}
-        id={project.slug}
-        className="project-container"
-      />
-      
-      <Link to={"/ux-projects/"} className="back-button-container">
-        <button className="back-button regular-button">
-          Back to UX Projects
-        </button>
-      </Link>
-    </div>
+        key={project.id}
+        id="project-page"
+        className="container double-container"
+      >
+        {/* <img
+          src={project._embedded["wp:featuredmedia"][0].source_url}
+          alt={project.title.rendered}
+        /> */}
+        <div
+          dangerouslySetInnerHTML={{ __html: project.content.rendered }}
+          id={project.slug}
+          className="project-container"
+        />
+
+        <Link to={"/ux-projects/"} className="back-button-container">
+          <button className="back-button regular-button">
+            Back to UX Projects
+          </button>
+        </Link>
+      </div>
+    </>
   );
 };
 

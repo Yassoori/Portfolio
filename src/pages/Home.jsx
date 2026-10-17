@@ -76,13 +76,20 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Home</title>
-        <meta name="description" content="This is the home page" />
-        <meta name="keywords" content="keyword1, keyword2, keyword3" />
+        <title>Yasser Saeed | UX, Art &amp; Photography</title>
+        <meta
+          name="description"
+          content="Explore the portfolio of Yasser Saeed, featuring UX design, web development, artwork, and photography."
+        />
         <meta
           property="og:title"
-          content="Facebook Open Graph Meta Tag example"
+          content="Yasser Saeed | UX, Art &amp; Photography"
         />
+        <meta
+          property="og:description"
+          content="Explore the portfolio of Yasser Saeed, featuring UX design, web development, artwork, and photography."
+        />
+        <meta property="og:type" content="website" />
       </Helmet>
       <div className="container full-container grid-container" id="home-page">
         {/* {loading ? <Loading /> : <MainPosts mainPosts={mainPosts} />} */}
