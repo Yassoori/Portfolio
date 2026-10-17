@@ -229,13 +229,13 @@ nav {
 #desktop-nav-menu .nav-button:hover,
 .filter a:hover {
   transition: 0.2s ease;
-  border-bottom: 4px solid $text-dark;
+  border-bottom: $text-dark;
   margin-bottom: $small-margin;
 }
 
 #desktop-nav-menu .nav-button.active,
 .filter a.selected {
-  border-bottom: 4px solid $text-dark;
+  border-bottom: $text-dark;
   margin-bottom: $small-margin;
 }
 

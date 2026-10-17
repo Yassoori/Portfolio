@@ -217,13 +217,13 @@ nav .left-nav #hamburger-container button {
 #desktop-nav-menu .nav-button:hover,
 .filter a:hover {
   transition: 0.2s ease;
-  border-bottom: 4px solid #303030;
+  border-bottom: #303030;
   margin-bottom: 6px;
 }
 
 #desktop-nav-menu .nav-button.active,
 .filter a.selected {
-  border-bottom: 4px solid #303030;
+  border-bottom: #303030;
   margin-bottom: 6px;
 }
 
@@ -249,6 +249,7 @@ nav .left-nav #hamburger-container button {
 }
 .mobile-menu-container button {
   margin: 12px;
+  width: -moz-fit-content;
   width: fit-content;
 }
 .mobile-menu-container #close-nav-menu {
@@ -335,12 +336,14 @@ nav .left-nav #hamburger-container button {
 .card img {
   position: absolute;
   overflow: hidden;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 100%;
   height: 100%;
   border-radius: 12px;
   background-color: transparent;
-  object-position: center center;
+  -o-object-position: center center;
+     object-position: center center;
 }
 
 .card:hover .card-body,
@@ -390,7 +393,8 @@ nav .left-nav #hamburger-container button {
   grid-area: art;
 }
 .home-art-section #art-home-image {
-  object-position: 15% center;
+  -o-object-position: 15% center;
+     object-position: 15% center;
 }
 
 .home-photography-section {
@@ -419,6 +423,7 @@ nav .left-nav #hamburger-container button {
   margin: auto;
   background-color: #303030;
   color: #e3e3e3;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -514,7 +519,8 @@ nav .left-nav #hamburger-container button {
   max-height: 80vh;
   max-width: 100%;
   margin-bottom: 12px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .right-container {
@@ -529,6 +535,7 @@ nav .left-nav #hamburger-container button {
 .right-container .price,
 .right-container p {
   margin-bottom: 12px;
+  width: -moz-fit-content;
   width: fit-content;
 }
 .right-container #add-to-cart {
@@ -664,7 +671,8 @@ nav .left-nav #hamburger-container button {
 }
 #project-page .project-container figure img {
   border-radius: 6px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -687,6 +695,7 @@ nav .left-nav #hamburger-container button {
 
 .back-button {
   margin: 48px 0;
+  width: -moz-fit-content;
   width: fit-content;
 }
 .back-button a {
@@ -710,7 +719,8 @@ nav .left-nav #hamburger-container button {
   justify-content: center;
 }
 .about-photo-container .about-photo {
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   overflow: hidden;
   width: 100%;
   max-height: 50vh;
@@ -753,7 +763,8 @@ nav .left-nav #hamburger-container button {
 #Exhibitions figure img {
   width: 100%;
   max-height: 320px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #Clients {
@@ -767,6 +778,7 @@ nav .left-nav #hamburger-container button {
 }
 
 .client-logo {
+  width: -moz-fit-content;
   width: fit-content;
   background-color: #ffffff;
   border-radius: 12px;
@@ -774,8 +786,10 @@ nav .left-nav #hamburger-container button {
 }
 .client-logo img {
   height: 40px;
+  width: -moz-fit-content;
   width: fit-content;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .about-grid {
@@ -826,7 +840,8 @@ nav .left-nav #hamburger-container button {
 }
 #photo-page .photo-card-container .photo-post-card .photo-content figure img,
 #photo-page .photo-card-container .photo-post-card .photo-content figure figure img {
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 100%;
   height: 100%;
 }
@@ -871,7 +886,8 @@ nav .left-nav #hamburger-container button {
 .phototype-container figure img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   overflow: hidden;
 }
 .phototype-container .photo-text {
@@ -965,6 +981,7 @@ nav .left-nav #hamburger-container button {
   }
   .filter a {
     margin: 0 12px;
+    width: -moz-fit-content;
     width: fit-content;
   }
   .series-description {
@@ -1150,6 +1167,4 @@ nav .left-nav #hamburger-container button {
 @font-face {
   font-family: "Le Murmure";
   src: url("/typefaces/Le Murmure/le-murmure.otf");
-}
-
-/*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=App.css.map */
