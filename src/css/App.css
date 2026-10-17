@@ -206,9 +206,7 @@ nav .left-nav #hamburger-container button {
 
 #desktop-nav-menu .nav-button,
 .filter a {
-  border-bottom-width: 4px;
-  border-bottom-style: solid;
-  border-bottom-color: transparent;
+  border-bottom: 4px solid transparent;
   font-size: 18px;
   padding: 6px;
   margin: auto;
@@ -219,13 +217,11 @@ nav .left-nav #hamburger-container button {
 .filter a:hover {
   transition: 0.2s ease;
   border-bottom-color: #303030;
-  margin-bottom: 6px;
 }
 
 #desktop-nav-menu .nav-button.active,
 .filter a.selected {
   border-bottom-color: #303030;
-  margin-bottom: 6px;
 }
 
 .mobile-menu-container {

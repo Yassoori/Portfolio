@@ -218,11 +218,7 @@ nav {
 
 #desktop-nav-menu .nav-button,
 .filter a {
-  // border-top: 4px solid transparent;
-  // border-bottom: 4px solid transparent;
-  border-bottom-width: 4px;
-  border-bottom-style: solid;
-  border-bottom-color: transparent;
+  border-bottom: 4px solid transparent;
   font-size: $body-size;
   padding: $small-margin;
   margin: auto;
@@ -233,13 +229,13 @@ nav {
 .filter a:hover {
   transition: 0.2s ease;
   border-bottom-color:  $text-dark;
-  margin-bottom: $small-margin;
+  // margin-bottom: $small-margin;
 }
 
 #desktop-nav-menu .nav-button.active,
 .filter a.selected {
   border-bottom-color:  $text-dark;
-  margin-bottom: $small-margin;
+  // margin-bottom: $small-margin;
 }
 
 .mobile-menu-container {
