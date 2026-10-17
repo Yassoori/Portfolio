@@ -824,6 +824,9 @@ nav .left-nav #hamburger-container button {
 #contact-page form textarea {
   min-height: 108px;
 }
+#contact-page form p {
+  margin: 12px;
+}
 
 #photo-page .card {
   min-height: 300px;

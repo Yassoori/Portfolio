@@ -24,10 +24,15 @@ const getSubmissionErrorMessage = (responseData) => {
 
   const errorMessages = {
     spam: "Your message could not be accepted. Please try again or contact me by email.",
-    mail_failed:
-      "Your message could not be sent. Please try again or contact me by email.",
     aborted: "Your message was not sent. Please try again.",
   };
+
+  if (
+    responseStatus === "mail_failed" &&
+    typeof responseData?.message === "string"
+  ) {
+    return responseData.message;
+  }
 
   return (
     errorMessages[responseStatus] ??
@@ -72,7 +77,11 @@ const ContactForm = () => {
         return;
       }
 
-      if (responseStatus !== "validation_failed") {
+      if (
+        !["validation_failed", "spam", "mail_failed", "aborted"].includes(
+          responseStatus
+        )
+      ) {
         console.error("Unexpected contact form response:", response.data);
       }
 
@@ -88,15 +97,6 @@ const ContactForm = () => {
       setStatus("error");
       setStatusMessage(getSubmissionErrorMessage(responseData));
     }
-  }
-
-  if (status === "success") {
-    return (
-      <div role="status" aria-live="polite">
-        <h3>Thank you for your message!</h3>
-        <p>We'll be in touch soon.</p>
-      </div>
-    );
   }
 
   return (
@@ -148,6 +148,19 @@ const ContactForm = () => {
           value={message}
           required
         />
+        <button
+          id="submit-button"
+          className="regular-button"
+          type="submit"
+          disabled={!isEndpointConfigured || status === "submitting"}
+        >
+          {status === "submitting" ? "Sending…" : "Send"}
+        </button>
+        {status === "success" && (
+          <p role="status" aria-live="polite">
+            Thank you for your message! We'll be in touch soon.
+          </p>
+        )}
         {(!isEndpointConfigured || status === "error") && (
           <p role="alert" aria-live="assertive">
             {isEndpointConfigured
@@ -160,14 +173,6 @@ const ContactForm = () => {
             Sending your message…
           </p>
         )}
-        <button
-          id="submit-button"
-          className="regular-button"
-          type="submit"
-          disabled={!isEndpointConfigured || status === "submitting"}
-        >
-          {status === "submitting" ? "Sending…" : "Send"}
-        </button>
       </form>
     </>
   );
