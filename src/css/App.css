@@ -206,7 +206,6 @@ nav .left-nav #hamburger-container button {
 
 #desktop-nav-menu .nav-button,
 .filter a {
-  border-top: 4px solid transparent;
   border-bottom-width: 4px;
   border-bottom-style: solid;
   border-bottom-color: transparent;
