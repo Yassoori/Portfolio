@@ -3,6 +3,7 @@ import axios from "axios";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
+import getWordPressImageProps from "../utils/getWordPressImageProps";
 
 const apiUrl = import.meta.env.VITE_WP_API_BASEURL;
 
@@ -31,18 +32,12 @@ const Home = () => {
 
   const MainPosts = ({ mainPosts }) => {
     const mappedMainPosts = mainPosts.map((mainPost, index) => {
-      function getFeaturedImage(mainPost, index) {
-        if (
-          mainPost &&
-          mainPost._embedded &&
-          mainPost._embedded["wp:featuredmedia"] &&
-          mainPost._embedded["wp:featuredmedia"][0].source_url
-        ) {
-          return mainPost._embedded["wp:featuredmedia"][0].source_url;
-        } else {
-          return null;
-        }
-      }
+      const imageProps = getWordPressImageProps(
+        mainPost,
+        "(min-width: 992px) 30vw, (min-width: 812px) 45vw, 90vw",
+        600
+      );
+
       return (
         <div 
           key={mainPost.slug}
@@ -54,11 +49,16 @@ const Home = () => {
           <Link
             to={`/${mainPost.slug}`}
           >
-            <img
-              src={getFeaturedImage(mainPost)}
-              alt={mainPost.title.rendered}
-              id={`${mainPost.slug}-home-image`}
-            />
+            {imageProps && (
+              <img
+                {...imageProps}
+                alt={mainPost.title.rendered}
+                id={`${mainPost.slug}-home-image`}
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : "auto"}
+                decoding="async"
+              />
+            )}
             <div className="card-text">
               <div
                 dangerouslySetInnerHTML={{ __html: mainPost.excerpt.rendered }}

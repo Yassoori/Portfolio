@@ -3,6 +3,7 @@ import axios from "axios";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
+import getWordPressImageProps from "../utils/getWordPressImageProps";
 
 const apiUrl = import.meta.env.VITE_WP_API_BASEURL;
 
@@ -36,18 +37,11 @@ const UX = () => {
   console.log(projects)
   const Projects = ({ projects }) => {
     const mappedProjects = projects.map((project, index) => {
-      function getFeaturedImage(project) {
-        if (
-          project &&
-          project._embedded &&
-          project._embedded["wp:featuredmedia"] &&
-          project._embedded["wp:featuredmedia"][0].source_url
-        ) {
-          return project._embedded["wp:featuredmedia"][0].source_url;
-        } else {
-          return null;
-        }
-      }
+      const imageProps = getWordPressImageProps(
+        project,
+        "(min-width: 812px) 45vw, 90vw",
+        600
+      );
       function getTags(project) {
         if (
           project &&
@@ -78,11 +72,16 @@ const UX = () => {
           data-aos-offset="100"
           data-set-delay="1000"
         >
-          <img
-            src={getFeaturedImage(project)}
-            alt={project.title.rendered}
-            className="card-image"
-          />
+          {imageProps && (
+            <img
+              {...imageProps}
+              alt={project.title.rendered}
+              className="card-image"
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "auto"}
+              decoding="async"
+            />
+          )}
           <div className="card-text">
             <div
               dangerouslySetInnerHTML={{ __html: project.excerpt.rendered }}
