@@ -81,17 +81,20 @@ const Photography = () => {
   return (
     <>
       <Helmet>
-        <title>Photography</title>
-        <meta name="description" content="Photography Portfolio" />
+        <title>Photography | Yasser Saeed</title>
         <meta
-          name="keywords"
-          content="Photography, Photography Studio, Photography Portfolio, Portfolio, Wedding Photographer, Wedding Photography, Wedding Photos, Wedding, Graduation Photographer, Graduation Photography, Graduation Photos, Graduation, Events Photographer, Events Photography, Events Photos"
+          name="description"
+          content="Explore photography by Yasser Saeed, including weddings, graduations, portraits, and events."
         />
-        Additional meta tags, e.g., social media share tags for Twitter, etc.
         <meta
           property="og:title"
-          content="Facebook Open Graph Meta Tag example"
+          content="Photography | Yasser Saeed"
         />
+        <meta
+          property="og:description"
+          content="Explore photography by Yasser Saeed, including weddings, graduations, portraits, and events."
+        />
+        <meta property="og:type" content="website" />
       </Helmet>
       <div id="photo-page" className="container full-container">
         <div className="photo-card-container grid-container">

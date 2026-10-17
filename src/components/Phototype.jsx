@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
+import { Helmet } from "react-helmet";
 
 const apiUrl = import.meta.env.VITE_WP_API_BASEURL;
 
@@ -48,26 +49,44 @@ const phototype = () => {
   }
 
   return (
-    <div
-      key={phototype.slug}
-      id="phototype-page"
-      className="container full-container"
-    >
-      {/* <img
-        src={phototype._embedded["wp:featuredmedia"][0].source_url}
-        alt={phototype.title.rendered}
-      /> */}
+    <>
+      <Helmet>
+        <title>{phototype.title.rendered} Photography | Yasser Saeed</title>
+        <meta
+          name="description"
+          content={`View ${phototype.title.rendered} photography by Yasser Saeed.`}
+        />
+        <meta
+          property="og:title"
+          content={`${phototype.title.rendered} Photography | Yasser Saeed`}
+        />
+        <meta
+          property="og:description"
+          content={`View ${phototype.title.rendered} photography by Yasser Saeed.`}
+        />
+        <meta property="og:type" content="article" />
+      </Helmet>
       <div
-        dangerouslySetInnerHTML={{ __html: phototype.content.rendered }}
-        id={phototype.title.rendered}
-        className="phototype-container"
-      />
-      <Link to={"/photography/"} className="back-button-container">
-        <button className="back-button regular-button">
-          Back to Photography
-        </button>
-      </Link>
-    </div>
+        key={phototype.slug}
+        id="phototype-page"
+        className="container full-container"
+      >
+        {/* <img
+          src={phototype._embedded["wp:featuredmedia"][0].source_url}
+          alt={phototype.title.rendered}
+        /> */}
+        <div
+          dangerouslySetInnerHTML={{ __html: phototype.content.rendered }}
+          id={phototype.title.rendered}
+          className="phototype-container"
+        />
+        <Link to={"/photography/"} className="back-button-container">
+          <button className="back-button regular-button">
+            Back to Photography
+          </button>
+        </Link>
+      </div>
+    </>
   );
 };
 

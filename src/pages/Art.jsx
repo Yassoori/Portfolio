@@ -162,20 +162,20 @@ const Art = () => {
   return (
     <>
       <Helmet>
-        <title>Art</title>
+        <title>Art &amp; Prints | Yasser Saeed</title>
         <meta
           name="description"
-          content="This is the Art portfolio and shop page"
+          content="Explore paintings, drawings, and digital artworks by Yasser Saeed, including the Text Experiments and In Ruins series."
         />
-        <meta
-          name="keywords"
-          content="UX, Web Development, UX design, Web design, Portfolio"
-        />
-        Additional meta tags, e.g., social media share tags for Twitter, etc.
         <meta
           property="og:title"
-          content="Facebook Open Graph Meta Tag example"
+          content="Art &amp; Prints | Yasser Saeed"
         />
+        <meta
+          property="og:description"
+          content="Explore paintings, drawings, and digital artworks by Yasser Saeed, including the Text Experiments and In Ruins series."
+        />
+        <meta property="og:type" content="website" />
       </Helmet>
       <div className="container full-container" id="art-page">
         <div className="filter">
