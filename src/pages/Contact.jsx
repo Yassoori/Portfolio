@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const formEndpoint = import.meta.env.VITE_APP_WP_API_FORM_ENDPOINT;
 const formId = formEndpoint?.match(
@@ -181,6 +182,19 @@ const ContactForm = () => {
 const Contact = () => {
   return (
     <>
+      <Helmet>
+        <title>Contact Yasser Saeed</title>
+        <meta
+          name="description"
+          content="Get in touch with Yasser Saeed about UX and web development, artwork commissions, or photography."
+        />
+        <meta property="og:title" content="Contact Yasser Saeed" />
+        <meta
+          property="og:description"
+          content="Get in touch with Yasser Saeed about UX and web development, artwork commissions, or photography."
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <div id="contact-page" className="container single-container">
         <p className="contact-sub">Looking to commission a website, an artwork or a photoshoot?</p>
         <h2 className="contact-heading">Let's chat.</h2>

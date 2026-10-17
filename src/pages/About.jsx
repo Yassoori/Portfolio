@@ -41,14 +41,17 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About</title>
-        <meta name="description" content="This is the about post" />
-        <meta name="keywords" content="about, artist biography, exhibitions" />
-        Additional meta tags, e.g., social media share tags for Twitter, etc.
+        <title>About Yasser Saeed</title>
         <meta
-          property="og:title"
-          content="Facebook Open Graph Meta Tag example"
+          name="description"
+          content="Learn about Yasser Saeed, a UX designer and web developer, artist, and photographer."
         />
+        <meta property="og:title" content="About Yasser Saeed" />
+        <meta
+          property="og:description"
+          content="Learn about Yasser Saeed, a UX designer and web developer, artist, and photographer."
+        />
+        <meta property="og:type" content="profile" />
       </Helmet>
       <div id="about-page" className="container double-container">
         {/* <h2>About</h2> */}

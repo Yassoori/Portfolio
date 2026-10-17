@@ -110,17 +110,20 @@ const UX = () => {
   return (
     <>
       <Helmet>
-        <title>UX</title>
-        <meta name="description" content="This is the UX Portfolio" />
+        <title>UX Design &amp; Web Development Projects | Yasser Saeed</title>
         <meta
-          name="keywords"
-          content="UX, Web Development, UX design, Web design, Portfolio"
+          name="description"
+          content="Selected UX design and web development projects by Yasser Saeed, featuring product design, websites, and digital experiences."
         />
-        Additional meta tags, e.g., social media share tags for Twitter, etc.
         <meta
           property="og:title"
-          content="Facebook Open Graph Meta Tag example"
+          content="UX Design &amp; Web Development Projects | Yasser Saeed"
         />
+        <meta
+          property="og:description"
+          content="Selected UX design and web development projects by Yasser Saeed, featuring product design, websites, and digital experiences."
+        />
+        <meta property="og:type" content="website" />
       </Helmet>
       <div className="container full-container" id="ux-page">
         <div className="project-card-container grid-container">
