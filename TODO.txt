@@ -1,0 +1,29 @@
+## AI Generated list of changes:
+
+I reviewed the **whole project**, including its pages, components, hooks, styling, configuration, and README. I did not change any files.
+
+## Changes I’d prioritize
+
+1. **Make data-loading failures visible and recoverable.** Several pages stay on their loading spinner if a WordPress or WooCommerce request fails, because the catch handler only logs the error. Detail pages also sometimes stop loading without displaying an error or not-found state. Add consistent loading, success, empty, and error states, including a retry option where it makes sense. This affects the `Home page`, `About page`, `UX page`, `Photography page`, `Art page`, and the `Product`, `Project`, and `Phototype` detail views.
+
+2. **Fix the container startup command.** The `Dockerfile` runs `npm start`, but there’s no `start` script in `package.json`. The container also exposes port 3000, whereas Vite’s default development port is 5173. Decide whether the container is for development or production, then use a matching command, port, and serving setup.
+
+3. **Repair or remove the incomplete cart implementation.** `CartContext.jsx` refers to missing variables and functions, has misspelled identifiers, and doesn’t provide working cart state. The cart UI is also unfinished. Either complete and test the cart end-to-end, or remove the unused cart files and context until you’re ready to ship that feature.
+
+4. **Correct and test the product-detail URL flow.** `Art.jsx` links to products by slug, and `Product.jsx` uses that route parameter as the final segment of the API URL. Verify that the WooCommerce endpoint accepts a slug there; if it requires a numeric ID, query by slug instead. Also handle products with no images or unavailable products so the page doesn’t fail while rendering.
+
+5. **Improve form behavior and accessibility.** In `Contact.jsx`, the form fields have no visible labels, the subject field uses an unrecognized input type, and the request specifies a URL-encoded content type while sending `FormData`. Check what the configured WordPress form endpoint expects, send the matching encoding, and provide clear submission, failure, and retry feedback. The email link in `Footer.jsx` also has a space after `mailto:` that should be removed.
+
+6. **Use valid, accessible interactive markup.** The mobile navigation nests links inside buttons in `MobileMenu.jsx`, and the homepage nests a link inside a button in `Home.jsx`. Use a single interactive element for each action, with an accessible name and a visible keyboard-focus state. The art filters in `Art.jsx` should likewise be keyboard-operable controls rather than clickable anchors without `href` attributes.
+
+7. **Choose one styling source of truth.** `App.jsx` imports the compiled `App.css`, while the Sass files—including `App.scss`—aren’t imported by the app. Make it clear which files developers should edit and ensure the build actually compiles them; otherwise Sass changes may not affect the site.
+
+8. **Centralize API configuration and improve environment setup.** WordPress, form, and WooCommerce URLs are read in several separate files. Add concise setup documentation and a placeholder environment example, and use shared configuration so missing or inconsistent values are detected early. Don’t put private API credentials in `VITE_` variables: Vite exposes those to browser code.
+
+9. **Make deployments less environment-specific.** The `Vite config` hard-codes the canonical site URL as the asset base. Check that the generated site also works on the Vercel domain and preview deployments, and document the server-side fallback needed for React Router routes such as `/product/...` and `/ux-projects/...`.
+
+10. **Polish metadata, cleanup, and project guidance.** Several pages use generic or placeholder SEO text, and there are stray explanatory strings rendered in page content. Update page-specific metadata, remove dead/commented-out experiments and debug logging once no longer needed, and expand the `README` with setup, environment variables, and actual project commands. The README’s dependency list is also incomplete compared with `package.json`.
+
+The overall structure is understandable: the site is divided into pages and reusable components, and it already has the core portfolio sections. The main improvements are reliability around API failures, completing or removing unfinished shop code, and making builds and interactions dependable.
+
+**Validation note:** I couldn’t run lint or a production build because the project dependencies aren’t installed (`vite` and `eslint` were not found). I didn’t install dependencies or modify the project.
