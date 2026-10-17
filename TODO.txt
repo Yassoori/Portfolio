@@ -12,7 +12,7 @@ I reviewed the **whole project**, including its pages, components, hooks, stylin
 
 4. **Correct and test the product-detail URL flow.** `Art.jsx` links to products by slug, and `Product.jsx` uses that route parameter as the final segment of the API URL. Verify that the WooCommerce endpoint accepts a slug there; if it requires a numeric ID, query by slug instead. Also handle products with no images or unavailable products so the page doesn’t fail while rendering.
 
-5. **Improve form behavior and accessibility.** In `Contact.jsx`, the form fields have no visible labels, the subject field uses an unrecognized input type, and the request specifies a URL-encoded content type while sending `FormData`. Check what the configured WordPress form endpoint expects, send the matching encoding, and provide clear submission, failure, and retry feedback. The email link in `Footer.jsx` also has a space after `mailto:` that should be removed.
+5. **Done** ~~**Improve form behavior and accessibility.** In `Contact.jsx`, the form fields have no visible labels, the subject field uses an unrecognized input type, and the request specifies a URL-encoded content type while sending `FormData`. Check what the configured WordPress form endpoint expects, send the matching encoding, and provide clear submission, failure, and retry feedback. The email link in `Footer.jsx` also has a space after `mailto:` that should be removed.~~
 
 6. **Use valid, accessible interactive markup.** The mobile navigation nests links inside buttons in `MobileMenu.jsx`, and the homepage nests a link inside a button in `Home.jsx`. Use a single interactive element for each action, with an accessible name and a visible keyboard-focus state. The art filters in `Art.jsx` should likewise be keyboard-operable controls rather than clickable anchors without `href` attributes.
 
@@ -20,7 +20,7 @@ I reviewed the **whole project**, including its pages, components, hooks, stylin
 
 8. **Centralize API configuration and improve environment setup.** WordPress, form, and WooCommerce URLs are read in several separate files. Add concise setup documentation and a placeholder environment example, and use shared configuration so missing or inconsistent values are detected early. Don’t put private API credentials in `VITE_` variables: Vite exposes those to browser code.
 
-9. **Make deployments less environment-specific.** The `Vite config` hard-codes the canonical site URL as the asset base. Check that the generated site also works on the Vercel domain and preview deployments, and document the server-side fallback needed for React Router routes such as `/product/...` and `/ux-projects/...`.
+9. **Done** ~~**Make deployments less environment-specific.** The `Vite config` hard-codes the canonical site URL as the asset base. Check that the generated site also works on the Vercel domain and preview deployments, and document the server-side fallback needed for React Router routes such as `/product/...` and `/ux-projects/...`.~~
 
 10. **Polish metadata, cleanup, and project guidance.** Several pages use generic or placeholder SEO text, and there are stray explanatory strings rendered in page content. Update page-specific metadata, remove dead/commented-out experiments and debug logging once no longer needed, and expand the `README` with setup, environment variables, and actual project commands. The README’s dependency list is also incomplete compared with `package.json`.
 
