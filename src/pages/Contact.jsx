@@ -2,108 +2,177 @@ import { useState } from "react";
 import axios from "axios";
 
 const formEndpoint = import.meta.env.VITE_APP_WP_API_FORM_ENDPOINT;
+const formId = formEndpoint?.match(
+  /contact-forms\/(\d+)\/feedback\/?(?:\?.*)?$/
+)?.[1];
+const formUnitTag = formId ? `wpcf7-f${formId}-p0-o1` : "";
 
-// console.log(formEndpoint);
+const getSubmissionErrorMessage = (responseData) => {
+  const responseStatus = responseData?.status ?? responseData?.data?.status;
+  const invalidFields =
+    responseData?.invalid_fields ?? responseData?.data?.invalid_fields;
+
+  if (responseStatus === "validation_failed" && Array.isArray(invalidFields)) {
+    const fieldMessages = invalidFields
+      .map((field) => field.message)
+      .filter(Boolean);
+
+    if (fieldMessages.length > 0) {
+      return fieldMessages.join(" ");
+    }
+  }
+
+  const errorMessages = {
+    spam: "Your message could not be accepted. Please try again or contact me by email.",
+    aborted: "Your message was not sent. Please try again.",
+  };
+
+  if (
+    responseStatus === "mail_failed" &&
+    typeof responseData?.message === "string"
+  ) {
+    return responseData.message;
+  }
+
+  return (
+    errorMessages[responseStatus] ??
+    "Sorry, we were unable to send your message. Please check your details and try again."
+  );
+};
 
 const ContactForm = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
+  const [status, setStatus] = useState("idle");
+  const [statusMessage, setStatusMessage] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const isEndpointConfigured =
+    typeof formEndpoint === "string" &&
+    formEndpoint.trim().length > 0 &&
+    formUnitTag.length > 0;
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const contactForm = new FormData();
-    contactForm.append("your-name", name);
-    contactForm.append("your-email", email);
-    contactForm.append("your-subject", subject);
-    contactForm.append("your-message", message);
-    // console.log();
 
-    axios
-      .post(formEndpoint, contactForm, {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      })
-      .then((response) => {
-        // console.log(response);
-        setSubmitted(true);
-      })
-      .catch((error) => {
-        console.log(error);
-        setError(true);
-      });
-  };
+    if (!isEndpointConfigured) {
+      setStatus("error");
+      setStatusMessage(
+        "The contact form is not configured. Please contact me by email instead."
+      );
+      return;
+    }
 
-  if (submitted) {
-    return (
-      <>
-        <h3>Thank you for your message!</h3>
-        <p>We'll be in touch soon</p>
-      </>
-    );
-  }
+    setStatus("submitting");
+    setStatusMessage("");
 
-  if (error) {
-    return (
-      <>
-        <h3>Error!</h3>
-        <p>Sorry, we were unable to send your message</p>
-      </>
-    );
+    const contactForm = new FormData(event.currentTarget);
+
+    try {
+      const response = await axios.post(formEndpoint, contactForm);
+      const responseStatus = response.data?.status;
+
+      if (responseStatus === "mail_sent") {
+        setStatus("success");
+        return;
+      }
+
+      if (
+        !["validation_failed", "spam", "mail_failed", "aborted"].includes(
+          responseStatus
+        )
+      ) {
+        console.error("Unexpected contact form response:", response.data);
+      }
+
+      setStatus("error");
+      setStatusMessage(getSubmissionErrorMessage(response.data));
+    } catch (submissionError) {
+      const responseData = submissionError.response?.data;
+      if (responseData) {
+        console.error("Contact form submission rejected:", responseData);
+      } else {
+        console.error("Contact form submission failed:", submissionError);
+      }
+      setStatus("error");
+      setStatusMessage(getSubmissionErrorMessage(responseData));
+    }
   }
 
   return (
     <>
       <form onSubmit={handleSubmit} method="POST">
-        {/* <div> */}
-          <input
-            type="text"
-            name="name"
-            onChange={(event) => setName(event.target.value)}
-            value={name}
-            required
-            placeholder="Your name"
-          />
-        {/* </div> */}
-        {/* <div> */}
-          <input
-            type="email"
-            name="email"
-            onChange={(event) => setEmail(event.target.value)}
-            value={email}
-            required
-            placeholder="Your email"
-          />
-        {/* </div> */}
-        {/* <div> */}
-          <input
-            type="subject"
-            name="subject"
-            onChange={(event) => setSubject(event.target.value)}
-            value={subject}
-            required
-            placeholder="Your subject"
-          />
-        {/* </div> */}
-        {/* <div> */}
-          <textarea
-            type="message"
-            name="message"
-            onChange={(event) => setMessage(event.target.value)}
-            value={message}
-            required
-            placeholder="Your message"
-          />
-        {/* </div> */}
-        {/* <div> */}
-          <button id="submit-button" className="regular-button" type="submit">
-            Send
-          </button>
-        {/* </div> */}
+        <input type="hidden" name="_wpcf7_unit_tag" value={formUnitTag} />
+        <input
+          id="contact-name"
+          type="text"
+          name="your-name"
+          placeholder="Your name"
+          aria-label="Your name"
+          autoComplete="name"
+          maxLength={400}
+          onChange={(event) => setName(event.target.value)}
+          value={name}
+          required
+        />
+        <input
+          id="contact-email"
+          type="email"
+          name="your-email"
+          placeholder="Your email"
+          aria-label="Your email"
+          autoComplete="email"
+          maxLength={400}
+          onChange={(event) => setEmail(event.target.value)}
+          value={email}
+          required
+        />
+        <input
+          id="contact-subject"
+          type="text"
+          name="your-subject"
+          placeholder="Subject"
+          aria-label="Subject"
+          maxLength={400}
+          onChange={(event) => setSubject(event.target.value)}
+          value={subject}
+          required
+        />
+        <textarea
+          id="contact-message"
+          name="your-message"
+          placeholder="Your message"
+          aria-label="Your message"
+          maxLength={2000}
+          onChange={(event) => setMessage(event.target.value)}
+          value={message}
+          required
+        />
+        <button
+          id="submit-button"
+          className="regular-button"
+          type="submit"
+          disabled={!isEndpointConfigured || status === "submitting"}
+        >
+          {status === "submitting" ? "Sending…" : "Send"}
+        </button>
+        {status === "success" && (
+          <p role="status" aria-live="polite">
+            Thank you for your message! We'll be in touch soon.
+          </p>
+        )}
+        {(!isEndpointConfigured || status === "error") && (
+          <p role="alert" aria-live="assertive">
+            {isEndpointConfigured
+              ? statusMessage
+              : "The contact form is not configured. Please contact me by email instead."}
+          </p>
+        )}
+        {status === "submitting" && (
+          <p role="status" aria-live="polite">
+            Sending your message…
+          </p>
+        )}
       </form>
     </>
   );

@@ -824,6 +824,9 @@ nav .left-nav #hamburger-container button {
 #contact-page form textarea {
   min-height: 108px;
 }
+#contact-page form p {
+  margin: 12px;
+}
 
 #photo-page .card {
   min-height: 300px;
@@ -991,7 +994,7 @@ nav .left-nav #hamburger-container button {
     align-items: center;
   }
   .card-container .product-card {
-    max-width: 15%;
+    max-width: 30%;
     min-width: 5%;
     margin: 12px;
     transition: 0.2s ease;
