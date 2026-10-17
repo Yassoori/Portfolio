@@ -711,12 +711,16 @@ nav .left-nav #hamburger-container button {
   border-radius: 12px;
   display: flex;
   justify-content: center;
-}
-.about-photo-container .about-photo {
-  -o-object-fit: cover;
-     object-fit: cover;
-  overflow: hidden;
   width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+.about-photo-container img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
   max-height: 50vh;
 }
 
@@ -1089,11 +1093,9 @@ nav .left-nav #hamburger-container button {
   .lower-container {
     padding: 0 48px;
   }
-  .about-photo-container {
-    justify-content: flex-end;
-  }
-  .about-photo-container .about-photo {
-    max-height: 70vh;
+  .about-photo-container img {
+    max-width: 70%;
+    height: 100%;
   }
   #about-main {
     max-width: 100%;

@@ -806,10 +806,15 @@ nav {
   border-radius: $med-margin;
   display: flex;
   justify-content: center;
-  .about-photo {
-    object-fit: cover;
-    overflow: hidden;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  img {
+    display: block;
+    max-width: 100%;
     width: 100%;
+    height: auto;
+    overflow: hidden;
     max-height: 50vh;
   }
 }
