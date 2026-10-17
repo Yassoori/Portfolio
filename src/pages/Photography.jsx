@@ -3,6 +3,7 @@ import axios from "axios";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
+import getWordPressImageProps from "../utils/getWordPressImageProps";
 
 const apiUrl = import.meta.env.VITE_WP_API_BASEURL;
 
@@ -32,23 +33,12 @@ const Photography = () => {
 
   const PhotoPosts = ({ photoPosts }) => {
     const mappedPhotoPosts = photoPosts.map((photoPost, index) => {
-      function getFeaturedImage(photoPost, index) {
-        if (
-          photoPost &&
-          photoPost._embedded &&
-          photoPost._embedded["wp:featuredmedia"] &&
-          photoPost._embedded["wp:featuredmedia"][0].source_url
-        ) {
-          return photoPost._embedded["wp:featuredmedia"][0].source_url;
-        } else {
-          return (
-            <div
-              className="photo-content"
-              dangerouslySetInnerHTML={{ __html: photoPost.content.rendered }}
-            />
-          );
-        }
-      }
+      const imageProps = getWordPressImageProps(
+        photoPost,
+        "(min-width: 812px) 30vw, 90vw",
+        600
+      );
+
       return (
           <Link 
           key={photoPost.slug + "_" + index}
@@ -58,11 +48,21 @@ const Photography = () => {
           data-aos="zoom-in"
           data-aos-offset="100"
           data-set-delay="1000">
-            <img
-              src={getFeaturedImage(photoPost)}
-              alt={photoPost.title.rendered}
-              className="card-image"
-            />
+            {imageProps ? (
+              <img
+                {...imageProps}
+                alt={photoPost.title.rendered}
+                className="card-image"
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : "auto"}
+                decoding="async"
+              />
+            ) : (
+              <div
+                className="photo-content"
+                dangerouslySetInnerHTML={{ __html: photoPost.content.rendered }}
+              />
+            )}
             <div className="card-text">
               <div
                 dangerouslySetInnerHTML={{ __html: photoPost.excerpt.rendered }}
