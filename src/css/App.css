@@ -991,7 +991,7 @@ nav .left-nav #hamburger-container button {
     align-items: center;
   }
   .card-container .product-card {
-    max-width: 15%;
+    max-width: 30%;
     min-width: 5%;
     margin: 12px;
     transition: 0.2s ease;
