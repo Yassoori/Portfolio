@@ -917,16 +917,15 @@ nav {
   }
   form {
     width: 100%;
+    margin: $med-margin;
 
     textarea {
       min-height: 108px;
     }
-    // #submit-button {
+  }
 
-    // }
-    p {
-      margin: $med-margin;
-    }
+  p {
+    margin: $med-margin;
   }
 }
 

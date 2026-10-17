@@ -820,11 +820,12 @@ nav .left-nav #hamburger-container button {
 }
 #contact-page form {
   width: 100%;
+  margin: 12px;
 }
 #contact-page form textarea {
   min-height: 108px;
 }
-#contact-page form p {
+#contact-page p {
   margin: 12px;
 }
 
@@ -898,6 +899,7 @@ nav .left-nav #hamburger-container button {
 @media screen and (min-width: 812px) {
   h1 {
     font-size: 72px;
+    margin-bottom: 48px;
   }
   .card-body p,
   h3,
